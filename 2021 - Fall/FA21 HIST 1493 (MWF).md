@@ -1,5 +1,5 @@
-% History 1493.71648: United States History Since 1865
-% Fall 2020 — MWF 2:30PM-3:15PM, Colvin Center 040
+% History 1493.69565: United States History Since 1865
+% Fall 2021 — MWF 2:30PM-3:20PM Physical Science 141
 % Dr.  Eberle
 
 # Course Description
@@ -9,10 +9,10 @@ This course provides a general introduction to major themes and events in the hi
 # Contact Information
 
 Email: <jared.eberle@okstate.edu> \
-Office Hours: 9AM-Noon Wednesday \
-Google Voice Number (texts only): (559) 332-3753            
+Office Hours: 3:30-5PM MW \
+Appointments on [Calendly](https://calendly.com/jared-eberle/office-hours/)
 
-When you email or text please include the course information (date and time or CRN -- 71648) so I can know which course and section you are writing about.
+Because I have three sections of 1493 this semester please include the course information (date and time or CRN -- 69565) so I can know which course and section you are writing about.
 
 ## TAs
 
@@ -24,15 +24,15 @@ When you email or text please include the course information (date and time or C
 
 ## Office Hours
 
-All office hours this semester will be conducted virtually, the teaching assistants and I will not be available to meet in-person due to OSU social distancing policies. Information on scheduling an appointment to meet with Dr. Eberle is below.
-
-### Scheduling an Appointment
-
-Please sign-up for slots [through Calendly](https://calendly.com/jared-eberle/office-hours), you'll receive all the meeting information via email after the sign-up is complete. If you wish to meet via another virtual method, please send me an email to discuss options.
+Office hours are available virtually through Zoom or in-person. If you want to use virtual office hours **you need to schedule an appointment through Calendly**, which while automatically create the Zoom meeting and send you all the information to access it. Appointments are not required for in-person but **highly recommended** because appointments have preference over walk-ins.
 
 # Required Materials
 
-There are no books required for purchase in this course. All assigned materials will be distributed through Canvas. Additionally the course will utilize *The American Yawp*, a free, peer-reviewed textbook produced by Stanford University Press. The textbook is available [online](http://www.americanyawp.com) either as web pages or downloadable PDFs. You can also optionally chose to purchase a hard copy version of the text through the website.
+Three books are required for the course:
+
+- Eric Foner, *Give Me Liberty* Custom OSU 6th Edition (Delivered electronically through Canvas, **no hard copy option**)
+- Kristina Gehrmann, *The Jungle: A Graphic Novel* [Bookshop](https://bookshop.org/books/the-jungle-a-graphic-novel-1cf2fead-f161-4e0d-b049-aec820132ba8/9781984856487) ISBN 978-1984856487
+- Derf Backderf, *Kent State: Four Dead in Ohio* [Bookshop](https://bookshop.org/books/kent-state-four-dead-in-ohio/9781419734847) ISBN ‎ 978-1419734847
 
 ## Assignments
 
@@ -42,7 +42,7 @@ A short multiple choice quiz on Canvas to check that you've read the full syllab
 
 #### Introductory Paper
 
-This paper will ask you to put yourself into the mind of a historian and consider how your life, up until now will be remembered by future historians. More guidelines are available on the Canvas assignment page.
+This paper will be a response to material discussing what it means to "do history." The paper will be a short response in which you assess what history means and how it is used. The full prompt will be available on the Canvas assignment.
 
 #### Reading Responses
 
@@ -54,17 +54,18 @@ A take-home essay-based exam that will cover material from the first half of the
 
 #### Final Exam
 
-As with the midterm, your final exam will be a take-home essay-based exam but will be comprised of three essays instead of two. The first two essays will be non-cumulative and only cover lessons since the midterm. The third essay will be a cumulative essay that will ask you to consider broad issues in American history and you will need to utilize material from the entire semester in writing your response. The final exam will be available beginning the Saturday after classwork ends and will be open for submissions through the end of the course's assigned exam slot. 
+As with the midterm, your final exam will be a take-home essay-based exam but will be comprised of two essays instead of two. The first essay will be non-cumulative and only cover lessons since the midterm. The second essay will be a cumulative essay that will ask you to consider broad issues in American history and you will need to utilize material from the entire semester in writing your response. The final exam availability will be contingent on when course lectures finish with the exam becoming available no later than Friday evening of dead week. Consult the syllabus for the submission deadline.
 
 ## Grades
 
-| Assignment          |               500 points |  Breakdown |
-| :---:       |    :---: |   :---: |
-|   Syllabus Quiz    | 50 Points  | |
+| Assignment         | 500 points |  Breakdown          |
+| :---:              |    :---:   |       :---:         |
+|   Syllabus Quiz    | 50 Points  |                     |
 | Introductory Paper | 50 Points  |                     |
-| Reading Responses  | 150 Points |   30 points each    |
+| *Jungle* Paper     | 100 Points |                     | 
+| *Kent State* Paper | 100 Points |                     |
 |      Midterm       | 100 Points | 50 points per essay |
-| Final Exam	| 150 Points | 50 points per essay |
+| Final Exam	       | 100 Points | 50 points per essay |
 
 
 The following key will determine your overall letter grade:
@@ -79,18 +80,20 @@ The following key will determine your overall letter grade:
 
 #### Grade Disputes
 
-Students wishing to dispute their grades (outside of obvious mathematical errors or clarification of comments) are required to wait 24 hours after the assignment has been handed back and then need to attend office hours (or schedule a meeting) to formally discuss the grade they received. Be prepared to come to the meeting with specific points you feel were not taken into account in the grading. 
+Students wishing to dispute their grades (outside of obvious mathematical errors or clarification of comments) are required to wait 24 hours after the assignment has been handed back and then need to **attend office hours with their grader** (or schedule a meeting if office hours do not work) to formally discuss the grade they received. Be prepared to come to the meeting with specific points you feel were not taken into account in the grading. 
 
 Due to the Federal Educational Rights and Privacy Act (FERPA), emails about grades will not be answered, students unsure about where they stand in class need to meet with their grader virtually during office hours.
+
+We reserve the right to raise, lower, or leave grades unchanged.
 
 #### Drops
 
 Important deadlines for dropping the class are:
 
-- August 24: 100% refund for dropped class
-- August 28: Partial refund for dropped class
-- September 30: Six week grades
-- November 6: Withdraw deadline
+- August 23: 100% refund for dropped class
+- August 27: Partial refund for dropped class
+- September 29: Six week grades
+- November 5: Withdraw deadline
 
 #### Incomplete Grades
 
@@ -100,19 +103,17 @@ University policy requires that students complete *at least 50%* of the assigned
 
 #### Late Work
 
-Coursework may be turned in for one week following the assignment due date with a 5% grade deduction per 24 hour period. Assignments may not be turned in for credit after the late work window has closed on Canvas. If a situation arises in which you cannot complete the assignment on-time you need to email me the appropriate document to be considered for a full-credit extension. Any full-credit extension requests need to be requested as soon as possible, requests well after the deadline will not be considered.
+Coursework may be turned in for one week following the assignment due date with a 5% grade deduction per 24 hour period. Assignments may not be turned in for credit after the late work window has closed on Canvas. If a situation arises in which you cannot complete the assignment on-time you need to email Dr. Eberle the appropriate documentation to be considered for a full-credit extension. Extensions are not guaranteed and any full-credit extension requests need to be requested as soon as possible, requests more than 48 hours after the deadline will not be considered unless an extenuating circumstance precluded notification.
 
 No extra credit assignments will be offered this semester. Additionally students may not re-do assignments for additional points. All grades are final once submitted.
 
 #### Class conduct
 
-- **Assigned seating is mandated by the University, if you miss the first class, consult Dr. Eberle for an available seat**
-- In order to comply with social distancing guidelines please do congregate at the front of the classroom to ask questions. If you have questions please email or text them.
 - Laptops may only be used for note-taking, students using electronics for unapproved functions will be asked to leave class.
-- Cellphones must be on silent and *in your backpack* not on your lap or desk. I reserve the right to talk to anyone's mother who calls during class if the phone rings.
-- Taking photographs, videos, or audio recordings of the lectures or PowerPoint slides is explicitly prohibited.
+- Cellphones must be on silent and *in your backpack* not on your lap or desk. I reserve the right to ask students to leave and talk to anyone's mother who calls during class if the phone rings.
+- Taking photographs, videos, or audio recordings of the lectures or PowerPoint slides is explicitly prohibited. Any incidents will be handled as student conduct violations.
 - Do not pack up prior to class being formally dismissed. Packing up early is not only disrespectful but causes too much noise for others to properly hear the lecture. 
-- You are expected to conduct yourself in a professional manner. History has a number of controversial events and we will address some of these. Please respect the views of your classmates and treat everyone with decency. You will be asked to leave/lose attendance points if you are not able to conduct yourself in a professional manner.
+- You are expected to conduct yourself in a professional manner. History has a number of controversial events and we will address some of these. Please respect the views of your classmates and treat everyone with decency. You will be asked to lose attendance points if you are not able to conduct yourself in a professional manner.
 
 #### Disability Services
 
@@ -122,15 +123,13 @@ According to the Americans with Disabilities Act, each student with a disability
 
 #### Plagiarism/Academic Integrity
 
-Intentional cheating of any kind on any assignment will result in formal academic integrity violation proceedings including referral to the Office of Student Conduct, and may result in a failing grade for the entire course and/or receiving a permanent notation of a violation of academic integrity on your transcript (F!) All students should be familiar with university academic integrity guidelines and procedures, including the right to appeal charges. For more information you may contact the Office of Academic Affairs, 101 Whitehurst, 405-744-5627, or visit http://academicintegrity.okstate.edu
+Intentional cheating of any kind on any assignment will result in formal academic integrity violation proceedings including referral to the Office of Student Conduct, and may result in a failing grade for the entire course and/or receiving a notation of a violation of academic integrity on your transcript (F!) All students should be familiar with university academic integrity guidelines and procedures, including the right to appeal charges. For more information you may contact the Office of Academic Affairs, 101 Whitehurst, 405-744-5627, or visit http://academicintegrity.okstate.edu
 
 \newpage
 
 # Class Schedule
 
-Schedule subject to change because it's 2020.
-
-All *American Yawp* primary sources are within the corresponding chapter assigned for that week
+Schedule subject to change.
 
 ## Week 1 (8/17 -- 8/21):  What does it mean to write history?
 
