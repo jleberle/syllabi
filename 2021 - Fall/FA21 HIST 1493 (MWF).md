@@ -69,13 +69,13 @@ As with the midterm, your final exam will be a take-home essay-based exam that w
 
 The following key will determine your overall letter grade:
 
-| Grade |  Percentage | Points |
-| ------- |  -------- | ---- |
-| A     |  90% and above | 450 points and above |
-|B     |  80%-89% | 400-449 |
-| C   |    70%-79% | 350-399 |
-| D |      60-69% | 300-349 |
-| F   |    59% and below | Below 300 |
+| Grade | Percentage    | Points        |
+| ---   | ---           | ----          |
+| A     | 90% and above | More than 450 |
+| B     | 80%-89%       | 400-449       |
+| C     | 70%-79%       | 350-399       |
+| D     | 60-69%        | 300-349       |
+| F     | 59% and below | Below 300     |
 
 #### Grade Disputes
 
