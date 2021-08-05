@@ -12,19 +12,11 @@ Email: <jared.eberle@okstate.edu> \
 Office Hours: 3:30-5PM MW \
 Appointments on [Calendly](https://calendly.com/jared-eberle/office-hours/)
 
-Because I have three sections of 1493 this semester please include the course information (date and time or CRN -- 69565) so I can know which course and section you are writing about.
-
-## TAs
-
-| Roger Moore                      | B. Hinesley                              |
-| ---------------------            | ---------------------------------------- |
-| Office Hours: T/R by appointment | Office Hours: M 10:30AM - 1:30PM         |
-| mroger@okstate.edu               | b.hinesley@okstate.edu                   |
-| Office Hours via Zoom            | Office hours via Zoom or Microsoft Teams |
+Because I have three sections of 1493 this semester please include the course information (date and time or CRN -- 66401) so I can know which course and section you are writing about.
 
 ## Office Hours
 
-Office hours are available virtually through Zoom or in-person. If you want to use virtual office hours **you need to schedule an appointment through Calendly**, which while automatically create the Zoom meeting and send you all the information to access it. Appointments are not required for in-person but **highly recommended** because appointments have preference over walk-ins.
+Office hours will only be held virtually via Zoom. To attend an office hours meeting you need to sign-up for a spot on Calendly. Signing up will automatically generate the meeting and send you an email with all the relevant information. If all slots are full or you cannot attend scheduled office hours because of schedule conflicts, please do not hesitant to email me and alternative times can be arraigned as needed.
 
 # Required Materials
 
@@ -79,11 +71,11 @@ The following key will determine your overall letter grade:
 
 #### Grade Disputes
 
-Students wishing to dispute their grades (outside of obvious mathematical errors or clarification of comments) are required to wait 24 hours after the assignment has been handed back and then need to **attend office hours with their grader** (or schedule a meeting if office hours do not work) to formally discuss the grade they received. Be prepared to come to the meeting with specific points you feel were not taken into account in the grading. 
+Students wishing to dispute their grades (outside of obvious mathematical errors or clarification of comments) are required to wait 24 hours after the assignment has been handed back and then need to **attend office hours** (or schedule a meeting if office hours do not work) to formally discuss the grade they received. Be prepared to come to the meeting with specific points you feel were not taken into account in the grading.
 
-Due to the Federal Educational Rights and Privacy Act (FERPA), emails about grades will not be answered, students unsure about where they stand in class need to meet with their grader virtually during office hours.
+Due to the Federal Educational Rights and Privacy Act (FERPA), emails about grades will not be answered, students unsure about where they stand in class need to meet with me during office hours.
 
-We reserve the right to raise, lower, or leave grades unchanged.
+I reserve the right to raise, lower, or leave grades unchanged.
 
 #### Drops
 
@@ -116,9 +108,9 @@ No extra credit assignments will be offered this semester. Additionally students
 
 #### Disability Services
 
-According to the Americans with Disabilities Act, each student with a disability is responsible for notifying the University of their disability and requesting accommodations. If you think you have a qualified disability and need special accommodations, you should notify the instructor and request verification of eligibility for accommodations from Student Disability Services, 315 Student Union, 405-744-7116. Please advise the instructor of such disability and desired accommodations at some point before, during, or immediately after the first scheduled class period. Faculty members are obligated to respond when they receive official notice of a disability, but are under no obligation to provide retroactive accommodations. To receive services, you must submit appropriate documentation and complete an intake process during which the existence of a qualified disability is verified and reasonable accommodations are identified. Go to <https://accessibility.okstate.edu/> for additional information.
+According to the Americans with Disabilities Act, each student with a disability is responsible for notifying the University of their disability and requesting accommodations. If you think you have a qualified disability and need special accommodations, you should notify the instructor and request verification of eligibility for accommodations from Student Accessibility Services, 315 Student Union, 405-744-7116. Please advise the instructor of such disability and desired accommodations at some point before, during, or immediately after the first scheduled class period. Faculty members are obligated to respond when they receive official notice of a disability, but are under no obligation to provide retroactive accommodations. To receive services, you must submit appropriate documentation and complete an intake process during which the existence of a qualified disability is verified and reasonable accommodations are identified. Go to <https://accessibility.okstate.edu/> for additional information.
 
-**NOTE**: Students with SDS accommodations need to either attend office hours or schedule an appointment to discuss the accommodations before the end of the second week of classes.
+**NOTE**: Students with SAS accommodations need to either attend office hours or schedule an appointment to discuss the accommodations before the end of the second week of classes.
 
 #### Plagiarism/Academic Integrity
 
