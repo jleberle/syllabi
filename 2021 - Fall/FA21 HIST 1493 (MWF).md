@@ -6,6 +6,12 @@
 
 This course provides a general introduction to major themes and events in the history of North America and the United States since the end of the Civil War in 1865. The course will cover the major themes of American history during the period as well as attempt to provide some understanding of the process relating to the construction of history and its interpretations. 
 
+## COVID-19 Policies and Information
+
+While I am fully vaccinated I will be wearing a mask during class and office hours as recommended by my physician due to long term lung issues. Additionally **do not congregate at the front of the classroom**. If you have questions about the lecture, assignments, or other issues related to the course please do it via email or office hours. 
+
+OSU encourages you to wear a mask indoors in public settings regardless of whether you are fully vaccinated, consistent with the current CDC recommendations. This is especially important in classrooms and laboratories because people are together for long periods of time. Wearing a mask during class not only protects you but also helps protect those around you who may be more vulnerable. This is a simple way we can look out for all members of the Cowboy family. If you feel sick, do not attend class. Contact University Health Services at 405-744-7665 immediately and communicate with me as soon as possible about any work you miss.
+
 # Contact Information
 
 Email: <jared.eberle@okstate.edu> \
@@ -14,17 +20,16 @@ Appointments on [Calendly](https://calendly.com/jared-eberle/office-hours/)
 
 Because I have three sections of 1493 this semester please include the course information (date and time or CRN -- 69565) so I can know which course and section you are writing about.
 
-## TAs
-
-| Roger Moore                      | B. Hinesley                              |
-| ---------------------            | ---------------------------------------- |
-| Office Hours: T/R by appointment | Office Hours: M 10:30AM - 1:30PM         |
-| mroger@okstate.edu               | b.hinesley@okstate.edu                   |
-| Office Hours via Zoom            | Office hours via Zoom or Microsoft Teams |
-
 ## Office Hours
 
-Office hours are available virtually through Zoom or in-person. If you want to use virtual office hours **you need to schedule an appointment through Calendly**, which while automatically create the Zoom meeting and send you all the information to access it. Appointments are not required for in-person but **highly recommended** because appointments have preference over walk-ins.
+Dr. Eberle's office hours are available in-person or virtually. To ensure no scheduling issues, all office hours attendance needs to be done via a Calendly appointment. **Office hours this semester are not available via walk-in**. Additionally because social distancing cannot be maintained in my office in-person appointments will be held in the Social Sciences and Humanities Parlor or on the patio. Because of the meeting location privacy cannot be guaranteed. If you need to discuss something private (grades, accommodations) and want to keep it private, please use the virtual zoom meeting. 
+
+## TAs
+
+| Claire Patton                    | John Jeffries                            |
+| ---------------------            | ---------------------------------------- |
+| Office Hours: 12:30PM-2:15PM W / 1PM-3PM Thur  | Office Hours: MW 10AM-Noon |
+| <claire.ringer@okstate.edu>      | <john.jeffries@okstate.edu>              |
 
 # Required Materials
 
@@ -54,8 +59,6 @@ A take-home essay-based exam that will cover material from the first half of the
 
 As with the midterm, your final exam will be a take-home essay-based exam that will have two essays. The first essay will be non-cumulative and only cover lessons since the midterm. The second essay will be a cumulative essay that will ask you to consider broad issues in American history and you will need to utilize material from the entire semester in writing your response. The final exam availability will be contingent on when course lectures finish with the exam becoming available no later than Friday evening of dead week. Consult the syllabus for the submission deadline.
 
-\newpage 
-
 ## Grades
 
 |Assignment          |500 points  |Breakdown            |
@@ -81,7 +84,7 @@ The following key will determine your overall letter grade:
 
 Students wishing to dispute their grades (outside of obvious mathematical errors or clarification of comments) are required to wait 24 hours after the assignment has been handed back and then need to **attend office hours with their grader** (or schedule a meeting if office hours do not work) to formally discuss the grade they received. Be prepared to come to the meeting with specific points you feel were not taken into account in the grading. 
 
-Due to the Federal Educational Rights and Privacy Act (FERPA), emails about grades will not be answered, students unsure about where they stand in class need to meet with their grader virtually during office hours.
+Due to the Federal Educational Rights and Privacy Act (FERPA), emails about grades will not be answered, students unsure about where they stand in class need to meet with their grader during office hours.
 
 We reserve the right to raise, lower, or leave grades unchanged.
 
@@ -112,7 +115,7 @@ No extra credit assignments will be offered this semester. Additionally students
 - Cellphones must be on silent and *in your backpack* not on your lap or desk. I reserve the right to ask students to leave and talk to anyone's mother who calls during class if the phone rings.
 - Taking photographs, videos, or audio recordings of the lectures or PowerPoint slides is explicitly prohibited. Any incidents will be handled as student conduct violations.
 - Do not pack up prior to class being formally dismissed. Packing up early is not only disrespectful but causes too much noise for others to properly hear the lecture. 
-- You are expected to conduct yourself in a professional manner. History has a number of controversial events and we will address some of these. Please respect the views of your classmates and treat everyone with decency. You will be asked to lose attendance points if you are not able to conduct yourself in a professional manner.
+- You are expected to conduct yourself in a professional manner. History has a number of controversial events and we will address some of these. Please respect the views of your classmates and treat everyone with decency. You will be asked to leave if you are not able to conduct yourself in a professional manner.
 
 #### Disability Services
 
