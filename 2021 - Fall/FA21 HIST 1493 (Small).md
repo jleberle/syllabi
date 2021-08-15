@@ -6,6 +6,12 @@
 
 This course provides a general introduction to major themes and events in the history of North America and the United States since the end of the Civil War in 1865. The course will cover the major themes of American history during the period as well as attempt to provide some understanding of the process relating to the construction of history and its interpretations. 
 
+## COVID-19 Policies and Information
+
+While I am fully vaccinated I will be wearing a mask during class and office hours as recommended by my physician due to long term lung issues. Additionally **do not congregate at the front of the classroom**. If you have questions about the lecture, assignments, or other issues related to the course please do it via email or office hours.
+
+OSU encourages you to wear a mask indoors in public settings regardless of whether you are fully vaccinated, consistent with the current CDC recommendations. This is especially important in classrooms and laboratories because people are together for long periods of time. Wearing a mask during class not only protects you but also helps protect those around you who may be more vulnerable. This is a simple way we can look out for all members of the Cowboy family. If you feel sick, do not attend class. Contact University Health Services at 405-744-7665 immediately and communicate with me as soon as possible about any work you miss.
+
 # Contact Information
 
 Email: <jared.eberle@okstate.edu> \
