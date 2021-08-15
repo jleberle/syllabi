@@ -1,5 +1,5 @@
 % History 1493.66401: United States History Since 1865
-% Fall 2020 — TR 1:30PM-2:45PM, 108 Gunderson
+% Fall 2021 — TR 1:30PM-2:45PM, 108 Gunderson
 % Dr.  Eberle
 
 # Course Description
