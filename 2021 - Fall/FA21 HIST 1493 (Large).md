@@ -1,10 +1,16 @@
 % History 1493.72076: United States History Since 1865
-% Fall 2020 — TR 10:30PM-11:45AM, NRC 106
+% Fall 2021 — TR 10:30PM-11:45AM, NRC 106
 % Dr.  Eberle
 
 # Course Description
 
 This course provides a general introduction to major themes and events in the history of North America and the United States since the end of the Civil War in 1865. The course will cover the major themes of American history during the period as well as attempt to provide some understanding of the process relating to the construction of history and its interpretations. 
+
+## COVID-19 Policies and Information
+
+While I am fully vaccinated I will be wearing a mask during class and office hours as recommended by my physician due to long term lung issues. Additionally **do not congregate at the front of the classroom**. If you have questions about the lecture, assignments, or other issues related to the course please do it via email or office hours.
+
+OSU encourages you to wear a mask indoors in public settings regardless of whether you are fully vaccinated, consistent with the current CDC recommendations. This is especially important in classrooms and laboratories because people are together for long periods of time. Wearing a mask during class not only protects you but also helps protect those around you who may be more vulnerable. This is a simple way we can look out for all members of the Cowboy family. If you feel sick, do not attend class. Contact University Health Services at 405-744-7665 immediately and communicate with me as soon as possible about any work you miss.
 
 # Contact Information
 
@@ -14,17 +20,18 @@ Appointments on [Calendly](https://calendly.com/jared-eberle/office-hours/)
 
 Because I have three sections of 1493 this semester please include the course information (date and time or CRN -- 69565) so I can know which course and section you are writing about.
 
+Dr. Eberle's office hours will only be held by appointment this semester. Please make sure you schedule appointments for both in-person and virtual on Calendly. In-person office hours will be held in the SSH Parlor or the patio depending on the weather and room availability. **Privacy cannot be guaranteed when attending in-person office hours**. If you need to discuss something confidential and do not want it to possibly be overhead you will need to use the virtual office hours option. If you cannot attend regular office hours please email me to schedule an alternative time.
+
 ## TAs
 
-| Roger Moore                      | B. Hinesley                              |
-| ---------------------            | ---------------------------------------- |
-| Office Hours: T/R by appointment | Office Hours: M 10:30AM - 1:30PM         |
-| mroger@okstate.edu               | b.hinesley@okstate.edu                   |
-| Office Hours via Zoom            | Office hours via Zoom or Microsoft Teams |
+| **Bridget Cuadra**    | **Nathan Johnson**             | **Savannah Bronson-Waters**|
+| :---:                 | :---:                          | :---:                      |
+| <bcuadra@okstate.edu> | <nathan.johnson10@okstate.edu> | <sjwater@okstate.edu>      | 
+| Office Hours          | Office Hours                   | Office Hours               |
+| 9AM-11AM M (Virtual)  | 12PM-2PM MW                    | 12PM-1PM W (Virtual)       |
+| 12PM-3PM W (In-Person)|                                | 3PM-5PM Thurs (In-Person)  |
 
-## Office Hours
-
-Office hours are available virtually through Zoom or in-person. If you want to use virtual office hours **you need to schedule an appointment through Calendly**, which while automatically create the Zoom meeting and send you all the information to access it. Appointments are not required for in-person but **highly recommended** because appointments have preference over walk-ins.
+Please make sure to double-check when TAs have virtual versus in-person office hours. For virtual office hours please email the appropriate TA to schedule a Zoom meeting. In-person office hours with TAs do not need an appointment. TAs may also be available by appointment at alternative times.
 
 # Required Materials
 
@@ -53,8 +60,6 @@ A take-home essay-based exam that will cover material from the first half of the
 #### Final Exam
 
 As with the midterm, your final exam will be a take-home essay-based exam that will have two essays. The first essay will be non-cumulative and only cover lessons since the midterm. The second essay will be a cumulative essay that will ask you to consider broad issues in American history and you will need to utilize material from the entire semester in writing your response. The final exam availability will be contingent on when course lectures finish with the exam becoming available no later than Friday evening of dead week. Consult the syllabus for the submission deadline.
-
-\newpage 
 
 ## Grades
 

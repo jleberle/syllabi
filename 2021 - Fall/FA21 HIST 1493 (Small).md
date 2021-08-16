@@ -1,5 +1,5 @@
 % History 1493.66401: United States History Since 1865
-% Fall 2020 — TR 1:30PM-2:45PM, 108 Gunderson
+% Fall 2021 — TR 1:30PM-2:45PM, 108 Gunderson
 % Dr.  Eberle
 
 # Course Description
@@ -112,7 +112,7 @@ No extra credit assignments will be offered this semester. Additionally students
 
 #### Disability Services
 
-According to the Americans with Disabilities Act, each student with a disability is responsible for notifying the University of their disability and requesting accommodations. If you think you have a qualified disability and need special accommodations, you should notify the instructor and request verification of eligibility for accommodations from Student Disability Services, 315 Student Union, 405-744-7116. Please advise the instructor of such disability and desired accommodations at some point before, during, or immediately after the first scheduled class period. Faculty members are obligated to respond when they receive official notice of a disability, but are under no obligation to provide retroactive accommodations. To receive services, you must submit appropriate documentation and complete an intake process during which the existence of a qualified disability is verified and reasonable accommodations are identified. Go to <https://accessibility.okstate.edu/> for additional information.
+According to the Americans with Disabilities Act, each student with a disability is responsible for notifying the University of their disability and requesting accommodations. If you think you have a qualified disability and need special accommodations, you should notify the instructor and request verification of eligibility for accommodations from Student Accessibility Services, 315 Student Union, 405-744-7116. Please advise the instructor of such disability and desired accommodations at some point before, during, or immediately after the first scheduled class period. Faculty members are obligated to respond when they receive official notice of a disability, but are under no obligation to provide retroactive accommodations. To receive services, you must submit appropriate documentation and complete an intake process during which the existence of a qualified disability is verified and reasonable accommodations are identified. Go to <https://accessibility.okstate.edu/> for additional information.
 
 **NOTE**: Students with SAS accommodations need to either attend office hours or schedule an appointment to discuss the accommodations before the end of the second week of classes.
 
