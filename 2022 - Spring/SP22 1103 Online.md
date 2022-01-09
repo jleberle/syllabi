@@ -1,12 +1,12 @@
-% HIST 1103.28677
-% Spring 2021 - Online
+% HIST 1103.26749
+% Spring 2022 - Online
 % Dr. Eberle
 
 # Contact Information
 
 Dr. Jared Eberle\
 <jared.eberle@okstate.edu>\
-Office Hours: MW 9:30AM-11AM\
+Office Hours: M 3PM-5PM, W 2:30PM-3:30PM\
 Office Hours Sign-Up: <https://calendly.com/jared-eberle/office-hours>
 
 # Course Description
@@ -70,11 +70,40 @@ Plagiarism/Academic Integrity Intentional cheating of any kind on any assignment
 
 # Course Schedule
 
-The course follows the outline of Foner's *Give Me Liberty* textbook over the course of the semester. You must complete each section in order. You may submit assignments at any point during each's section's window for completing assignments. Each section will close at 11:59PM (excluding section 4, see note below) on the date listed, once assignments close they will not be re-opened, so do not wait until the last minute.
+The course follows the outline of Foner's *Give Me Liberty* textbook over the course of the semester. 
 
-**Section 1**: Chapter 1 thru Exam 1 - February 12th\
-**Section 2**: Chapter 7 thru Exam 2 - March 12th\
-**Section 3**: Chapter 16 thru Exam 3 - April 9th\
-**Section 4**: Chapter 22 thru Final - *Thursday* May 6th, 5PM
+Each week starts on Monday and runs through the following Sunday. Materials for the week will unlock on Monday morning while the quizzes and assignments will unlock on Thursday morning. All assignments for the week need to be submitted by 11:59PM on Sunday for credit. Below is the basic outline of the course with exam weeks noted.
 
-*Note*: The final section is due at 5PM Thursday of finals week. This is the latest I can set the deadline in Canvas without getting an error. If something changes in Canvas I will update the deadline for the final section, otherwise I will post reminders of the deadline prior to the final section closing.
+Week 1 (January 10-16): Chapters 1 and 2
+
+Week 2 (January 17-23): Chapters 3 and 4
+
+Week 3 (January 24-30): Chapters 5 and 6
+
+Week 4 (January 31-February 6): Chapters 7 and 8 (Exam 1 Due February 9th)
+
+Week 5 (February 7-February 13): Chapters 9 and 10
+
+Week 6 (February 14-February 20): Chapters 11 and 12
+
+Week 7 (February 21-February 27): Chapters 13 and 14
+
+Week 8 (February 28-March 6): Chapter 15 (Exam 2 Due March 9th)
+
+Week 9 (March 7-March 13): Chapters 16 and 17 
+
+Week 10 (March 13-20): Spring Break
+
+Week 11 (March 21-March 27): Chapters 18 and 19
+
+Week 12 (March 28-April 3): Chapters 20 and 21 (Exam 3 Due April 6th)
+
+Week 13 (April 4-April 10): Chapters 22 and 23
+
+Week 14 (April 11-April 17): Chapters 24 and 25
+
+Week 15 (April 18-April 24): Chapter 26
+
+Week 16 (April 25-May 1): Chapters 27 and 28
+
+Final: Due 5PM, May 6th
