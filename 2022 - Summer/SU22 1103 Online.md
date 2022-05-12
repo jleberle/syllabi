@@ -60,9 +60,8 @@ Additionally you will need to sign up for an account on [Kanopy](https://kanopy.
 | F   | 59%-0    |
 
 ## Grading Policies
-
-- All assignment submissions are final. No resubmissions will be accepted. 
-- There is no extra credit available in the course, your grade will only consist of the assigned materials
+ 
+- There is one extra credit assignment in the course. The assignment is worth 50 points and will be available for completion during the last three weeks of the semester. There are no other extra credit assignments and assignments may not revised or resubmitted for additional credit.
 - Once assignments have closed on Canvas they cannot be completed for credit. Technical issues that cannot be verified by me or Canvas support are not valid excuses for missing assignments. If you have technical issues you should contact Canvas support as soon as possible and alert me prior to the deadline. 
 - If you have a extenuating circumstance that prevents you from completing course assignments (unforeseen illness, etc.) you need to alert me as soon as possible and provide relevant dated documentation of the issue. Extensions will not be granted without documentation.
 
