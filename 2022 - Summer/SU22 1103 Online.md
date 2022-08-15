@@ -6,9 +6,17 @@
 
 Dr. Jared Eberle\
 <jared.eberle@okstate.edu>\
-Office Hours: Appointments Gladly Given\
+Office Hours: Appointments Gladly Given
 
-**Scheduling Note**: I will only be available via email during the first week of the semester. After the first week please do not hesitate to email to schedule a zoom meeting to discuss issues related to the course.
+**Scheduling Note**: I will only be available via email during the first week of the semester and will be on European time, so expect delays in email replies. After the first week please do not hesitate to email to schedule a zoom meeting to discuss issues related to the course.
+
+**Mandatory Reporting Notice**: All communications are kept confidential except in two circumstances. As a University employee I am required by law to report statements of self harm and sexual violence. Under Title IX I must inform the University of all reports of sexual violence regardless of circumstances or requests to not report. The University has confidential reporters who can assist you if you do not want the information reported to the University. Students who wish to take this option should contact the OSU victim advocates at 405-564-2129 or email advocate@okstate.edu.
+
+## Resources
+
+- [LASSO Center](https://universitycollege.okstate.edu/lasso/): Tutoring and academic support coaches
+- [OSU Counseling](https://ucs.okstate.edu): University Counseling including emergency support options
+- [Victim Support Services](https://1is2many.okstate.edu/find-support/support-for-victims/index.html): Sexual violence support and reporting information.
 
 # Course Description
 
@@ -28,17 +36,23 @@ Eric Foner, *Give Me Liberty* Custom OSU 6th Edition
 
 This book is available as an e-book on the Canvas course. It is required to complete the class assignments and failure to have access to the e-book is not grounds for an extension on assignments.
 
-Additionally you will need to sign up for an account on [Kanopy](https://kanopy.com), a video streaming site that has movies available for viewing through the OSU library. 
+The multiple choice reading quizzes will be completed in the Respondus Lockdown browser. Further information on the browser and download instructions are available on the [OSU IT website](https://it.okstate.edu/services/respondus/index.html)
 
 # Assignments
 
 **Syllabus Quiz** - Short multiple-choice quiz to check your reading and understanding of the syllabus. Assignment is pass/fail.
 
-**Reading Quizzes** - These 6 quizzes consist of 25 multiple choice and true/false questions related to the assigned chapters in the Foner textbook. These will assess your overall comprehension of the material from the chapters. Each quiz has a time limit of 35 minutes. 
+**Reading Quizzes** - These 6 quizzes consist of 25 multiple choice and true/false questions related to the assigned chapters in the Foner textbook. These will assess your overall comprehension of the material from the chapters. Each quiz has a time limit of 30 minutes. 
 
 **Primary Source Document Exercises** - 6 short question assignments in which you respond to primary source materials. Primary source materials will include a mix of documents and videos. These assignments are untimed. 
 
-**Essay Exams** - Two exams, a midterm and final exam, that will consist of short answer responses and a formal essay responding to a prompt. On each exam you will be asked to identify five terms in a paragraph-length response that provides the relevant information on the topic as it relates to the class material and write a one to two page essay responding to an essay prompt. Essays should be well organized and reference material from the assigned readings and other course materials. Formatting guidelines will be provided with each exam. 
+**Exams** - Two exams, a midterm and final exam, that will consist of short answer responses and a formal essay responding to a prompt. On each exam you will be asked to identify five terms in a paragraph-length response that provides the relevant information on the topic as it relates to the class material and write a one to two page essay responding to an essay prompt. Essays should be well organized and reference material from the assigned readings and other course materials. Formatting guidelines will be provided with each exam. 
+
+**Extra Credit Papers**
+
+The course will have two extra credit opportunities this semester worth 25 points each, or half a letter grade overall.[^1] The assignments will require you to watch two movies and analyze the themes of the movies and how they connect to material in the course. Each assignment will be due alongside the two exams.
+
+[^1]: Students who write their favorite thing (book, movie, sports team, etc.) in the open-ended question on the syllabus quiz will also earn bonus points for reading the syllabus and finding this.
 
 ## Grade Breakdown
 
@@ -47,7 +61,7 @@ Additionally you will need to sign up for an account on [Kanopy](https://kanopy.
 | Syllabus Quiz          |1           | 100 Points
 | Reading Quizzes        |6           | 300 Points   |
 | Primary Source Quizzes |6           | 300 Points   |
-| Exams                  |2           | 400 Points   |
+| Exams                  |2           | 300 Points   |
 
 ## Overall Grades
 
@@ -61,10 +75,10 @@ Additionally you will need to sign up for an account on [Kanopy](https://kanopy.
 
 ## Grading Policies
 
-- All assignment submissions are final. No resubmissions will be accepted. 
-- There is no extra credit available in the course, your grade will only consist of the assigned materials
-- Once assignments have closed on Canvas they cannot be completed for credit. Technical issues that cannot be verified by me or Canvas support are not valid excuses for missing assignments. If you have technical issues you should contact Canvas support as soon as possible and alert me prior to the deadline. 
-- If you have a extenuating circumstance that prevents you from completing course assignments (unforeseen illness, etc.) you need to alert me as soon as possible and provide relevant dated documentation of the issue. Extensions will not be granted without documentation.
+- All assignment submissions are final once the due date has passed and it is the responsibility of students to verify the correct assignment was submitted to Canvas.
+- Students may not submit additional work or revise assignments to make up lost points. There is no extra credit available in the course besides the two aforementioned assignments. 
+- Once assignments have closed on Canvas they cannot be completed for credit except in extenuating circumstances (unforeseen illness, etc.) you need to alert me as soon as possible and provide relevant dated documentation of the issue. Extensions will not be granted without documentation.
+- Due to federal privacy laws, grades cannot be discussed over email or via Canvas assignment comments. Students wishing to discuss their grade in the course must schedule an office hours appointment with me. 
 
 ## Incomplete Grades
 
@@ -104,12 +118,12 @@ With the exception of the final week of the semester, each week starts on Monday
 **Week 4 (June 27-July 3): America Disunited**
 
 - Assigned textbook reading: Chapters 13 and 14
-- **Assignments due:** Readinq Quiz 4 and Primary Source 4
+- **Midterm Due: *Wednesday July 6th*, 11:59PM** 
 
 **Week 5 (July 4-10): The Changing Nation**
 
 - Assigned textbook reading: Chapters 15 through 17
-- **Midterm Due: July 6, 11:59PM**
+- **Assignments due:** Readinq Quiz 4 and Primary Source 4
 
 **Week 6 (July 11-17): Progressivism and Its Legacies**
 
@@ -124,4 +138,4 @@ With the exception of the final week of the semester, each week starts on Monday
 **Week 8 (July 23-29): The US in the Recent Past**
 
 - Assigned textbook reading: Chapters 26 through 28
-- **Assignments Due by 5PM Friday**
+- **Final Due by *5PM Friday***
