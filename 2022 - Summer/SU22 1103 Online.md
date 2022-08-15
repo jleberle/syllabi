@@ -84,7 +84,7 @@ The course will have two extra credit opportunities this semester worth 25 point
 
 Incomplete Grades University policy requires that students complete at least 50% of the assigned coursework to receive an “incomplete” grade. While I will only give incompletes in extremely rare situations, be advised you will need to finish the coursework within a year to remove the incomplete, otherwise you will receive an “I” paired with the grade you earned at that time (e.g. I/B, I/C). Incompletes are not automatic, you need to meet with me in person to arrange an incomplete.
 
-# Accessability Services
+# Accessibility Services
 
 Disability Services According to the Americans with Disabilities Act, each student with a disability is responsible for notifying the University of his/her disability and requesting accommodations. If you think you have a qualified disability and need special accommodations, you should notify the instructor and request verification of eligibility for accommodations from Student Disability Services, 315 Student Union, 405-744-7116. Please advise the instructor of such disability and desired accommodations at some point before, during, or immediately after the first scheduled class period. Faculty members are obligated to respond when they receive official notice of a disability, but are under no obligation to provide retroactive accommodations. To receive services, you must submit appropriate documentation and complete an intake process during which the existence of a qualified disability is verified and reasonable accommodations are identified. Go to https://accessibility.okstate.edu for additional information.
 
