@@ -42,9 +42,9 @@ The textbook is the only resource besides lectures that you're allowed to use in
 |Assignments              | Number Due | Total Points |
 | ----                    | ---        |---           |
 | Syllabus Quiz           |1           | 100 Points   | 
-| Reading Quizzes         |12          | 300 Points   |
+| Reading Quizzes         |10          | 250 Points   |
 | Primary Source Responses|4           | 200 Points   |
-| Exams                   |4           | 400 Points   |
+| Exams                   |4           | 450 Points   |
 
 ## Overall Grades
 
@@ -88,11 +88,13 @@ Each week starts on Monday and runs through the following Sunday. Materials for 
 Week 1 (January 16-21): Indigenous America and European Arrivals
 
 - Readings: Chapters 1 and 2
+- Review Quiz 1 Due
 
 Week 2 (January 22-28): The Growing British Empire
 
 - Readings: Chapters 3 and 4
 - Primary Source 1 Due
+- Review Quiz 2 Due
 
 Week 3 (January 29-February 4): The American Revolution
 
@@ -102,24 +104,28 @@ Week 3 (January 29-February 4): The American Revolution
 Week 4 (February 5-11): The New Republic
 
 - Readings: Chapters 7 and 8 
+- Review Quiz 3 Due
 
 Week 5 (February 12-18): The Market Revolution
 
 - Readings: Chapters 9 and 10
+- Review Quiz 4 Due
 
 Week 6 (February 19-25): Slavery in America
 
 - Readings: Chapters 11 and 12
-- Primary Source 2 Due
+- Exam Two Due
 
 Week 7 (February 26-March 4): The Civil War
 
 - Reading: Chapters 13 and 14
-- Exam two due March 5th
+- Review Quiz 5 Due
+- Primary Source Response 2 Due
 
 Week 8 (March 5-11): Reconstruction
 
 - Readings: Chapter 15
+- Review Quiz 6 Due
 
 Week 9 (March 12-17): The Gilded Age
 
@@ -131,20 +137,23 @@ Week 10 (March 18-24): Spring Break
 Week 11 (March 25-31): Progressive Era
 
 - Readings: Chapters 18 and 19
-- Exam three due April 5th (Covers through chapter 19)
+- Exam three Due
 
 Week 12 (April 1-7): The Great Depression
 
 - Readings: Chapters 20 and 21
+- Review Quiz 7 Due
 
 Week 13 (April 8-14): World War II and the Cold War
 
 - Readings: Chapters 22 and 23
+- Review Quiz 8 Due
 
 Week 14 (April 15-21): The Post-War Boom 
 
 - Readings: Chapters 24 and 25
 - Primary Source 4 Due
+- Review Quiz 9 Due
 
 Week 15 (April 22-28): Conservatism
 
