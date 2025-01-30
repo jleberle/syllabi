@@ -19,7 +19,7 @@ This course is delivered entirely online and is largely self-paced over the cour
 
 I encourage you to utilize my office hours throughout the semester, especially if you are having trouble comprehending the material or find yourself falling behind or getting overwhelmed. I can review drafts of the primary source assignments or discuss materials for the exams, but only prior to the exams opening. I am not able to answer content related questions on the exams while they're open for completion.
 
-# Course Materials
+# Course Materials and Costs
 
 Eric Foner, *Give Me Liberty* Custom OSU Edition, delivered electronically through the Canvas site.
 
@@ -27,24 +27,31 @@ Eric Foner, *Give Me Liberty* Custom OSU Edition, delivered electronically throu
 
 The textbook is the only resource besides lectures that you're allowed to use in completing assignments for the course. **Use of outside sources will result in automatic failure on assignments**. Outside source usage is anything not provided through the course materials. Students who use un-cited outside materials may be subject to academic integrity hearings.
 
+## Meazure/ProctorU Monitoring 
+
+In this course, all exams will be proctored by a third-party vendor, Meazure Learning/ProctorU.  For this course, you will be using Record+. A week before the exam, please go to the Student Guide to Taking a Test and complete the steps to ensure that your device is able to be used for online proctoring and that you understand the online proctoring process. The online test proctoring cost of $6 per exam will be billed to your Bursar account early the next month after each exam.
+
 # Assignments
 
 **Syllabus Quiz** - Ten question, pass/fail quiz covering the syllabus and course policies.
 
-**Reading Quizzes** - These 12 quizzes consist of 25 multiple choice questions related to the assigned chapters in the Foner textbook. These will assess your overall comprehension of the material from the chapters. Each quiz has a time limit of 35 minutes and you have two attempts. All Reading Quizzes require the Lockdown Browser, see the link on the modules tab for information on using the Lockdown Browser as well as getting technical support if there are issues.
+**Course video viewership** - Points will be allotted based on viewership of course lectures. 2 points per full video, 1 point if at least half the video was watched. Videos must be watched during the week they are assigned for points to be awarded.
 
-**Primary Source Responses** - Written responses related to the assigned primary source assignments. The responses will be submitted to Canvas as Microsoft Word documents.
+**Chapter Readings** - Each week you have assigned chapters from the course textbook. Each chapter includes short quizzes in each section that you will complete. Each chapter reading is worth 10 points and the three lowest grades will be dropped. 
 
-**Essay Exams** - Four exams that will consist of short answer responses and a formal essay responding to a prompt. On each exam you will be asked to identify five terms in a paragraph-length response each that provides the relevant information on the topic as it relates to the class material and write a two page essay responding to an essay prompt. In addition to the IDs and non-cumulative essay, the final exam will include an additional cumulative essay. Essays should be well organized and reference material from the assigned readings and other course materials. Formatting guidelines will be provided with each exam. 
+**Inquisitive** - Each chapter includes an inquisitive quiz that are more in-depth and cover the course material for the week. Each inquisitive is worth 10 points and the three lowest grades will be dropped.
+
+**Essay Exams** - Four exams that will consist of short answer responses and a formal essay responding to a prompt. On each exam you will be asked to identify five terms in a paragraph-length response each that provides the relevant information on the topic as it relates to the class material and write a comprehensive essay related to the material from that section. Exams may be scheduled at any point during the week throught ProctorU/Meazure with the last exam slot being 9:45PM on Sunday.
 
 ## Grade Breakdown
 
 |Assignments              | Number Due | Total Points |
 | ----                    | ---        |---           |
-| Syllabus Quiz           |1           | 100 Points   | 
-| Reading Quizzes         |10          | 250 Points   |
-| Primary Source Responses|4           | 200 Points   |
-| Exams                   |4           | 450 Points   |
+| Syllabus Quiz           |1           | 50 Points    | 
+| Course Lectures         |            | 50 Points    | 
+| Textbook Chapters       |25          | 250 Points   |
+| Inquisitives            |25          | 250 Points   |
+| Exams                   |4           | 400 Points   |
 
 ## Overall Grades
 
@@ -73,11 +80,15 @@ According to the Americans with Disabilities Act, each student with a disability
 
 Please schedule an office hours appointment during the first week of the semester if you wish to utilize your accommodations. Faculty members are obligated to respond when they receive official notice of a disability, but are under no obligation to provide retroactive accommodations. To receive services, you must submit appropriate documentation and complete an intake process during which the existence of a qualified disability is verified and reasonable accommodations are identified. Go to https://accessibility.okstate.edu for additional information.
 
+**Students utilizing accommodations must attend office hours during the first week of classes (or immediately after receiving approval for accommodations) to discuss accommodations**
+
 # Academic Integrity
 
 Plagiarism/Academic Integrity Intentional cheating of any kind on any assignment will result in formal academic integrity violation proceedings including referral to the Office of Student Conduct, and may result in a failing grade for the entire course and/or receiving a permanent notation of a violation of academic integrity on your transcript (F!) All students should be familiar with university academic integrity guidelines and procedures, including the right to appeal charges. For more information you may contact the Office of Academic Affairs, 101 Whitehurst, 405-744-5627, or visit http://academicintegrity.okstate.edu
 
 All assignments must be your own independent work. Collaboration on assignments is prohibited and collaboration can result in point deductions or academic integrity issues for both parties. Use of artificial intelligence or similar programs to complete course assignments is strictly prohibited.
+
+\newpage
 
 # Course Schedule
 
@@ -85,82 +96,61 @@ The course follows the outline of Foner's *Give Me Liberty* textbook over the co
 
 Each week starts on Monday and runs through the following Sunday. Materials for the week will unlock on Monday morning while the quizzes and assignments will unlock on Wednesday morning. All assignments for the week, excluding exams, need to be submitted by 11:59PM on Sunday for credit. Below is the basic outline of the course with exam weeks noted.
 
-Week 1 (January 16-21): Indigenous America and European Arrivals
+Week 1 (January 13-19): Indigenous America and European Arrivals
 
 - Readings: Chapters 1 and 2
-- Review Quiz 1 Due
 
-Week 2 (January 22-28): The Growing British Empire
+Week 2 (January 20-26): The Growing British Empire
 
 - Readings: Chapters 3 and 4
-- Primary Source 1 Due
-- Review Quiz 2 Due
 
-Week 3 (January 29-February 4): The American Revolution
+Week 3 (January 27-February 2): The American Revolution and New Republic
 
-- Readings: Chapters 5 and 6
-- Exam One Due
+- Readings: Chapters 5-8
 
-Week 4 (February 5-11): The New Republic
+Week 4 (February 3-9): Exam 1
 
-- Readings: Chapters 7 and 8 
-- Review Quiz 3 Due
-
-Week 5 (February 12-18): The Market Revolution
+Week 5 (February 10-16): The Market Revolution
 
 - Readings: Chapters 9 and 10
-- Review Quiz 4 Due
 
-Week 6 (February 19-25): Slavery in America
+Week 6 (February 17-23): Slavery in America
 
 - Readings: Chapters 11 and 12
-- Exam Two Due
 
-Week 7 (February 26-March 4): The Civil War
+Week 7 (February 24-March 2): The Civil War
 
-- Reading: Chapters 13 and 14
-- Review Quiz 5 Due
-- Primary Source Response 2 Due
+- Reading: Chapters 13-15
 
-Week 8 (March 5-11): Reconstruction
+Week 8 (March 3-9): Exam 2
 
-- Readings: Chapter 15
-- Review Quiz 6 Due
-
-Week 9 (March 12-17): The Gilded Age
+Week 9 (March 10-16): The Gilded Age
 
 - Readings: Chapters 16 and 17 
-- Primary Source 3 Due
 
-Week 10 (March 18-24): Spring Break
+Week 10 (March 17-23): Spring Break
 
-Week 11 (March 25-31): Progressive Era
+Week 11 (March 24-30): The Early Twentieth Century
 
-- Readings: Chapters 18 and 19
-- Exam three Due
+- Readings: Chapters 18-20
 
-Week 12 (April 1-7): The Great Depression
+Week 12 (March 31-April 6): The Great Depression and World War II
 
-- Readings: Chapters 20 and 21
+- Readings: Chapters 21 and 22
 - Review Quiz 7 Due
 
-Week 13 (April 8-14): World War II and the Cold War
+Week 13 (April 7-13): Exam 3
 
-- Readings: Chapters 22 and 23
-- Review Quiz 8 Due
+Week 14 (April 14-20): The Post-War Boom
 
-Week 14 (April 15-21): The Post-War Boom 
+- Readings: Chapters 23-25
 
-- Readings: Chapters 24 and 25
-- Primary Source 4 Due
-- Review Quiz 9 Due
-
-Week 15 (April 22-28): Conservatism
+Week 15 (April 21-27): Conservatism
 
 - Readings: Chapter 26
 
-Week 16 (April 29-May 3): The New World Order
+Week 16 (April 28-May 4): The New World Order
 
 - Readings: Chapters 27 and 28
 
-Final: Due 11:59PM, May 10th
+Final: Due by May 9th
