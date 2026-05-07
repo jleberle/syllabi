@@ -1,5 +1,5 @@
-% HIST 1103.24638
-% Spring 2024 - Online
+% HIST 1103.23784
+% Spring 2026 - Online
 % Dr. Eberle
 
 # Contact Information
@@ -15,7 +15,7 @@ This course provides a general introduction to major themes and events in the hi
 
 ## A Note About Online Delivery
 
-This course is delivered entirely online and is largely self-paced over the course of the week. Because this course does not meet in person it is expected that your work on the course each week will equal the time you would have spent in a traditional face-to-face class. Over the course of the semester you will need to cover roughly two chapters in the assigned textbook per week and complete the associated reading quizzes or primary source document assignments to keep a reasonable pace. 
+This course is delivered entirely online and is largely self-paced over the course of the week. Because this course does not meet in person it is expected that your work on the course each week will equal the time you would have spent in a traditional face-to-face class. Over the course of the semester you will need to cover on average two chapters in the assigned textbook per week and complete the associated reading quizzes and exams to keep a reasonable pace. 
 
 I encourage you to utilize my office hours throughout the semester, especially if you are having trouble comprehending the material or find yourself falling behind or getting overwhelmed. I can review drafts of the primary source assignments or discuss materials for the exams, but only prior to the exams opening. I am not able to answer content related questions on the exams while they're open for completion.
 
@@ -29,7 +29,7 @@ The textbook is the only resource besides lectures that you're allowed to use in
 
 ## Meazure/ProctorU Monitoring 
 
-In this course, all exams will be proctored by a third-party vendor, Meazure Learning/ProctorU.  For this course, you will be using Record+. A week before the exam, please go to the Student Guide to Taking a Test and complete the steps to ensure that your device is able to be used for online proctoring and that you understand the online proctoring process. The online test proctoring cost of $6 per exam will be billed to your Bursar account early the next month after each exam.
+In this course, all exams will be proctored by a third-party vendor, Meazure Learning/ProctorU.  For this course, you will be using Record+. A week before the exam, please go to the Student Guide to Taking a Test and complete the steps to ensure that your device is able to be used for online proctoring and that you understand the online proctoring process. The online test proctoring cost per exam will be billed to your Bursar account early the next month after each exam.
 
 # Assignments
 
@@ -37,19 +37,18 @@ In this course, all exams will be proctored by a third-party vendor, Meazure Lea
 
 **Course video viewership** - Points will be allotted based on viewership of course lectures. 2 points per full video, 1 point if at least half the video was watched. Videos must be watched during the week they are assigned for points to be awarded.
 
-**Chapter Readings** - Each week you have assigned chapters from the course textbook. Each chapter includes short quizzes in each section that you will complete. Each chapter reading is worth 10 points and the three lowest grades will be dropped. 
-
 **Inquisitive** - Each chapter includes an inquisitive quiz that are more in-depth and cover the course material for the week. Each inquisitive is worth 10 points and the three lowest grades will be dropped.
 
-**Essay Exams** - Four exams that will consist of short answer responses and a formal essay responding to a prompt. On each exam you will be asked to identify five terms in a paragraph-length response each that provides the relevant information on the topic as it relates to the class material and write a comprehensive essay related to the material from that section. Exams may be scheduled at any point during the week throught ProctorU/Meazure with the last exam slot being 9:45PM on Sunday.
+**Essay Exams** - Four exams that will consist of short answer responses and a formal essay responding to a prompt. On each exam you will be asked to identify four terms in a paragraph-length response each that provides the relevant information on the topic as it relates to the class material and write a comprehensive essay related to the material from that section. Exams may be scheduled at any point during the week throught ProctorU/Meazure with the last exam slot being 9:45PM on Sunday.
 
 ## Grade Breakdown
+
+\newcounter{none}
 
 |Assignments              | Number Due | Total Points |
 | ----                    | ---        |---           |
 | Syllabus Quiz           |1           | 50 Points    | 
-| Course Lectures         |            | 50 Points    | 
-| Textbook Chapters       |25          | 250 Points   |
+| Course Lectures         |            | 100 Points   | 
 | Inquisitives            |25          | 250 Points   |
 | Exams                   |4           | 400 Points   |
 
@@ -67,7 +66,7 @@ In this course, all exams will be proctored by a third-party vendor, Meazure Lea
 
 - All assignment submissions are final. No resubmissions will be accepted. 
 - The only extra credit opportunity is if 75% of the course submits course evaluations at the end of the semester. No additional extra credit is offered in the course and students may not submit additional work or revise assignments for additional credit at any point during the semester.
-- Once assignments have closed on Canvas they cannot be completed for credit. Technical issues cannot be verified by myself or Canvas support and are not valid excuses for missing assignments. If you have technical issues you should contact Canvas support as soon as possible prior to the deadline to resolve any issues.
+- Once assignments have closed on Canvas they cannot be completed for credit. Technical issues are not grounds for an extension, it is your responsibility to ensure your equipment can complete the course work as soon as possible and you should avoid waiting until the last minute to complete course work.
 - If you have a extenuating circumstance that prevents you from completing course assignments (unforeseen illness, etc.) you need to alert me as soon as possible and provide relevant dated documentation of the issue. Extension requests without appropriate documentation will not be approved.
 
 ## Incomplete Grades
@@ -94,63 +93,10 @@ All assignments must be your own independent work. Collaboration on assignments 
 
 The course follows the outline of Foner's *Give Me Liberty* textbook over the course of the semester. 
 
-Each week starts on Monday and runs through the following Sunday. Materials for the week will unlock on Monday morning while the quizzes and assignments will unlock on Wednesday morning. All assignments for the week, excluding exams, need to be submitted by 11:59PM on Sunday for credit. Below is the basic outline of the course with exam weeks noted.
+Each week starts on Monday and runs through the following Sunday. All assignments for the week, excluding exams, need to be submitted by 11:59PM on Sunday for credit. Below is the basic outline of the course with exam weeks noted.
 
-Week 1 (January 13-19): Indigenous America and European Arrivals
-
-- Readings: Chapters 1 and 2
-
-Week 2 (January 20-26): The Growing British Empire
-
-- Readings: Chapters 3 and 4
-
-Week 3 (January 27-February 2): The American Revolution and New Republic
-
-- Readings: Chapters 5-8
-
-Week 4 (February 3-9): Exam 1
-
-Week 5 (February 10-16): The Market Revolution
-
-- Readings: Chapters 9 and 10
-
-Week 6 (February 17-23): Slavery in America
-
-- Readings: Chapters 11 and 12
-
-Week 7 (February 24-March 2): The Civil War
-
-- Reading: Chapters 13-15
-
-Week 8 (March 3-9): Exam 2
-
-Week 9 (March 10-16): The Gilded Age
-
-- Readings: Chapters 16 and 17 
-
-Week 10 (March 17-23): Spring Break
-
-Week 11 (March 24-30): The Early Twentieth Century
-
-- Readings: Chapters 18-20
-
-Week 12 (March 31-April 6): The Great Depression and World War II
-
-- Readings: Chapters 21 and 22
-- Review Quiz 7 Due
-
-Week 13 (April 7-13): Exam 3
-
-Week 14 (April 14-20): The Post-War Boom
-
-- Readings: Chapters 23-25
-
-Week 15 (April 21-27): Conservatism
-
-- Readings: Chapter 26
-
-Week 16 (April 28-May 4): The New World Order
-
-- Readings: Chapters 27 and 28
-
-Final: Due by May 9th
+- Syllabus Quiz: 1/18
+- Exam 1: 2/8
+- Exam 2: 3/8
+- Exam 3: 4/12
+- Exam 4: 5/8 (Friday, end of finals week)
