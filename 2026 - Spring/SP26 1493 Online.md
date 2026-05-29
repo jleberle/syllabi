@@ -43,7 +43,6 @@ In this course, all exams will be proctored by a third-party vendor, Meazure Lea
 
 ## Grade Breakdown
 
-\newcounter{none}
 
 |Assignments              | Number Due | Total Points |
 | ----                    | ---        |---           |

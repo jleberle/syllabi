@@ -1,9 +1,34 @@
 \documentclass[11pt]{article}
-\usepackage{fullpage,fancyhdr}
-%% color for the links 
-\usepackage[usenames,dvipsnames]{color}
+
+%% --- Page geometry ---
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{fancyhdr}
+
+%% --- Fonts & microtypography ---
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{XCharter}                    % readable serif body
+\usepackage[scaled=0.92]{sourcesanspro}  % sans-serif for headings
+\usepackage{microtype}                   % better spacing & justification
+
+%% --- Color (OSU palette) ---
+\usepackage[dvipsnames]{xcolor}
+\definecolor{osuorange}{HTML}{FF7300}
+\definecolor{osublack}{HTML}{1B1B1B}
+
+\usepackage{array}
+\usepackage{calc}      % \real{} column-width arithmetic emitted by pandoc
 \usepackage{longtable}
+\usepackage{booktabs}
 \usepackage{graphicx}
+% Pandoc marks uncaptioned tables with \def\LTcaptype{none}; longtable then
+% needs a counter named 'none' to exist. Define it once here so individual
+% syllabi no longer need their own \newcounter{none} workaround.
+\makeatletter
+\@ifundefined{c@none}{\newcounter{none}}{}
+\makeatother
+% Find the logo whether pandoc runs from the repo root or a year subfolder.
+\graphicspath{{./}{/Users/jaredeberle/git/syllabi/}}
 % We will generate all images so they have a width \maxwidth. This means
 % that they will get their normal width if they fit onto the page, but
 % are scaled down if they would overflow the margins.
@@ -13,17 +38,39 @@
 \makeatother
 \let\Oldincludegraphics\includegraphics
 % \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=\maxwidth]{#1}}
-%% hyperlinks
+
+%% --- Hyperlinks ---
 \usepackage[
 	colorlinks=true,
-	urlcolor=MidnightBlue,
+	linkcolor=osublack,
+	urlcolor=osuorange,
 	plainpages=false,
-  	]{hyperref}% color for the links 
+	]{hyperref}
+
+%% --- Paragraph spacing ---
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
+
+%% --- Lists ---
+\usepackage{enumitem}
+\setlist{itemsep=1pt, topsep=2pt, parsep=0pt}
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+%% --- Section heading style (OSU orange, sans-serif) ---
+\usepackage[explicit]{titlesec}
+\titleformat{\section}
+  {\sffamily\Large\bfseries\color{osuorange}}{}{0pt}{#1}
+  [{\titlerule[1pt]}]
+\titleformat{\subsection}
+  {\sffamily\large\bfseries\color{osublack}}{}{0pt}{#1}
+\titleformat{\subsubsection}
+  {\sffamily\normalsize\bfseries\color{osublack}}{}{0pt}{#1}
+\titlespacing*{\section}{0pt}{14pt}{6pt}
+\titlespacing*{\subsection}{0pt}{10pt}{4pt}
+\titlespacing*{\subsubsection}{0pt}{8pt}{2pt}
+
 $if(numbersections)$
 $else$
 \setcounter{secnumdepth}{0}
@@ -35,14 +82,16 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
+%% --- Header / footer ---
 \renewcommand{\headrulewidth}{0pt}
-\fancyhead[C]{\includegraphics[width=2cm]{/Users/jaredeberle/Git/syllabi/osulogo.png}}
+\fancyhead[C]{\includegraphics[width=2cm]{osulogo.png}}
 \fancyhead[L]{}
 \fancyhead[R]{}
+\fancyfoot[C]{\thepage}
 \pagestyle{plain}
 
 $if(title)$
-\title{$title$}
+\title{\sffamily\bfseries\color{osublack}$title$}
 $endif$
 $if(author)$
 \author{$for(author)$$author$$sep$ \and $endfor$}
@@ -56,18 +105,7 @@ $if(listings)$
 $endif$
 
 $if(tables)$
-\usepackage{ctable}
 \usepackage{float} % provides the H option for float placement
-$endif$
-
-$if(fancy-enums)$
-% Redefine labelwidth for lists; otherwise, the enumerate package will cause
-% markers to extend beyond the left margin.
-\makeatletter\AtBeginDocument{%
-  \renewcommand{\@listi}
-    {\setlength{\labelwidth}{4em}}
-}\makeatother
-\usepackage{enumerate}
 $endif$
 
 \begin{document}
@@ -75,7 +113,7 @@ $endif$
 $if(title)$
 \maketitle
 $endif$
-\thispagestyle{fancy} 
+\thispagestyle{fancy}
 $for(include-before)$
 $include-before$
 $endfor$
