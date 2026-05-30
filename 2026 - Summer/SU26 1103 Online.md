@@ -34,8 +34,6 @@ Eric Foner, *Give Me Liberty* Custom OSU Edition
 
 This book is only available as an e-book on the Canvas course, there are not hard copy versions available from the publisher. It is required to complete the class assignments and failure to have access to the e-book is not grounds for an extension on assignments.
 
-The two exams in the course will be completed with the ProctorU online proctoring service. Each exam will cost $8-$12 depending on when the exam is scheduled, more information can be found [here](https://itle.okstate.edu/online-test-proctoring.html). Further information will be available prior to exam week.
-
 # Assignments
 
 **Syllabus Quiz** - Short multiple-choice quiz to check your reading and understanding of the syllabus and intro video. Assignment is pass/fail.
@@ -69,7 +67,7 @@ The two exams in the course will be completed with the ProctorU online proctorin
 
 ## Grading Policies
 
-- All assignment submissions are final once the due date has passed and it is the responsibility of students to verify the correct assignment was submitted to Canvas and that assignments are not corrupted. Wrongly submitted assignments are not grounds for resubmission.
+- All assignment submissions are final once the due date has passed and it is the responsibility of students to verify the correct assignment was submitted to Canvas and that assignments are not corrupted. Wrongly submitted assignments are not grounds for re-submission.
 - Once assignments have closed on Canvas they cannot be completed for credit except in extenuating circumstances (unforeseen illness, etc.) and you need to alert me as soon as possible and provide relevant dated documentation of the issue. Extensions will not be granted without documentation.
 - Due to federal privacy laws, grades cannot be discussed over email or via Canvas assignment comments. Students wishing to discuss their grade in the course must schedule an office hours appointment with me. 
 
