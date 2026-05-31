@@ -27,17 +27,17 @@
 \makeatletter
 \@ifundefined{c@none}{\newcounter{none}}{}
 \makeatother
-% Find the logo whether pandoc runs from the repo root or a year subfolder.
-\graphicspath{{./}{/Users/jaredeberle/git/syllabi/}}
-% We will generate all images so they have a width \maxwidth. This means
-% that they will get their normal width if they fit onto the page, but
-% are scaled down if they would overflow the margins.
+% Find the logo in the repo root. Pass --resource-path to pandoc when
+% invoking from a year subfolder instead of hardcoding an absolute path.
+\graphicspath{{./}}
+% Scale oversized images down to the text width while leaving smaller
+% images at their natural size.
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
 \else\Gin@nat@width\fi}
 \makeatother
 \let\Oldincludegraphics\includegraphics
-% \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=\maxwidth]{#1}}
+\renewcommand{\includegraphics}[2][]{\Oldincludegraphics[width=\maxwidth,#1]{#2}}
 
 %% --- Hyperlinks ---
 \usepackage[
@@ -57,6 +57,16 @@
 \setlist{itemsep=1pt, topsep=2pt, parsep=0pt}
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+%% --- Title block style ---
+\usepackage{titling}
+\pretitle{\begin{center}\sffamily\bfseries\Large\color{osublack}}
+\posttitle{\end{center}}
+\preauthor{\begin{center}\sffamily\normalsize}
+\postauthor{\end{center}}
+\predate{\begin{center}\sffamily\normalsize}
+\postdate{\end{center}}
+\setlength{\droptitle}{-2em}
 
 %% --- Section heading style (OSU orange, sans-serif) ---
 \usepackage[explicit]{titlesec}
@@ -88,10 +98,11 @@ $endfor$
 \fancyhead[L]{}
 \fancyhead[R]{}
 \fancyfoot[C]{\thepage}
+% plain on all pages (page number only); fancy overrides page 1 for the logo.
 \pagestyle{plain}
 
 $if(title)$
-\title{\sffamily\bfseries\color{osublack}$title$}
+\title{$title$}
 $endif$
 $if(author)$
 \author{$for(author)$$author$$sep$ \and $endfor$}
@@ -104,9 +115,7 @@ $if(listings)$
 \usepackage{listings}
 $endif$
 
-$if(tables)$
 \usepackage{float} % provides the H option for float placement
-$endif$
 
 \begin{document}
 
@@ -118,9 +127,7 @@ $for(include-before)$
 $include-before$
 $endfor$
 
-\begin{flushleft}
 $body$
-\end{flushleft}
 
 $for(include-after)$
 $include-after$
