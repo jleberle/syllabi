@@ -10,7 +10,7 @@ Office Hours: Appintments via Zoom gladly available
 
 **Mandatory Reporting Notice**: All communications are kept confidential except in two circumstances. As a University employee I am required by law to report statements of self harm and sexual violence. Under Title IX I must inform the University of all reports of sexual violence regardless of circumstances or requests to not report. The University has confidential reporters who can assist you if you do not want the information reported to the University. Students who wish to take this option should contact the OSU victim advocates at 405-564-2129 or email advocate@okstate.edu.
 
-## Resources
+# Resources
 
 - [LASSO Center](https://universitycollege.okstate.edu/lasso/): Tutoring and academic support coaches
 - [OSU Counseling](https://ucs.okstate.edu): University Counseling including emergency support options
@@ -44,8 +44,6 @@ This book is only available as an e-book on the Canvas course, there are not har
 
 **Exams** - Two exams, a midterm and final exam, that will consist of short answer responses and a formal essay responding to a prompt. For the first part you will be provided a list of terms and you will have to group together ones that connect and write a short paragraph identifying the terms and their connections. The second part will be a minimum 500 word essay analyzing material in the course. All exams must be appropriately cited and may only use course materials. 
 
-**Extra Credit** - The course does not have extra credit opportunities this semester and assignments may not be revised or resubmitted for additional credit once they are graded.
-
 ## Grade Breakdown
 
 |Assignments             | Number Due | Total Points |
@@ -67,13 +65,15 @@ This book is only available as an e-book on the Canvas course, there are not har
 
 ## Grading Policies
 
-- All assignment submissions are final once the due date has passed and it is the responsibility of students to verify the correct assignment was submitted to Canvas and that assignments are not corrupted. Wrongly submitted assignments are not grounds for re-submission.
-- Once assignments have closed on Canvas they cannot be completed for credit except in extenuating circumstances (unforeseen illness, etc.) and you need to alert me as soon as possible and provide relevant dated documentation of the issue. Extensions will not be granted without documentation.
+- All assignment submissions are final once the due date has passed. It is the student's responsibility to verify the correct assignment was submitted to Canvas and that assignments are not corrupted. 
+- Extensions are available for extenuating circumstances (unforeseen illness, etc.) and you need to alert me as soon as possible and provide relevant dated documentation of the issue in order to be eligible for an extension.
+- Each student is afforded one extension for a technical issue during the semester. Subsequent requests due to technical issues will need verifiable documentation of the circumstances to be eligible for an extension.
+- The course does not have extra credit opportunities this semester and assignments may not be revised or resubmitted for additional credit once they are graded.
 - Due to federal privacy laws, grades cannot be discussed over email or via Canvas assignment comments. Students wishing to discuss their grade in the course must schedule an office hours appointment with me. 
 
 ## Incomplete Grades
 
-Incomplete Grades University policy requires that students complete at least 50% of the assigned coursework to receive an “incomplete” grade. While I will only give incompletes in extremely rare situations, be advised you will need to finish the coursework within a year to remove the incomplete, otherwise you will receive an “I” paired with the grade you earned at that time (e.g. I/B, I/C). Incompletes are not automatic, you need to meet with me in person to arrange an incomplete.
+University policy requires that students complete at least 50% of the assigned coursework to receive an “incomplete” grade. While I will only give incompletes in extremely rare situations, be advised you will need to finish the coursework within a year to remove the incomplete, otherwise you will receive an “I” paired with the grade you earned at that time (e.g. I/B, I/C). Incompletes are not automatic, you need to meet with me in person to arrange an incomplete.
 
 # Accessibility Services
 
@@ -83,7 +83,7 @@ According to the Americans with Disabilities Act, each student with a disability
 
 # Academic Integrity
 
-Plagiarism/Academic Integrity Intentional cheating of any kind on any assignment will result in formal academic integrity violation proceedings including referral to the Office of Student Conduct, and may result in a failing grade for the entire course and/or receiving a permanent notation of a violation of academic integrity on your transcript (F!) All students should be familiar with university academic integrity guidelines and procedures, including the right to appeal charges. For more information you may contact the Office of Academic Affairs, 101 Whitehurst, 405-744-5627, or visit http://academicintegrity.okstate.edu
+Intentional cheating of any kind on any assignment will result in formal academic integrity violation proceedings including referral to the Office of Student Conduct, and may result in a failing grade for the entire course and/or receiving a permanent notation of a violation of academic integrity on your transcript (F!) All students should be familiar with university academic integrity guidelines and procedures, including the right to appeal charges. For more information you may contact the Office of Academic Affairs, 101 Whitehurst, 405-744-5627, or visit http://academicintegrity.okstate.edu
 
 Course specific policies:
 
@@ -97,37 +97,37 @@ The course follows the outline of Foner's *Give Me Liberty* textbook over the co
 
 Each week of the course will unlock on Monday morning and run through the end of the day on Sunday. Each week you have inquisitive quizzes, any additional assignments are listed below.
 
-**Week 1 (June 8-13): An Old World of Empires**
+### Week 1 (June 8-13): An Old World of Empires
 
 - Assigned textbook reading: Chapters 1 through 4
 - **Assignment**: Syllabus Quiz
 
-**Week 2 (June 15-20): The Smugglers' Revolution**
+### Week 2 (June 15-20): The Smugglers' Revolution
 
 - Assigned textbook reading: Chapters 5 through 8
 
-**Week 3 (June 22-27): The World Turned Upside Down**
+### Week 3 (June 22-27): The World Turned Upside Down
 
 - Assigned textbook reading: Chapters 9 through 12
 
-**Week 4 (June 29-July 4): The Civil War and Death**
+### Week 4 (June 29-July 4): The Civil War and Death
 
 - Assigned textbook reading: Chapters 13 and 14
 - **Assignment**: Midterm
 
-**Week 5 (July 6-11): When Companies Ruled**
+### Week 5 (July 6-11): When Companies Ruled
 
 - Assigned textbook reading: Chapters 15 through 17
 
-**Week 6 (July 13-18): When we tried to stop meat from killing you**
+### Week 6 (July 13-18): When we tried to stop meat from killing you
 
 - Assigned textbook reading: Chapters 18 through 21
 
-**Week 7 (July 20-25): Communists and Vampires Beware**
+### Week 7 (July 20-25): Communists and Vampires Beware
 
 - Assigned textbook reading: Chapters 22 through 25
 
-**Week 8 (July 27-August 1): How We've Gotten to Today**
+### Week 8 (July 27-August 1): How We've Gotten to Today
 
 - Assigned textbook reading: Chapters 26 through 28
 - **Assignment: Final Exam**
