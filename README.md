@@ -84,16 +84,25 @@ Use `new.sh` to create correctly named folders and stub files:
 # Create a semester folder
 ./new.sh semester Fall 2027
 
-# Create a syllabus stub (creates the folder too if needed)
+# Syllabus with no schedule dates (placeholder rows)
 ./new.sh syllabus Fall 2027 1493
-./new.sh syllabus Fall 2027 1103 Online
-./new.sh syllabus Fall 2027 1493 "MWF 8AM"
+
+# Syllabus with auto-populated schedule — defaults to MWF
+./new.sh syllabus Fall 2027 1493 --start 2027-08-23
+
+# TR course
+./new.sh syllabus Spring 2027 1493 --start 2027-01-12 --days TR
+
+# Online course — descriptor containing "online" suppresses day columns,
+# showing only the week-start date
+./new.sh syllabus Spring 2027 1103 Online --start 2027-01-12
 ```
 
 Season names and abbreviations are accepted interchangeably (`Fall`, `fall`,
 `FA`, `fa`). The stub includes the pandoc title block, standard contact info
 and resources, and placeholder sections for description, materials, assignments,
-policies, and schedule.
+policies, and schedule. Fall and Spring semesters generate 16 weeks; Summer
+generates 8.
 
 Then edit the generated file and compile:
 
