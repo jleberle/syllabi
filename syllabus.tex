@@ -21,6 +21,7 @@
 \usepackage{longtable}
 \usepackage{booktabs}
 \usepackage{graphicx}
+\usepackage[export]{adjustbox}   % max width= key for \includegraphics
 % Pandoc marks uncaptioned tables with \def\LTcaptype{none}; longtable then
 % needs a counter named 'none' to exist. Define it once here so individual
 % syllabi no longer need their own \newcounter{none} workaround.
@@ -30,14 +31,8 @@
 % Find the logo in the repo root. Pass --resource-path to pandoc when
 % invoking from a year subfolder instead of hardcoding an absolute path.
 \graphicspath{{./}}
-% Scale oversized images down to the text width while leaving smaller
-% images at their natural size.
-\makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
-\else\Gin@nat@width\fi}
-\makeatother
-\let\Oldincludegraphics\includegraphics
-\renewcommand{\includegraphics}[2][]{\Oldincludegraphics[width=\maxwidth,#1]{#2}}
+% Scale oversized images down to the text width; smaller images are unchanged.
+\setkeys{Gin}{max width=\linewidth}
 
 %% --- Hyperlinks ---
 \usepackage[
