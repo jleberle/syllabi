@@ -86,12 +86,11 @@ _build_one() {
 
 	local compressed="$tmpdir/compressed.pdf"
 
-	# /screen: aggressively downsample images (72dpi), lossless text/vectors.
-	# Ideal for syllabi: the logo shrinks significantly, text stays crisp.
+	# /ebook: 150dpi images, lossless text/vectors — sharp logo, small file.
 	if ! gs -q -dBATCH -dNOPAUSE -dSAFER \
 		-sDEVICE=pdfwrite \
 		-dCompatibilityLevel=1.7 \
-		-dPDFSETTINGS=/screen \
+		-dPDFSETTINGS=/ebook \
 		-dEmbedAllFonts=true \
 		-dSubsetFonts=true \
 		-dCompressFonts=true \
