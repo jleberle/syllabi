@@ -87,14 +87,10 @@ Use `new.sh` to create correctly named folders and stub files:
 # Syllabus with no schedule dates (placeholder rows)
 ./new.sh syllabus Fall 2027 1493
 
-# Syllabus with auto-populated schedule — defaults to MWF
+# Syllabus with auto-populated schedule
 ./new.sh syllabus Fall 2027 1493 --start 2027-08-23
 
-# TR course
-./new.sh syllabus Spring 2027 1493 --start 2027-01-12 --days TR
-
-# Online course — descriptor containing "online" suppresses day columns,
-# showing only the week-start date
+# Online course — "online" in descriptor gives Mon-Sun week ranges
 ./new.sh syllabus Spring 2027 1103 Online --start 2027-01-12
 ```
 
@@ -103,6 +99,10 @@ Season names and abbreviations are accepted interchangeably (`Fall`, `fall`,
 and resources, and placeholder sections for description, materials, assignments,
 policies, and schedule. Fall and Spring semesters generate 16 weeks; Summer
 generates 8.
+
+The schedule section uses `## Week N (Month D-Month D)` headings. In-person
+weeks span Monday–Friday; online weeks span Monday–Sunday. Without `--start`
+the headings are generated with no date range.
 
 Then edit the generated file and compile:
 
