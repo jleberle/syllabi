@@ -226,6 +226,22 @@ Email: <jared.eberle@okstate.edu>
 
 **Total: 100 points**
 
+The following key will determine your letter grade:
+
+| Grade |  Percentage   |
+| :---: | :-----------: |
+|   A   | 90% and above |
+|   B   |    80%-89%    |
+|   C   |    70%-79%    |
+|   D   |    60-69%     |
+|   F   | Less than 60% |
+
+#### Grade Disputes
+
+Students wishing to dispute their grades (outside of obvious mathematical errors or clarification of comments) are required to wait 24 hours after the assignment has been handed back and then need to attend office hours (or schedule a meeting) to formally discuss the grade they received. Be prepared to come to the meeting with specific points you feel were not taken into account with your grade. I reserve the right to raise *or* lower your grade at these meetings.
+
+Due to the Federal Educational Rights and Privacy Act (FERPA), I **do not** answer any emails related to grades. Emails about grades will not be answered, students unsure about where they stand in class need to come see me in person.
+
 # Course Policies
 
 #### Drops
@@ -240,6 +256,22 @@ Important deadlines for dropping the class are:
 #### Incomplete Grades
 
 University policy requires that students complete *at least 50%* of the assigned coursework to receive an "incomplete" grade. While I will only give incompletes in extremely rare situations, be advised you will need to finish the coursework within a year to remove the incomplete, otherwise you will receive the grade you earned at that time (e.g. I/B becomes a B, etc.) **Incompletes are not automatic**, you need to meet with me in person to arrange an incomplete.
+
+#### Late Work
+
+#### Resubmissions / Extra Credit
+
+All grades are final once the assignment has been completed. Assignments may not be revised or resubmitted after they have been graded to change grades or increase points earned.
+
+#### Class Conduct
+
+- Students who arrive more than 5 minutes late or leave early will not be eligible for attendance points if an attendance is done that day. Chronic late arrivals or early departures will result in the loss of attendance points.
+- You may use a laptop only to take notes for the course, violations can result in loss of attendance points.
+- Phones may not be used in any circumstance and headphones must be taken off during the class period.
+- Taking photographs, videos, or audio recordings of the lectures or PowerPoint slides is strictly prohibited.
+- Do not pack up prior to class being formally dismissed. Packing up early is not only disrespectful but causes too much noise for others to properly hear the lecture.
+- You are expected to conduct yourself in a professional manner. History has a number of controversial events and we will address some of these. Please respect the views of your classmates and treat everyone with decency.
+- Repeated violations of course policies may result in dismissal from lecture and/or loss of attendance points.
 
 #### Accessibility Services
 
