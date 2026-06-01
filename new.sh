@@ -206,6 +206,8 @@ Dr. Eberle\\
 Student Hours: MWF 1PM-2PM or by appt.\\
 Email: <jared.eberle@okstate.edu>
 
+**Mandatory Reporting Notice**: All communications are kept confidential except in two circumstances. As a university employees I am required by law to report statements of self harm and sexual violence. Under Title IX I must inform the University of all reports of sexual violence regardless of circumstances or requests to not report. The University has confidential reporters who can assist you if you do not want the information reported to the University. Students who wish to take this option should contact the OSU victim advocates at 405-564-2129 or email advocate@okstate.edu.
+
 ## Resources
 
 - [LASSO Center](https://universitycollege.okstate.edu/lasso/): Tutoring and academic support coaches
@@ -234,6 +236,10 @@ Important deadlines for dropping the class are:
 - $drop_partial: Partial refund for dropped class
 - $sixweek: Six Week Grades
 - $withdraw: Withdraw deadline
+
+#### Incomplete Grades
+
+University policy requires that students complete *at least 50%* of the assigned coursework to receive an "incomplete" grade. While I will only give incompletes in extremely rare situations, be advised you will need to finish the coursework within a year to remove the incomplete, otherwise you will receive the grade you earned at that time (e.g. I/B becomes a B, etc.) **Incompletes are not automatic**, you need to meet with me in person to arrange an incomplete.
 
 #### Accessibility Services
 
