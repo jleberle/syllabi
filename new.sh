@@ -161,7 +161,7 @@ cmd_syllabus() {
         3703) course_name="Oklahoma History" ;;
         3793) course_name="U.S. Environmental History" ;;
         3980) course_name="Historiography" ;;
-        *)    course_name="HIST $course" ;;
+        *)    course_name="[Course Title]" ;;
     esac
 
     local date_line="$season_word $year"
