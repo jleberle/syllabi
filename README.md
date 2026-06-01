@@ -84,7 +84,7 @@ Use `new.sh` to create correctly named folders and stub files:
 # Create a semester folder
 ./new.sh semester Fall 2027
 
-# Syllabus with no schedule dates (placeholder rows)
+# Syllabus with no dates (placeholder schedule headings and drop dates)
 ./new.sh syllabus Fall 2027 1493
 
 # Syllabus with auto-populated schedule
@@ -92,17 +92,30 @@ Use `new.sh` to create correctly named folders and stub files:
 
 # Online course — "online" in descriptor gives Mon-Sun week ranges
 ./new.sh syllabus Spring 2027 1103 Online --start 2027-01-12
+
+# With drop/deadline dates from the OSU academic calendar
+./new.sh syllabus Spring 2027 1493 --start 2027-01-12 \
+    --drop-full "January 13 (Monday)" \
+    --drop-partial "January 17 (Friday)" \
+    --sixweek "February 19 (Wednesday)" \
+    --withdraw "April 4 (Friday)"
 ```
 
 Season names and abbreviations are accepted interchangeably (`Fall`, `fall`,
 `FA`, `fa`). The stub includes the pandoc title block, standard contact info
-and resources, and placeholder sections for description, materials, assignments,
-policies, and schedule. Fall and Spring semesters generate 16 weeks; Summer
-generates 8.
+and resources, placeholder sections for description, materials, and assignments,
+and the following auto-populated policy sections:
+
+- **Drops** — four deadline dates from the OSU academic calendar. Supply them
+  with `--drop-full`, `--drop-partial`, `--sixweek`, and `--withdraw`; omitting
+  any flag leaves a labeled placeholder to fill in later.
+- **Accessibility Services** — static boilerplate, always included.
+- **Plagiarism/Academic Integrity** — static boilerplate, always included.
 
 The schedule section uses `## Week N (Month D-Month D)` headings. In-person
 weeks span Monday–Friday; online weeks span Monday–Sunday. Without `--start`
-the headings are generated with no date range.
+the headings are generated with no date range. Fall and Spring semesters
+generate 16 weeks; Summer generates 8.
 
 Then edit the generated file and compile:
 

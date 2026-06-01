@@ -6,15 +6,27 @@
 #   ./new.sh semester <season> <year>
 #       Create a semester folder, e.g.: ./new.sh semester Fall 2027
 #
-#   ./new.sh syllabus <season> <year> <course> [descriptor] [--start YYYY-MM-DD]
+#   ./new.sh syllabus <season> <year> <course> [descriptor] [options]
 #       Create a syllabus stub, e.g.:
 #           ./new.sh syllabus Fall 2027 1493
 #           ./new.sh syllabus Fall 2027 1493 --start 2027-08-23
 #           ./new.sh syllabus Spring 2027 1103 Online --start 2027-01-12
+#           ./new.sh syllabus Spring 2027 1493 --start 2027-01-12 \
+#               --drop-full "January 13 (Monday)" \
+#               --drop-partial "January 17 (Friday)" \
+#               --sixweek "February 19 (Wednesday)" \
+#               --withdraw "April 4 (Friday)"
 #
-#       --start  First day of class (YYYY-MM-DD). Populates week headings in
-#                the schedule section. Without it, headings have no date range.
-#                In-person weeks span Monday-Friday; online weeks span Monday-Sunday.
+#       --start         First day of class (YYYY-MM-DD). Populates week headings
+#                       in the schedule section. Without it, headings have no date
+#                       range. In-person weeks span Monday-Friday; online (descriptor
+#                       contains "online") spans Monday-Sunday.
+#       --drop-full     Date of 100% tuition refund deadline (free-form text).
+#       --drop-partial  Date of partial tuition refund deadline.
+#       --sixweek       Date of six-week grade submission deadline.
+#       --withdraw      Date of withdraw-without-penalty deadline.
+#                       All four drop flags are optional; omitting any leaves a
+#                       labeled placeholder in the syllabus to fill in later.
 #
 set -euo pipefail
 
@@ -91,17 +103,21 @@ cmd_semester() {
 
 cmd_syllabus() {
     # Separate positional args from --flags
-    local start_date=""
+    local start_date="" drop_full="" drop_partial="" sixweek="" withdraw=""
     local positional=()
     while [ $# -gt 0 ]; do
         case "$1" in
-            --start) start_date="$2"; shift 2 ;;
+            --start)        start_date="$2";   shift 2 ;;
+            --drop-full)    drop_full="$2";    shift 2 ;;
+            --drop-partial) drop_partial="$2"; shift 2 ;;
+            --sixweek)      sixweek="$2";      shift 2 ;;
+            --withdraw)     withdraw="$2";     shift 2 ;;
             *) positional+=("$1"); shift ;;
         esac
     done
 
     [ "${#positional[@]}" -ge 3 ] || {
-        echo "usage: ./new.sh syllabus <season> <year> <course> [descriptor] [--start YYYY-MM-DD]" >&2
+        echo "usage: ./new.sh syllabus <season> <year> <course> [descriptor] [--start YYYY-MM-DD] [--drop-full DATE] [--drop-partial DATE] [--sixweek DATE] [--withdraw DATE]" >&2
         exit 1
     }
 
@@ -159,6 +175,12 @@ cmd_syllabus() {
     local is_online=0
     echo "$descriptor" | grep -qi "online" && is_online=1
 
+    # Drop date placeholders
+    [ -n "$drop_full"    ] || drop_full="[100% refund date]"
+    [ -n "$drop_partial" ] || drop_partial="[partial refund date]"
+    [ -n "$sixweek"      ] || sixweek="[six-week grades date]"
+    [ -n "$withdraw"     ] || withdraw="[withdraw deadline]"
+
     # Build schedule section
     local schedule_body
     if [ -n "$start_date" ]; then
@@ -203,6 +225,29 @@ Email: <jared.eberle@okstate.edu>
 **Total: 100 points**
 
 # Course Policies
+
+#### Drops
+
+Important deadlines for dropping the class are:
+
+- $drop_full: 100% refund for dropped class
+- $drop_partial: Partial refund for dropped class
+- $sixweek: Six Week Grades
+- $withdraw: Withdraw deadline
+
+#### Accessibility Services
+
+According to the Americans with Disabilities Act, each student with a disability is responsible for notifying the University of their disability and requesting accommodations. If you think you have a qualified disability and need accommodations, you should notify the instructor and request verification of eligibility for accommodations from Student Accessibility Services. Please advise the instructor of such disability and desired accommodations at some point before, during, or immediately after the first scheduled class period. Faculty members are obligated to respond when they receive official notice of a disability, but are under no obligation to provide retroactive accommodations. To receive services, you must submit appropriate documentation and complete an intake process during which the existence of a qualified disability is verified and reasonable accommodations are identified. Go to https://accessibility.okstate.edu for additional information.
+
+**If you have an SAS accommodation you need to see me during office hours to discuss your accommodations and how you will use them**
+
+#### Plagiarism/Academic Integrity
+
+Intentional cheating on any assignment will result in formal academic integrity violation proceedings including referral to the Office of Student Conduct, and may result in a failing grade for the entire course and/or receiving a permanent notation of a violation of academic integrity on your transcript (F!) All students should be familiar with university academic integrity guidelines and procedures, including the right to appeal charges. For more information you may contact the Office of Academic Affairs, 101 Whitehurst, 405-744-5627, or visit http://academicintegrity.okstate.edu
+
+All work completed for the course must be your own original work and only utilize assigned course materials. You are not allowed to work on assignments with others, re-submit previously used assignments, or use outside sources. Failure to comply can result in failure on the assignment or formal academic integrity inquiries.
+
+Use of artificial intelligence programs is strictly prohibited on all assignments in the course.
 
 # Schedule
 
