@@ -20,9 +20,23 @@
 #
 set -euo pipefail
 
+# The job pool uses `wait -n`, which needs bash >= 4.3 (macOS system bash is 3.2).
+if (( BASH_VERSINFO[0] < 4 || (BASH_VERSINFO[0] == 4 && BASH_VERSINFO[1] < 3) )); then
+	echo "error: bash >= 4.3 required, found $BASH_VERSION (on macOS: brew install bash)" >&2
+	exit 1
+fi
+
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TEMPLATE="$ROOT/syllabus.tex"
+LOGO="$ROOT/osulogo.png"
 OUTDIR="$ROOT/PDFs"
+
+# `clean` is only honored as the sole argument so a stray word in a longer
+# command line can't wipe the output directory.
+if [ "${1:-}" = "clean" ]; then
+	[ $# -eq 1 ] || { echo "usage: ./build.sh clean (no other arguments)" >&2; exit 2; }
+	rm -rf "$OUTDIR"; echo "removed $OUTDIR"; exit 0
+fi
 
 FORCE=0
 FILES=()
@@ -30,8 +44,13 @@ DIRS=()
 for arg in "$@"; do
 	case "$arg" in
 		-f|--force) FORCE=1 ;;
-		clean) rm -rf "$OUTDIR"; echo "removed $OUTDIR"; exit 0 ;;
-		*.md) FILES+=("$arg") ;;
+		*.md)
+			# Resolve the same way the build loop does, so a typo'd name
+			# fails here instead of as a confusing pandoc error.
+			case "$arg" in /*) f="$arg" ;; *) f="$ROOT/${arg#./}" ;; esac
+			[ -f "$f" ] || { echo "no such file: $arg" >&2; exit 2; }
+			FILES+=("$arg")
+			;;
 		*)
 			if [ -d "$ROOT/$arg" ] || [ -d "$arg" ]; then
 				DIRS+=("$arg")
@@ -73,7 +92,6 @@ _build_one() {
 	local tmpdir tmp log
 
 	printf 'build  %s\n' "$rel"
-	mkdir -p "$(dirname "$out")"
 	tmpdir="$(mktemp -d)"
 	tmp="$tmpdir/syllabus.pdf"
 	log="$tmpdir/build.log"
@@ -100,6 +118,9 @@ _build_one() {
 		rm -rf "$tmpdir"; echo "failed:$rel (gs)" > "$resfile"; return
 	fi
 
+	# Create the output directory only now, so a failed build doesn't leave
+	# an empty folder behind.
+	mkdir -p "$(dirname "$out")"
 	if ! qpdf --linearize "$compressed" "$out" 2>"$log"; then
 		{ printf '  ! qpdf failed:\n'; sed 's/^/    /' "$log"; } >&2
 		rm -rf "$tmpdir"; echo "failed:$rel (qpdf)" > "$resfile"; return
@@ -111,7 +132,7 @@ _build_one() {
 
 skipped=0
 jobidx=0
-declare -a pids=()
+running=0
 
 for md in "${FILES[@]}"; do
 	# Normalize to an absolute path so the relative layout under PDFs/ is stable.
@@ -119,7 +140,12 @@ for md in "${FILES[@]}"; do
 	rel="${abs#"$ROOT"/}"
 	out="$OUTDIR/${rel%.md}.pdf"
 
-	if [ "$FORCE" -eq 0 ] && [ -f "$out" ] && [ "$out" -nt "$abs" ]; then
+	# Rebuild if the source, the shared template, or the logo is newer than
+	# the output — editing branding/layout should invalidate every PDF.
+	if [ "$FORCE" -eq 0 ] && [ -f "$out" ] \
+		&& [ "$out" -nt "$abs" ] \
+		&& [ "$out" -nt "$TEMPLATE" ] \
+		&& [ "$out" -nt "$LOGO" ]; then
 		printf 'skip   %s\n' "$rel"
 		skipped=$((skipped + 1))
 		continue
@@ -128,19 +154,18 @@ for md in "${FILES[@]}"; do
 	resfile="$RESDIR/$jobidx"
 	jobidx=$((jobidx + 1))
 	_build_one "$abs" "$rel" "$out" "$resfile" &
-	pids+=($!)
+	running=$((running + 1))
 
-	# When at the concurrency limit, wait for the oldest job before launching more.
-	if [ "${#pids[@]}" -ge "$JOBS" ]; then
-		wait "${pids[0]}" || true
-		pids=("${pids[@]:1}")  # drop the completed slot
+	# At the concurrency limit, reap whichever job finishes first (not the
+	# oldest) so a single slow file doesn't stall otherwise-free slots.
+	if [ "$running" -ge "$JOBS" ]; then
+		wait -n || true
+		running=$((running - 1))
 	fi
 done
 
 # Wait for remaining in-flight jobs.
-for pid in "${pids[@]+"${pids[@]}"}"; do
-	wait "$pid" || true
-done
+wait
 
 # Collect results written by each subshell.
 built=0 failed=0

@@ -6,17 +6,30 @@ LaTeX template.
 
 ## Prerequisites
 
+- bash ≥ 4.3 — `build.sh` uses `wait -n`; macOS system bash is 3.2, so
+  `brew install bash`
 - [pandoc](https://pandoc.org) — Markdown → PDF via LaTeX
-- A TeX distribution — [MacTeX](https://tug.org/mactex/) (macOS) or TeX Live
-- [ocrmypdf](https://ocrmypdf.readthedocs.io) — post-processing: OCR text layer,
-  compression, linearization
+- A TeX distribution — [BasicTeX](https://tug.org/mactex/morepackages.html)
+  (minimal) or [MacTeX](https://tug.org/mactex/) (full) on macOS, or TeX Live
+- [Ghostscript](https://www.ghostscript.com) (`gs`) — image compression
+- [qpdf](https://qpdf.sourceforge.io) — linearization for fast web viewing
 
 Install on macOS:
 
 ```
-brew install pandoc ocrmypdf
-brew install --cask mactex
+brew install pandoc ghostscript qpdf
+brew install --cask basictex   # or: brew install --cask mactex
 ```
+
+BasicTeX ships a minimal package set; install the extra packages the
+template's font stack (XCharter body, LY1 encoding) needs:
+
+```
+sudo tlmgr install xstring fontaxes ly1
+```
+
+(The full MacTeX cask already includes these, so this step is only needed
+with BasicTeX.)
 
 ## Repository layout
 

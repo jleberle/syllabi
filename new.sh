@@ -90,7 +90,11 @@ cmd_semester() {
 
     [[ "$year" =~ ^[0-9]{4}$ ]] || { echo "error: year must be four digits (e.g. 2027)" >&2; exit 1; }
 
-    read -r season_word _ <<< "$(parse_season "$season_raw")"
+    # Capture before read: a parse_season failure inside <<< "$(...)" would
+    # otherwise be masked and the script would continue with empty vars.
+    local season_out
+    season_out="$(parse_season "$season_raw")"
+    read -r season_word _ <<< "$season_out"
     local folder="$ROOT/$year - $season_word"
 
     if [ -d "$folder" ]; then
@@ -107,11 +111,11 @@ cmd_syllabus() {
     local positional=()
     while [ $# -gt 0 ]; do
         case "$1" in
-            --start)        start_date="$2";   shift 2 ;;
-            --drop-full)    drop_full="$2";    shift 2 ;;
-            --drop-partial) drop_partial="$2"; shift 2 ;;
-            --sixweek)      sixweek="$2";      shift 2 ;;
-            --withdraw)     withdraw="$2";     shift 2 ;;
+            --start)        start_date="${2:?--start requires a date}";          shift 2 ;;
+            --drop-full)    drop_full="${2:?--drop-full requires a date}";       shift 2 ;;
+            --drop-partial) drop_partial="${2:?--drop-partial requires a date}"; shift 2 ;;
+            --sixweek)      sixweek="${2:?--sixweek requires a date}";           shift 2 ;;
+            --withdraw)     withdraw="${2:?--withdraw requires a date}";         shift 2 ;;
             *) positional+=("$1"); shift ;;
         esac
     done
@@ -133,9 +137,16 @@ cmd_syllabus() {
         [[ "$start_date" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] || {
             echo "error: --start must be YYYY-MM-DD (e.g. 2027-08-23)" >&2; exit 1
         }
+        command -v python3 >/dev/null 2>&1 || {
+            echo "error: python3 not found in PATH (needed for --start schedule generation)" >&2; exit 1
+        }
     fi
 
-    read -r season_word term_prefix <<< "$(parse_season "$season_raw")"
+    # Capture before read: a parse_season failure inside <<< "$(...)" would
+    # otherwise be masked and the script would continue with empty vars.
+    local season_out
+    season_out="$(parse_season "$season_raw")"
+    read -r season_word term_prefix <<< "$season_out"
     local yy="${year: -2}"
     local term="${term_prefix}${yy}"
     local folder="$ROOT/$year - $season_word"
@@ -206,7 +217,7 @@ Dr. Eberle\\
 Student Hours: MWF 1PM-2PM or by appt.\\
 Email: <jared.eberle@okstate.edu>
 
-**Mandatory Reporting Notice**: All communications are kept confidential except in two circumstances. As a university employees I am required by law to report statements of self harm and sexual violence. Under Title IX I must inform the University of all reports of sexual violence regardless of circumstances or requests to not report. The University has confidential reporters who can assist you if you do not want the information reported to the University. Students who wish to take this option should contact the OSU victim advocates at 405-564-2129 or email advocate@okstate.edu.
+**Mandatory Reporting Notice**: All communications are kept confidential except in two circumstances. As a university employee I am required by law to report statements of self harm and sexual violence. Under Title IX I must inform the University of all reports of sexual violence regardless of circumstances or requests to not report. The University has confidential reporters who can assist you if you do not want the information reported to the University. Students who wish to take this option should contact the OSU victim advocates at 405-564-2129 or email advocate@okstate.edu.
 
 ## Resources
 

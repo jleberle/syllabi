@@ -6,7 +6,6 @@
 
 %% --- Fonts & microtypography ---
 \usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
 \usepackage{XCharter}                    % readable serif body
 \usepackage[scaled=0.92]{sourcesanspro}  % sans-serif for headings
 \usepackage{microtype}                   % better spacing & justification
@@ -41,6 +40,19 @@
 	urlcolor=osuorange,
 	plainpages=false,
 	]{hyperref}
+% PDF metadata (Title/Author shown in browser tabs, readers, search).
+% In this repo's title blocks the pandoc *date* slot holds the instructor
+% ("% Dr. Eberle") and the *author* slot holds the semester, so pdfauthor
+% maps from $date$.
+\hypersetup{%
+$if(title)$
+	pdftitle={$title$},
+$endif$
+$if(date)$
+	pdfauthor={$date$},
+$endif$
+	pdflang=en-US,
+}
 
 %% --- Paragraph spacing ---
 \setlength{\parindent}{0pt}
