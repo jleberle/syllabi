@@ -28,7 +28,7 @@ fi
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TEMPLATE="$ROOT/syllabus.tex"
-LOGO="$ROOT/osulogo.png"
+LOGO="$ROOT/osulogo.pdf"
 OUTDIR="$ROOT/PDFs"
 
 # `clean` is only honored as the sole argument so a stray word in a longer

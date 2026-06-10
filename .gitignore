@@ -1,5 +1,6 @@
 PDFs/
 *.pdf
+!osulogo.pdf
 *.aux
 *.log
 *.out

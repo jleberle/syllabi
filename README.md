@@ -40,7 +40,9 @@ syllabi/
 ├── Supplemental/           non-syllabus handouts, also named with term prefixes
 ├── PDFs/                   compiled PDFs — mirrors semester folder layout (git-ignored)
 ├── syllabus.tex            shared pandoc/LaTeX template
-├── osulogo.png             OSU logo used in the template header
+├── osulogo.pdf             OSU brand mark (vector) used in the template header
+├── osulogo.svg             SVG source for osulogo.pdf — official OSU brand mark
+│                           (Wikimedia Commons, original colors #FE5C00/#231F20)
 ├── build.sh                build script
 └── new.sh                  scaffold script for new semesters and syllabi
 ```
