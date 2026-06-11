@@ -1,0 +1,3 @@
+Students wishing to dispute their grades (outside of obvious mathematical errors or clarification of comments) are required to wait 24 hours after the assignment has been handed back and then need to attend office hours (or schedule a meeting) to formally discuss the grade they received. Be prepared to come to the meeting with specific points you feel were not taken into account with your grade. I reserve the right to raise *or* lower your grade at these meetings.
+
+Due to the Federal Educational Rights and Privacy Act (FERPA), I **do not** answer any emails related to grades. Emails about grades will not be answered, students unsure about where they stand in class need to come see me in person.

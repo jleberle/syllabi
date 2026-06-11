@@ -1,0 +1,7 @@
+- Students who arrive more than 5 minutes late or leave early will not be eligible for attendance points if an attendance is done that day. Chronic late arrivals or early departures will result in the loss of attendance points.
+- You may use a laptop only to take notes for the course, violations can result in loss of attendance points.
+- Phones may not be used in any circumstance and headphones must be taken off during the class period.
+- Taking photographs, videos, or audio recordings of the lectures or PowerPoint slides is strictly prohibited.
+- Do not pack up prior to class being formally dismissed. Packing up early is not only disrespectful but causes too much noise for others to properly hear the lecture.
+- You are expected to conduct yourself in a professional manner. History has a number of controversial events and we will address some of these. Please respect the views of your classmates and treat everyone with decency.
+- Repeated violations of course policies may result in dismissal from lecture and/or loss of attendance points.

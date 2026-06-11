@@ -28,6 +28,21 @@
 #                       All four drop flags are optional; omitting any leaves a
 #                       labeled placeholder in the syllabus to fill in later.
 #
+# Syllabus content comes from the templates/ folder, not this script:
+#
+#   templates/skeleton.md          document outline for in-person courses
+#   templates/skeleton-online.md   document outline for online courses
+#   templates/common/<name>.md     boilerplate shared by both formats
+#   templates/inperson/<name>.md   in-person overrides (e.g. contact.md)
+#   templates/online/<name>.md     online overrides
+#
+# A skeleton line of the form "{{include name}}" is replaced with the contents
+# of templates/<variant>/name.md if it exists, else templates/common/name.md.
+# After includes are expanded, {{course}}, {{course_name}}, {{date_line}},
+# {{drop_full}}, {{drop_partial}}, {{sixweek}}, {{withdraw}}, and {{schedule}}
+# are substituted. Edit the template files to change boilerplate; no script
+# changes needed.
+#
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -79,6 +94,35 @@ for week in range(1, weeks + 1):
     print(f"## Week {week} ({fmt(monday)}-{fmt(sunday_or_friday)})")
     print()
 PYEOF
+}
+
+# ---------------------------------------------------------------------------
+# Render a skeleton template, expanding "{{include <name>}}" lines.
+#   $1  skeleton file
+#   $2  variant (inperson | online)
+# templates/<variant>/<name>.md wins over templates/common/<name>.md.
+# ---------------------------------------------------------------------------
+render_skeleton() {
+    local skeleton="$1" variant="$2"
+    local tpl_dir="$ROOT/templates"
+    local out="" line name snippet
+    while IFS= read -r line || [ -n "$line" ]; do
+        if [[ "$line" =~ ^\{\{include[[:space:]]+([A-Za-z0-9_-]+)\}\}$ ]]; then
+            name="${BASH_REMATCH[1]}"
+            if [ -f "$tpl_dir/$variant/$name.md" ]; then
+                snippet="$tpl_dir/$variant/$name.md"
+            elif [ -f "$tpl_dir/common/$name.md" ]; then
+                snippet="$tpl_dir/common/$name.md"
+            else
+                echo "error: snippet '$name.md' not found in templates/$variant/ or templates/common/" >&2
+                return 1
+            fi
+            out+="$(cat "$snippet")"$'\n'
+        else
+            out+="$line"$'\n'
+        fi
+    done < "$skeleton"
+    printf '%s' "$out"
 }
 
 # ---------------------------------------------------------------------------
@@ -201,107 +245,30 @@ cmd_syllabus() {
         for i in $(seq 1 "$weeks"); do
             schedule_body+="## Week $i"$'\n\n'
         done
+        schedule_body="${schedule_body%$'\n\n'}"
     fi
 
-    cat > "$dest" << EOF
-% History $course $course_name
-% $date_line
-% Dr. Eberle
+    # Pick the skeleton: online courses use skeleton-online.md when present
+    local variant="inperson"
+    [ "$is_online" -eq 1 ] && variant="online"
+    local skeleton="$ROOT/templates/skeleton.md"
+    [ "$variant" = "online" ] && [ -f "$ROOT/templates/skeleton-online.md" ] \
+        && skeleton="$ROOT/templates/skeleton-online.md"
+    [ -f "$skeleton" ] || { echo "error: skeleton not found: $skeleton" >&2; exit 1; }
 
-# Course Description
+    local content
+    content="$(render_skeleton "$skeleton" "$variant")"
 
-# Contact Information
+    content="${content//\{\{course\}\}/$course}"
+    content="${content//\{\{course_name\}\}/$course_name}"
+    content="${content//\{\{date_line\}\}/$date_line}"
+    content="${content//\{\{drop_full\}\}/$drop_full}"
+    content="${content//\{\{drop_partial\}\}/$drop_partial}"
+    content="${content//\{\{sixweek\}\}/$sixweek}"
+    content="${content//\{\{withdraw\}\}/$withdraw}"
+    content="${content//\{\{schedule\}\}/$schedule_body}"
 
-Dr. Eberle\\
-154 Social Sciences and Humanities\\
-Student Hours: MWF 1PM-2PM or by appt.\\
-Email: <jared.eberle@okstate.edu>
-
-**Mandatory Reporting Notice**: All communications are kept confidential except in two circumstances. As a university employee I am required by law to report statements of self harm and sexual violence. Under Title IX I must inform the University of all reports of sexual violence regardless of circumstances or requests to not report. The University has confidential reporters who can assist you if you do not want the information reported to the University. Students who wish to take this option should contact the OSU victim advocates at 405-564-2129 or email advocate@okstate.edu.
-
-## Resources
-
-- [LASSO Center](https://universitycollege.okstate.edu/lasso/): Tutoring and academic support coaches
-- [OSU Counseling](https://ucs.okstate.edu): University Counseling including emergency support options
-- [Victim Support Services](https://1is2many.okstate.edu/find-support/support-for-victims/index.html): Sexual violence support and reporting information.
-
-# Required Materials
-
-# Assignments
-
-## Grades
-
-| Assignment | Points |
-| :--------: | :----: |
-|            |        |
-
-**Total: 100 points**
-
-The following key will determine your letter grade:
-
-| Grade |  Percentage   |
-| :---: | :-----------: |
-|   A   | 90% and above |
-|   B   |    80%-89%    |
-|   C   |    70%-79%    |
-|   D   |    60-69%     |
-|   F   | Less than 60% |
-
-#### Grade Disputes
-
-Students wishing to dispute their grades (outside of obvious mathematical errors or clarification of comments) are required to wait 24 hours after the assignment has been handed back and then need to attend office hours (or schedule a meeting) to formally discuss the grade they received. Be prepared to come to the meeting with specific points you feel were not taken into account with your grade. I reserve the right to raise *or* lower your grade at these meetings.
-
-Due to the Federal Educational Rights and Privacy Act (FERPA), I **do not** answer any emails related to grades. Emails about grades will not be answered, students unsure about where they stand in class need to come see me in person.
-
-# Course Policies
-
-#### Drops
-
-Important deadlines for dropping the class are:
-
-- $drop_full: 100% refund for dropped class
-- $drop_partial: Partial refund for dropped class
-- $sixweek: Six Week Grades
-- $withdraw: Withdraw deadline
-
-#### Incomplete Grades
-
-University policy requires that students complete *at least 50%* of the assigned coursework to receive an "incomplete" grade. While I will only give incompletes in extremely rare situations, be advised you will need to finish the coursework within a year to remove the incomplete, otherwise you will receive the grade you earned at that time (e.g. I/B becomes a B, etc.) **Incompletes are not automatic**, you need to meet with me in person to arrange an incomplete.
-
-#### Late Work
-
-#### Resubmissions / Extra Credit
-
-All grades are final once the assignment has been completed. Assignments may not be revised or resubmitted after they have been graded to change grades or increase points earned.
-
-#### Class Conduct
-
-- Students who arrive more than 5 minutes late or leave early will not be eligible for attendance points if an attendance is done that day. Chronic late arrivals or early departures will result in the loss of attendance points.
-- You may use a laptop only to take notes for the course, violations can result in loss of attendance points.
-- Phones may not be used in any circumstance and headphones must be taken off during the class period.
-- Taking photographs, videos, or audio recordings of the lectures or PowerPoint slides is strictly prohibited.
-- Do not pack up prior to class being formally dismissed. Packing up early is not only disrespectful but causes too much noise for others to properly hear the lecture.
-- You are expected to conduct yourself in a professional manner. History has a number of controversial events and we will address some of these. Please respect the views of your classmates and treat everyone with decency.
-- Repeated violations of course policies may result in dismissal from lecture and/or loss of attendance points.
-
-#### Accessibility Services
-
-According to the Americans with Disabilities Act, each student with a disability is responsible for notifying the University of their disability and requesting accommodations. If you think you have a qualified disability and need accommodations, you should notify the instructor and request verification of eligibility for accommodations from Student Accessibility Services. Please advise the instructor of such disability and desired accommodations at some point before, during, or immediately after the first scheduled class period. Faculty members are obligated to respond when they receive official notice of a disability, but are under no obligation to provide retroactive accommodations. To receive services, you must submit appropriate documentation and complete an intake process during which the existence of a qualified disability is verified and reasonable accommodations are identified. Go to https://accessibility.okstate.edu for additional information.
-
-**If you have an SAS accommodation you need to see me during office hours to discuss your accommodations and how you will use them**
-
-#### Plagiarism/Academic Integrity
-
-Intentional cheating on any assignment will result in formal academic integrity violation proceedings including referral to the Office of Student Conduct, and may result in a failing grade for the entire course and/or receiving a permanent notation of a violation of academic integrity on your transcript (F!) All students should be familiar with university academic integrity guidelines and procedures, including the right to appeal charges. For more information you may contact the Office of Academic Affairs, 101 Whitehurst, 405-744-5627, or visit http://academicintegrity.okstate.edu
-
-All work completed for the course must be your own original work and only utilize assigned course materials. You are not allowed to work on assignments with others, re-submit previously used assignments, or use outside sources. Failure to comply can result in failure on the assignment or formal academic integrity inquiries.
-
-Use of artificial intelligence programs is strictly prohibited on all assignments in the course.
-
-# Schedule
-
-$schedule_body
-EOF
+    printf '%s\n' "$content" > "$dest"
 
     echo "created: ${dest#"$ROOT"/}"
 }

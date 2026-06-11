@@ -1,0 +1,5 @@
+Intentional cheating on any assignment will result in formal academic integrity violation proceedings including referral to the Office of Student Conduct, and may result in a failing grade for the entire course and/or receiving a permanent notation of a violation of academic integrity on your transcript (F!) All students should be familiar with university academic integrity guidelines and procedures, including the right to appeal charges. For more information you may contact the Office of Academic Affairs, 101 Whitehurst, 405-744-5627, or visit http://academicintegrity.okstate.edu
+
+All work completed for the course must be your own original work and only utilize assigned course materials. You are not allowed to work on assignments with others, re-submit previously used assignments, or use outside sources. Failure to comply can result in failure on the assignment or formal academic integrity inquiries.
+
+Use of artificial intelligence programs is strictly prohibited on all assignments in the course.

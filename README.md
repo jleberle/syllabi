@@ -39,6 +39,12 @@ syllabi/
 │   └── TTNN HIST NNNN.md   syllabus source files (see naming convention below)
 ├── Supplemental/           non-syllabus handouts, also named with term prefixes
 ├── PDFs/                   compiled PDFs — mirrors semester folder layout (git-ignored)
+├── templates/              boilerplate used by new.sh when scaffolding syllabi
+│   ├── skeleton.md         document outline for in-person courses
+│   ├── skeleton-online.md  document outline for online courses
+│   ├── common/             policy/contact snippets shared by both formats
+│   ├── inperson/           in-person overrides (contact info, class conduct)
+│   └── online/             online overrides (contact info, delivery note, …)
 ├── syllabus.tex            shared pandoc/LaTeX template
 ├── osulogo.pdf             OSU brand mark (vector) used in the template header
 ├── osulogo.svg             SVG source for osulogo.pdf — official OSU brand mark
@@ -117,20 +123,40 @@ Use `new.sh` to create correctly named folders and stub files:
 ```
 
 Season names and abbreviations are accepted interchangeably (`Fall`, `fall`,
-`FA`, `fa`). The stub includes the pandoc title block, standard contact info
-and resources, placeholder sections for description, materials, and assignments,
-and the following auto-populated policy sections:
-
-- **Drops** — four deadline dates from the OSU academic calendar. Supply them
-  with `--drop-full`, `--drop-partial`, `--sixweek`, and `--withdraw`; omitting
-  any flag leaves a labeled placeholder to fill in later.
-- **Accessibility Services** — static boilerplate, always included.
-- **Plagiarism/Academic Integrity** — static boilerplate, always included.
+`FA`, `fa`). The stub includes the pandoc title block, contact info and
+resources, placeholder sections for description, materials, and assignments,
+and the standard policy sections. The **Drops** section is populated from four
+deadline dates on the OSU academic calendar — supply them with `--drop-full`,
+`--drop-partial`, `--sixweek`, and `--withdraw`; omitting any flag leaves a
+labeled placeholder to fill in later.
 
 The schedule section uses `## Week N (Month D-Month D)` headings. In-person
 weeks span Monday–Friday; online weeks span Monday–Sunday. Without `--start`
 the headings are generated with no date range. Fall and Spring semesters
 generate 16 weeks; Summer generates 8.
+
+### Stub content lives in templates/
+
+All boilerplate comes from the `templates/` folder, not from `new.sh` itself —
+edit those files to change what future stubs contain (existing syllabi are
+never touched):
+
+- `templates/skeleton.md` and `templates/skeleton-online.md` are the document
+  outlines for in-person and online courses (section order, headings, grade
+  tables). A descriptor containing "online" (e.g. `./new.sh syllabus Spring
+  2027 1103 Online`) selects the online skeleton.
+- A skeleton line of the form `{{include name}}` is replaced with the contents
+  of a snippet file: `templates/online/name.md` or `templates/inperson/name.md`
+  if it exists for the course format, otherwise `templates/common/name.md`.
+  Shared policies (accessibility, academic integrity, drops, …) live in
+  `common/`; format-specific versions (contact info, class conduct, the online
+  delivery note) live in `inperson/` and `online/`. To give a shared snippet a
+  format-specific version, just add a file with the same name to `inperson/`
+  or `online/` — no script changes needed.
+- `{{drop_full}}`, `{{drop_partial}}`, `{{sixweek}}`, `{{withdraw}}`,
+  `{{course}}`, `{{course_name}}`, `{{date_line}}`, and `{{schedule}}` are
+  substituted everywhere after includes are expanded, so snippets can also
+  reference the calendar dates.
 
 Then edit the generated file and compile:
 

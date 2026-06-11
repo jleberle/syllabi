@@ -1,0 +1,4 @@
+- All assignment submissions are final once the due date has passed. It is the student's responsibility to verify the correct assignment is submitted to Canvas and accessible for grading.
+- Extensions are available for extenuating circumstances (unforeseen illness, etc.) and you need to alert me as soon as possible and provide relevant dated documentation of the issue in order to be eligible for an extension.
+- Each student is afforded one extension for a technical issue during the semester. Subsequent requests due to technical issues will need verifiable documentation of the circumstances to be eligible for an extension.
+- Due to federal privacy laws, grades cannot be discussed over email or via Canvas assignment comments. Students wishing to discuss their grade in the course must schedule an office hours appointment with me.
