@@ -9,27 +9,28 @@ LaTeX template.
 - bash ≥ 4.3 — `build.sh` uses `wait -n`; macOS system bash is 3.2, so
   `brew install bash`
 - [pandoc](https://pandoc.org) — Markdown → PDF via LaTeX
-- A TeX distribution — [BasicTeX](https://tug.org/mactex/morepackages.html)
-  (minimal) or [MacTeX](https://tug.org/mactex/) (full) on macOS, or TeX Live
+- [tectonic](https://tectonic-typesetting.github.io) — self-contained LaTeX
+  engine; downloads the packages the template needs on first run and caches
+  them, so no TeX distribution or package management is required
 - [Ghostscript](https://www.ghostscript.com) (`gs`) — image compression
 - [qpdf](https://qpdf.sourceforge.io) — linearization for fast web viewing
 
 Install on macOS:
 
 ```
-brew install pandoc ghostscript qpdf
-brew install --cask basictex   # or: brew install --cask mactex
+brew install pandoc tectonic ghostscript qpdf
 ```
 
-BasicTeX ships a minimal package set; install the extra packages the
-template's font stack (XCharter body, LY1 encoding) needs:
+The first build needs network access while tectonic populates its package
+cache; subsequent builds run offline.
 
-```
-sudo tlmgr install xstring fontaxes ly1
-```
-
-(The full MacTeX cask already includes these, so this step is only needed
-with BasicTeX.)
+If tectonic is not installed, `build.sh` falls back to `pdflatex` from a TeX
+distribution — [BasicTeX](https://tug.org/mactex/morepackages.html) (minimal)
+or [MacTeX](https://tug.org/mactex/) (full) on macOS, or TeX Live. BasicTeX
+ships a minimal package set; install the extras the template's font stack
+needs with `sudo tlmgr install xstring fontaxes ly1`. (Note the engines
+differ: tectonic is XeTeX-based and pdflatex is not, so line breaks can shift
+slightly between the two.)
 
 ## Repository layout
 

@@ -65,6 +65,18 @@ for tool in pandoc gs qpdf; do
 	command -v "$tool" >/dev/null 2>&1 || { echo "error: $tool not found in PATH" >&2; exit 1; }
 done
 
+# Prefer tectonic (self-contained XeTeX; downloads LaTeX packages on demand
+# and caches them, so no TeX Live package management is needed). Fall back to
+# pdflatex from an installed TeX distribution.
+if command -v tectonic >/dev/null 2>&1; then
+	ENGINE=tectonic
+elif command -v pdflatex >/dev/null 2>&1; then
+	ENGINE=pdflatex
+else
+	echo "error: no PDF engine found (install tectonic, or a TeX distribution providing pdflatex)" >&2
+	exit 1
+fi
+
 # Syllabus files start with a term prefix: FA/SP/SU followed by two digits.
 is_syllabus() { [[ "$(basename "$1")" =~ ^(FA|SP|SU)[0-9]{2}[[:space:]] ]]; }
 
@@ -82,6 +94,8 @@ elif [ "${#FILES[@]}" -eq 0 ]; then
 	done < <(find "$ROOT" -name '*.md' -not -path "$OUTDIR/*" -not -path "$ROOT/.git/*" -print0 | sort -z)
 fi
 
+printf 'engine %s\n' "$ENGINE"
+
 JOBS=$(nproc 2>/dev/null || sysctl -n hw.logicalcpu 2>/dev/null || echo 4)
 RESDIR="$(mktemp -d)"
 trap 'rm -rf "$RESDIR"' EXIT
@@ -97,7 +111,7 @@ _build_one() {
 	log="$tmpdir/build.log"
 
 	# pandoc runs from ROOT so the template's relative logo path resolves.
-	if ! (cd "$ROOT" && pandoc "$abs" --template="$TEMPLATE" -o "$tmp") 2>"$log"; then
+	if ! (cd "$ROOT" && pandoc "$abs" --template="$TEMPLATE" --pdf-engine="$ENGINE" -o "$tmp") 2>"$log"; then
 		{ printf '  ! pandoc failed:\n'; sed 's/^/    /' "$log"; } >&2
 		rm -rf "$tmpdir"; echo "failed:$rel (pandoc)" > "$resfile"; return
 	fi
