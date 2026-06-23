@@ -45,15 +45,26 @@ for arg in "$@"; do
 	case "$arg" in
 		-f|--force) FORCE=1 ;;
 		*.md)
-			# Resolve the same way the build loop does, so a typo'd name
-			# fails here instead of as a confusing pandoc error.
-			case "$arg" in /*) f="$arg" ;; *) f="$ROOT/${arg#./}" ;; esac
-			[ -f "$f" ] || { echo "no such file: $arg" >&2; exit 2; }
-			FILES+=("$arg")
+			# Accept a path relative to the current directory or, as a
+			# convenience, relative to the repo root; store an absolute path so
+			# the build loop and the PDFs/ layout don't depend on the caller's
+			# working directory. Resolving here means a typo fails now instead
+			# of as a confusing pandoc error later.
+			if [ -f "$arg" ]; then
+				f="$(cd "$(dirname "$arg")" && pwd)/$(basename "$arg")"
+			elif [ -f "$ROOT/${arg#./}" ]; then
+				f="$ROOT/${arg#./}"
+			else
+				echo "no such file: $arg" >&2; exit 2
+			fi
+			FILES+=("$f")
 			;;
 		*)
-			if [ -d "$ROOT/$arg" ] || [ -d "$arg" ]; then
-				DIRS+=("$arg")
+			# Same current-directory-or-root resolution as files.
+			if [ -d "$arg" ]; then
+				DIRS+=("$(cd "$arg" && pwd)")
+			elif [ -d "$ROOT/$arg" ]; then
+				DIRS+=("$ROOT/$arg")
 			else
 				echo "unknown argument: $arg" >&2; exit 2
 			fi
@@ -61,21 +72,14 @@ for arg in "$@"; do
 	esac
 done
 
-for tool in pandoc gs qpdf; do
+for tool in pandoc gs qpdf tectonic; do
 	command -v "$tool" >/dev/null 2>&1 || { echo "error: $tool not found in PATH" >&2; exit 1; }
 done
 
-# Prefer tectonic (self-contained XeTeX; downloads LaTeX packages on demand
-# and caches them, so no TeX Live package management is needed). Fall back to
-# pdflatex from an installed TeX distribution.
-if command -v tectonic >/dev/null 2>&1; then
-	ENGINE=tectonic
-elif command -v pdflatex >/dev/null 2>&1; then
-	ENGINE=pdflatex
-else
-	echo "error: no PDF engine found (install tectonic, or a TeX distribution providing pdflatex)" >&2
-	exit 1
-fi
+# tectonic is the PDF engine: a self-contained XeTeX that downloads the LaTeX
+# packages the template needs on first run and caches them, so no TeX Live
+# package management is required.
+ENGINE=tectonic
 
 # Syllabus files start with a term prefix: FA/SP/SU followed by two digits.
 is_syllabus() { [[ "$(basename "$1")" =~ ^(FA|SP|SU)[0-9]{2}[[:space:]] ]]; }
@@ -83,10 +87,9 @@ is_syllabus() { [[ "$(basename "$1")" =~ ^(FA|SP|SU)[0-9]{2}[[:space:]] ]]; }
 # Collect the source list: explicit files, named directories, or all syllabi.
 if [ "${#DIRS[@]}" -gt 0 ]; then
 	for dir in "${DIRS[@]}"; do
-		case "$dir" in /*) absdir="$dir" ;; *) absdir="$ROOT/$dir" ;; esac
 		while IFS= read -r -d '' md; do
 			is_syllabus "$md" && FILES+=("$md")
-		done < <(find "$absdir" -maxdepth 1 -name '*.md' -print0 | sort -z)
+		done < <(find "$dir" -maxdepth 1 -name '*.md' -print0 | sort -z)
 	done
 elif [ "${#FILES[@]}" -eq 0 ]; then
 	while IFS= read -r -d '' md; do
@@ -106,7 +109,9 @@ _build_one() {
 	local tmpdir tmp log
 
 	printf 'build  %s\n' "$rel"
-	tmpdir="$(mktemp -d)"
+	# Under RESDIR so the EXIT trap cleans it up even if the build is interrupted
+	# mid-run; the result-collection glob skips it (it is a directory, not a file).
+	tmpdir="$(mktemp -d "$RESDIR/build.XXXXXX")"
 	tmp="$tmpdir/syllabus.pdf"
 	log="$tmpdir/build.log"
 

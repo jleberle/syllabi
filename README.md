@@ -24,14 +24,6 @@ brew install pandoc tectonic ghostscript qpdf
 The first build needs network access while tectonic populates its package
 cache; subsequent builds run offline.
 
-If tectonic is not installed, `build.sh` falls back to `pdflatex` from a TeX
-distribution — [BasicTeX](https://tug.org/mactex/morepackages.html) (minimal)
-or [MacTeX](https://tug.org/mactex/) (full) on macOS, or TeX Live. BasicTeX
-ships a minimal package set; install the extras the template's font stack
-needs with `sudo tlmgr install xstring fontaxes ly1`. (Note the engines
-differ: tectonic is XeTeX-based and pdflatex is not, so line breaks can shift
-slightly between the two.)
-
 ## Repository layout
 
 ```
@@ -51,7 +43,8 @@ syllabi/
 ├── osulogo.svg             SVG source for osulogo.pdf — official OSU brand mark
 │                           (Wikimedia Commons, original colors #FE5C00/#231F20)
 ├── build.sh                build script
-└── new.sh                  scaffold script for new semesters and syllabi
+├── new.sh                  scaffold script for new semesters and syllabi
+└── test.sh                 regression tests for build.sh and new.sh
 ```
 
 ## File naming convention
@@ -170,3 +163,19 @@ Then edit the generated file and compile:
 `syllabus.tex` is a pandoc template using the OSU color palette (orange
 headings, serif body). To change layout or branding, edit that file — changes
 apply to all syllabi on the next build.
+
+## Testing
+
+`test.sh` exercises `new.sh` and `build.sh` in a throwaway sandbox (a temp copy
+of the scripts and templates), so it never touches the real tree:
+
+```bash
+./test.sh              # full suite, including a build smoke test
+./test.sh --no-build   # skip the build tests (fast; no PDF toolchain needed)
+```
+
+It covers scaffolding and input validation, schedule generation (week ranges
+and counts), literal field substitution, calendar-date rejection, and the
+build pipeline (PDF output, incremental skips, per-file failure isolation,
+the term-prefix filter, and path handling). With `shellcheck` installed it
+also asserts the scripts stay lint-clean. Run it after editing either script.

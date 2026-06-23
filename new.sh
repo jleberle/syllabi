@@ -126,6 +126,28 @@ render_skeleton() {
 }
 
 # ---------------------------------------------------------------------------
+# Replace every literal occurrence of a placeholder with a value, writing the
+# result back into the named variable.
+#   $1  name of the variable holding the text (modified in place)
+#   $2  literal placeholder to find, e.g. "{{course}}"
+#   $3  literal replacement value
+# Uses prefix/suffix removal rather than "${var//pat/repl}" so the replacement
+# is treated as a literal string. bash >= 5.0 interprets '&' in a ${//}
+# replacement as the matched text, which would turn a value like "Smith & Co."
+# into the placeholder name; '\' is likewise special. This approach is immune
+# to both and is portable back to bash 3.2.
+# ---------------------------------------------------------------------------
+subst() {
+    local __var="$1" needle="$2" repl="$3"
+    local hay="${!__var}" out=""
+    while [[ "$hay" == *"$needle"* ]]; do
+        out+="${hay%%"$needle"*}$repl"
+        hay="${hay#*"$needle"}"
+    done
+    printf -v "$__var" '%s' "$out$hay"
+}
+
+# ---------------------------------------------------------------------------
 # Subcommands
 # ---------------------------------------------------------------------------
 cmd_semester() {
@@ -184,6 +206,12 @@ cmd_syllabus() {
         command -v python3 >/dev/null 2>&1 || {
             echo "error: python3 not found in PATH (needed for --start schedule generation)" >&2; exit 1
         }
+        # The regex only checks shape; reject impossible dates (e.g. 2027-13-40,
+        # 2027-02-30) here so the user gets a clean error instead of a Python
+        # traceback from generate_schedule later.
+        python3 -c 'import datetime,sys; datetime.date.fromisoformat(sys.argv[1])' "$start_date" 2>/dev/null || {
+            echo "error: --start is not a valid calendar date: $start_date" >&2; exit 1
+        }
     fi
 
     # Capture before read: a parse_season failure inside <<< "$(...)" would
@@ -197,11 +225,6 @@ cmd_syllabus() {
     local base="$term HIST $course"
     [ -n "$descriptor" ] && base="$base $descriptor"
     local dest="$folder/$base.md"
-
-    if [ ! -d "$folder" ]; then
-        mkdir "$folder"
-        echo "created folder: $year - $season_word"
-    fi
 
     if [ -f "$dest" ]; then
         echo "already exists: $dest" >&2; exit 1
@@ -259,17 +282,24 @@ cmd_syllabus() {
     local content
     content="$(render_skeleton "$skeleton" "$variant")"
 
-    content="${content//\{\{course\}\}/$course}"
-    content="${content//\{\{course_name\}\}/$course_name}"
-    content="${content//\{\{date_line\}\}/$date_line}"
-    content="${content//\{\{drop_full\}\}/$drop_full}"
-    content="${content//\{\{drop_partial\}\}/$drop_partial}"
-    content="${content//\{\{sixweek\}\}/$sixweek}"
-    content="${content//\{\{withdraw\}\}/$withdraw}"
-    content="${content//\{\{schedule\}\}/$schedule_body}"
+    subst content '{{course}}'       "$course"
+    subst content '{{course_name}}'  "$course_name"
+    subst content '{{date_line}}'    "$date_line"
+    subst content '{{drop_full}}'    "$drop_full"
+    subst content '{{drop_partial}}' "$drop_partial"
+    subst content '{{sixweek}}'      "$sixweek"
+    subst content '{{withdraw}}'     "$withdraw"
+    subst content '{{schedule}}'     "$schedule_body"
+
+    # Create the destination folder only now, right before writing, so a
+    # failure earlier (an invalid date, a missing snippet) never leaves an
+    # empty semester folder behind.
+    if [ ! -d "$folder" ]; then
+        mkdir -p "$folder"
+        echo "created folder: $year - $season_word"
+    fi
 
     printf '%s\n' "$content" > "$dest"
-
     echo "created: ${dest#"$ROOT"/}"
 }
 
