@@ -198,6 +198,11 @@ cmd_syllabus() {
 
     [[ "$year"   =~ ^[0-9]{4}$ ]] || { echo "error: year must be four digits (e.g. 2027)" >&2;           exit 1; }
     [[ "$course" =~ ^[0-9]{4}$ ]] || { echo "error: course must be a four-digit number (e.g. 1493)" >&2; exit 1; }
+    # The descriptor becomes part of the output filename, joined onto
+    # "$term HIST $course " with no separator validation. A '/' would be
+    # interpreted as a path separator by the final write, failing late with
+    # a raw ENOENT and leaving an already-created semester folder behind.
+    [[ "$descriptor" != */* ]] || { echo "error: descriptor cannot contain '/' (got: '$descriptor')" >&2; exit 1; }
 
     if [ -n "$start_date" ]; then
         [[ "$start_date" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] || {

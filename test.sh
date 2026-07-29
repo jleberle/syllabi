@@ -120,6 +120,11 @@ assert_has "2027 - Fall/FA27 HIST 9999.md" "[Course Title]" "unknown course -> p
 run "$N" syllabus Fall 2027 149
 assert_rc 1 "non-four-digit course rejected"
 
+run "$N" syllabus Fall 2027 1493 '../../escape'
+assert_rc 1 "descriptor containing '/' rejected"
+assert_in "cannot contain '/'" "$OUT" "clean error (no raw ENOENT) for '/' in descriptor"
+assert_absent "2027 - Fall/FA27 HIST 1493 ../../escape.md" "rejected descriptor writes no file"
+
 run "$N" syllabus Fall 2027
 assert_rc 1 "too few positional args rejected"
 
@@ -227,6 +232,37 @@ else
     # Path resolution relative to the current directory (not just repo root).
     ( cd "2027 - Fall" && "$B" "FA27 HIST 1493.md" >/dev/null 2>&1 )
     assert_eq 0 "$?" "build.sh accepts a path relative to the current directory"
+
+    # gs/qpdf failure isolation: shadow the real binary with a fake one that
+    # always fails, via a PATH-prepended directory, to prove build.sh reports
+    # and isolates a failure in either post-processing stage, not just pandoc.
+    FAKEBIN="$SB/fakebin"
+    mkdir -p "$FAKEBIN"
+    REALPATH="$PATH"
+
+    cp "2027 - Fall/FA27 HIST 1493.md" "2027 - Fall/FA27 HIST 5555 GSFail.md"
+    printf '#!/usr/bin/env bash\necho "fake gs: forced failure" >&2\nexit 1\n' > "$FAKEBIN/gs"
+    chmod +x "$FAKEBIN/gs"
+    export PATH="$FAKEBIN:$REALPATH"
+    run "$B" "2027 - Fall/FA27 HIST 5555 GSFail.md"
+    export PATH="$REALPATH"
+    assert_rc 1 "gs failure fails the build"
+    assert_in "gs failed" "$OUT" "gs failure reported"
+    assert_in "(gs)" "$OUT" "gs failure attributed to the right tool"
+    assert_absent "PDFs/2027 - Fall/FA27 HIST 5555 GSFail.pdf" "gs failure leaves no output PDF"
+    rm -f "$FAKEBIN/gs"
+
+    cp "2027 - Fall/FA27 HIST 1493.md" "2027 - Fall/FA27 HIST 6666 QPDFFail.md"
+    printf '#!/usr/bin/env bash\necho "fake qpdf: forced failure" >&2\nexit 1\n' > "$FAKEBIN/qpdf"
+    chmod +x "$FAKEBIN/qpdf"
+    export PATH="$FAKEBIN:$REALPATH"
+    run "$B" "2027 - Fall/FA27 HIST 6666 QPDFFail.md"
+    export PATH="$REALPATH"
+    assert_rc 1 "qpdf failure fails the build"
+    assert_in "qpdf failed" "$OUT" "qpdf failure reported"
+    assert_in "(qpdf)" "$OUT" "qpdf failure attributed to the right tool"
+    assert_absent "PDFs/2027 - Fall/FA27 HIST 6666 QPDFFail.pdf" "qpdf failure leaves no output PDF"
+    rm -f "$FAKEBIN/qpdf"
 
     run "$B" clean
     assert_rc 0 "clean removes the output directory"

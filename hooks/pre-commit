@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#
+# hooks/pre-commit — run the fast regression suite when the build tooling
+# itself changes, so a broken build.sh/new.sh never gets committed.
+#
+# Not run for ordinary syllabus content commits: test.sh has nothing to say
+# about a Markdown edit, so gating on the changed paths keeps this out of the
+# way for the common case.
+#
+# Enable once per clone with:
+#   git config core.hooksPath hooks
+#
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+changed="$(git diff --cached --name-only --diff-filter=ACMR)"
+grep -qE '^(build\.sh|new\.sh|test\.sh|syllabus\.tex|templates/)' <<< "$changed" || exit 0
+
+echo "pre-commit: build tooling changed, running ./test.sh --no-build" >&2
+"$ROOT/test.sh" --no-build

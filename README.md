@@ -24,6 +24,22 @@ brew install pandoc tectonic ghostscript qpdf
 The first build needs network access while tectonic populates its package
 cache; subsequent builds run offline.
 
+Last verified working with:
+
+| Tool       | Version |
+| :--------- | :------ |
+| bash       | 5.3.15  |
+| pandoc     | 3.10.1  |
+| tectonic   | 0.17.0  |
+| ghostscript| 10.07.1 |
+| qpdf       | 12.3.2  |
+
+None of these are hard-pinned — `brew install` always takes the latest. This
+table is a known-good baseline: if a future rebuild renders differently than
+expected, compare against these versions first. tectonic in particular ties
+its LaTeX package bundle to its own release, so a newer tectonic is the most
+likely source of any visual drift.
+
 ## Repository layout
 
 ```
@@ -179,3 +195,14 @@ and counts), literal field substitution, calendar-date rejection, and the
 build pipeline (PDF output, incremental skips, per-file failure isolation,
 the term-prefix filter, and path handling). With `shellcheck` installed it
 also asserts the scripts stay lint-clean. Run it after editing either script.
+
+### Pre-commit hook
+
+`hooks/pre-commit` runs `./test.sh --no-build` automatically, but only for
+commits that touch `build.sh`, `new.sh`, `test.sh`, `syllabus.tex`, or
+`templates/` — ordinary syllabus content commits are unaffected. Git doesn't
+track `.git/hooks/`, so enable it once per clone:
+
+```bash
+git config core.hooksPath hooks
+```
