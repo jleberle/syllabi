@@ -39,30 +39,32 @@ Exams will be proctored using OSU's approved virtual proctoring program, Proctor
 
 # Assignments
 
+The course runs on a Monday-Sunday schedule, with all assignments for the week due by 11:59PM on Sunday, excluding the final exam. For final exam week there is no assigned course materials but the exam is due by the end of the date on Wednesday of finals week. 
+
 ## Syllabus Quiz
 
 A 10 question quiz covering the major parts of the syllabus and class requirements. The quiz is pass/fail.
 
 ## Lecture Viewership
 
-Each week there will be lecture videos on the main page of the course. Each video watched in full will earn 10 points, each watched at least 50% but not completely will earn 5 points. Videos must be watched the week they are assigned to earn points. 20 videos will be scored for credit in the course.
+Each week there will be lecture videos on the main page of the course. Each video watched in full will earn full credit, each watched at least 50% but not completely will earn half credit. Videos must be watched the week they are assigned to earn points. 20 videos will be scored for credit in the course.
 
 ## Inquizitives
 
-These are quizzes attached to each chapter of the *Give Me Liberty* textbook. They are quizzes where your grade is based on the number of points earned, if you get a question wrong it does not necessarily mean points will be lost. Once you hit the required point threshold you can keep doing the quiz for additional practice if you chose to. The lowest three scores will be dropped at the end of the semester.
+These are quizzes attached to each chapter of the *Give Me Liberty* textbook. They are quizzes where your grade is based on the number of points earned, if you get a question wrong it does not necessarily mean points will be lost. Once you hit the required point threshold you can keep doing the quiz for additional practice if you chose to. The lowest four scores will be dropped at the end of the semester.
 
 ## Exams
 
-There will be four exams throughout the semester. The exams will be comprised of two parts: short answer and essay. For the short answer you will be provided a list of terms and you will pick three of those terms that relate together and write a paragraph identifying each term and why they relate. For the essay you will be provided two prompts and you will write a detailed, thesis-based essay responding to the prompt with evidence from the course. Exams will be done through ProctorU, consult the required materials above for additional information.
+There will be four exams throughout the semester. The exams will be comprised of two parts: short answer and essay. For the short answer you will be provided a list of terms and you will pick three of those terms that relate together and write a paragraph identifying each term and why they relate. For the essay you will be provided two prompts and you will write a detailed, thesis-based essay responding to the prompt with evidence from the course. Exams will be done through ProctorU, consult the required materials above for additional information. Lowest exam score will be dropped at the end of the semester.
 
 # Grades
 
 | Assignment   | Number Due | Total Points |
 | :--------:   | :--------: | :----------: |
 |Syllabus Quiz |    1       |     50       |
-| Lectures     |    20      |     200      | 
-| Inquizitives |    25      |     250      |
-| Exams        |    4       |     500      | 
+| Lectures     |    30      |     150      | 
+| Inquizitives |    20      |     200      |
+| Exams        |    4       |     600      | 
 
 ## Overall Grades
 
@@ -76,7 +78,8 @@ There will be four exams throughout the semester. The exams will be comprised of
 
 ## Grading Policies
 
-- All assignment submissions are final once the due date has passed.
+- All assignment submissions are final once the due date has passed. Assignments
+  may not be revised or resubmitted for additional points.
 - Extensions are available for extenuating circumstances (unforeseen illness, etc.) and you need to alert me as soon as possible and provide relevant dated documentation of the issue in order to be eligible for an extension.
 - Each student is afforded one documentation-free extension for a technical issue during the semester. Subsequent requests due to technical issues will need verifiable documentation of the circumstances to be eligible for an extension.
 - Due to federal privacy laws, grades cannot be discussed over email or via Canvas assignment comments. Students wishing to discuss their grade in the course must schedule an office hours appointment with me.
@@ -114,34 +117,74 @@ Course specific policies:
 
 # Course Schedule
 
-## Week 1 (August 17-August 23)
+The schedule breaks down to two chapters in the textbook per week and one chapter on exam weeks. To account for the reduced time during finals week, the week prior has three chapters and the material will be available over Thanksgiving if you want to work ahead.
 
-## Week 2 (August 24-August 30)
+## Week 1 (August 17-August 23): An Old World
 
-## Week 3 (August 31-September 6)
+- Chapters Covered: 1-2
+- Syllabus Quiz Due
 
-## Week 4 (September 7-September 13)
+## Week 2 (August 24-August 30): British America and Slavery
 
-## Week 5 (September 14-September 20)
+- Chapters Covered: 3-4
 
-## Week 6 (September 21-September 27)
+## Week 3 (August 31-September 6): The American Revolution
 
-## Week 7 (September 28-October 4)
+- Chapters Covered: 5-6
 
-## Week 8 (October 5-October 11)
+## Week 4 (September 7-September 13): The Constitution
 
-## Week 9 (October 12-October 18)
+- Chapter Covered: 7
+- Exam 1 Due
 
-## Week 10 (October 19-October 25)
+## Week 5 (September 14-September 20): The New Republic And Market Revolution
 
-## Week 11 (October 26-November 1)
+- Chapters Covered: 8-9
 
-## Week 12 (November 2-November 8)
+## Week 6 (September 21-September 27): Andrew Jackson and Slavery
 
-## Week 13 (November 9-November 15)
+- Chapters Covered: 10-11
 
-## Week 14 (November 16-November 22)
+## Week 7 (September 28-October 4): The Road to War
 
-## Week 15 (November 23-November 29)
+- Chapters Covered: 12-13
 
-## Week 16 (November 30-December 6)
+## Week 8 (October 5-October 11): The Civil War
+
+- Chapter Covered: 14
+- Exam 2 Due
+
+## Week 9 (October 12-October 18): Reconstruction and the Gilded Age
+
+- Chapters Covered: 15-16
+
+## Week 10 (October 19-October 25): Social and Political Regulations
+
+- Chapters Covered 17-18
+
+## Week 11 (October 26-November 1): The Great War and Roaring Twenties
+
+- Chapters Covered: 19-20
+
+## Week 12 (November 2-November 8): The Great Depression
+
+- Chapter Covered: 21
+- Exam 3 Due
+
+## Week 13 (November 9-November 15): World War II and Early Cold War
+
+- Chapters Covered: 22-23
+
+## Week 14 (November 16-November 22): Civil Rights
+
+- Chapters Covered: 24-25
+
+## Week 15 (November 23-November 29): Thanksgiving
+
+## Week 16 (November 30-December 6): Conservatism
+
+- Chapters Covered: 26-28
+
+## Week 17 (December 7-December 11): Final Exam
+
+- Exam 4 Due (WEDNESDAY, December 9th)
