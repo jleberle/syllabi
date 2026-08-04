@@ -250,8 +250,8 @@ cmd_syllabus() {
     local date_line="$season_word $year"
     [ -n "$descriptor" ] && date_line="$season_word $year - $descriptor"
 
-    # Weeks: 8 for Summer, 16 for Fall/Spring
-    local weeks=16
+    # Weeks: 8 for Summer, 17 for Fall/Spring (includes finals week)
+    local weeks=17
     [ "$season_word" = "Summer" ] && weeks=8
 
     # Online if descriptor contains "online" (case-insensitive)

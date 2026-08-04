@@ -137,7 +137,7 @@ section "new.sh — schedule generation (2030-08-26 is a Monday)"
 run "$N" syllabus Fall 2030 1103 --start 2030-08-26
 SCHED_IP="2030 - Fall/FA30 HIST 1103.md"
 assert_has "$SCHED_IP" "## Week 1 (August 26-August 30)" "in-person week spans Mon-Fri"
-assert_eq 16 "$(grep -c '^## Week' "$SCHED_IP")" "Fall = 16 weeks"
+assert_eq 17 "$(grep -c '^## Week' "$SCHED_IP")" "Fall = 17 weeks"
 
 run "$N" syllabus Fall 2030 1103 Online --start 2030-08-26
 SCHED_ON="2030 - Fall/FA30 HIST 1103 Online.md"
@@ -156,7 +156,7 @@ assert_rc 0 "syllabus without --start scaffolds"
 NODATE="2030 - Spring/SP30 HIST 1493.md"
 assert_has   "$NODATE" "## Week 1"  "no --start -> bare week heading"
 assert_hasnt "$NODATE" "## Week 1 (" "no --start -> no date range"
-assert_eq 16 "$(grep -c '^## Week' "$NODATE")" "no --start still produces 16 Fall weeks"
+assert_eq 17 "$(grep -c '^## Week' "$NODATE")" "no --start still produces 17 Fall weeks"
 
 # ===========================================================================
 section "new.sh — literal substitution (the & / backslash corruption fix)"
