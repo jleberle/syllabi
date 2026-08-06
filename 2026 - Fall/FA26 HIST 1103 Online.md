@@ -35,7 +35,9 @@ The course utilizes Eric Foner's *Give Me Liberty* which is delivered as an eboo
 
 ## Exam Proctoring
 
-Exams will be proctored using OSU's approved virtual proctoring program, ProctorU/Meazure Learning. Exams will be proctored with the Record+ setup which costs roughly $7 per exam. Information on setting up the program is available on the modules tab of Canvas and you should verify your system works with the proctoring service prior to the semester or during the first week. Students who do not wish to utilize virtual proctoring must email me ahead of time to discuss alternative arrangements. Exams not taken with virtual proctoring will either need to be completed by hand in my office or at the testing center (exams done at the testing center will cost more). Alternative arrangements **must be approved by me ahead of time**.
+Exams will be proctored using OSU's approved virtual proctoring program, ProctorU/Meazure Learning. Exams will be proctored with the Record+ setup which costs roughly $7 per exam. Information on setting up the program is available on the modules tab of Canvas and you should verify your system works with the proctoring service prior to the semester or during the first week. Students who do not wish to utilize virtual proctoring must email me ahead of time to discuss alternative arrangements. Exams not taken with virtual proctoring will either need to be completed by hand in my office or at the testing center (exams done at the testing center will have an additional cost unless they are accessibility exams). Alternative arrangements **must be approved by me ahead of time**.
+
+**Note**: Due to a long standing bug in ProctorU, make-ups are not available through the virtual proctoring system. All makeups will need to happen in-person in my office or through the testing center (an additional charge will be required if done at the testing center)
 
 # Assignments
 
