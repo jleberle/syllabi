@@ -57,7 +57,7 @@ These are quizzes attached to each chapter of the *Give Me Liberty* textbook. Th
 
 ## Exams
 
-There will be four exams throughout the semester. The exams will be comprised of two parts: short answer and essay. For the short answer you will be provided a list of terms and you will pick three of those terms that relate together and write a paragraph identifying each term and why they relate. For the essay you will be provided two prompts and you will write a detailed, thesis-based essay responding to the prompt with evidence from the course. Exams will be done through ProctorU, consult the required materials above for additional information. Lowest exam score will be dropped at the end of the semester.
+There will be four exams throughout the semester, each of which is closed note/book. The exams will be comprised of two parts: short answer and essay. For the short answer you will be provided a list of terms and you will pick three of those terms that relate together and write a paragraph identifying each term and why they relate. For the essay you will be provided two prompts and you will write a detailed, thesis-based essay responding to the prompt with evidence from the course. Exams will be done through ProctorU, consult the required materials above for additional information. Lowest exam score will be dropped at the end of the semester.
 
 # Grades
 
