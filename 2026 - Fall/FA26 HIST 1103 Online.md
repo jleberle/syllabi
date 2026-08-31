@@ -7,7 +7,7 @@
 Dr. Jared Eberle\
 Email: <jared.eberle@okstate.edu>\
 Office: 154 Social Sciences and Humanities
-Student Hours: 1PM-2PM MWF or appointments via Zoom gladly available
+Student Hours: 12PM-1PM MWF or appointments via Zoom gladly available
 
 **Mandatory Reporting Notice**: All communications are kept confidential except in two circumstances. As a university employee I am required by law to report statements of self harm and sexual violence. Under Title IX I must inform the University of all reports of sexual violence regardless of circumstances or requests to not report. The University has confidential reporters who can assist you if you do not want the information reported to the University. Students who wish to take this option should contact the OSU victim advocates at 405-564-2129 or email advocate@okstate.edu.
 
