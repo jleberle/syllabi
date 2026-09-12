@@ -122,23 +122,31 @@ Three scoping decisions in it are load-bearing; read them before widening it:
   fixed — including `SP26 HIST 3703`'s "As a university employees I am" and its
   missing FERPA paragraph. Both are out of scope by default now.
 
+### The SAS follow-up line
+
+`templates/common/accessibility.md` ends with a bold sentence, set apart from
+the ADA paragraph, telling students what to do with an accommodation. Canonical
+wording as of 2026-09-12:
+
+> **Students wishing to use SAS accommodations must see me in student hours or
+> through a scheduled appointment to discuss their accommodations**
+
+"Student hours" is deliberate and matches the contact block in the syllabi
+themselves; earlier copies said "office hours". `templates/online/accessibility.md`
+keeps its own wording ("need to schedule a meeting with me as soon as possible")
+and was not changed.
+
+Five wordings of this sentence exist across the repo's history. All the older
+ones are in archival terms and stay as they are.
+
 ### Open, as of 2026-09-12
 
-One live-term question, in `FA26 HIST 1493`. The SAS follow-up sentence has five
-wordings across the repo's history, and the in-person courses do not use the
-in-person template's version:
-
-| Sentence | Used by |
-|---|---|
-| "Students wishing to use SAS accommodations **must see me in office hours to discuss their accommodations**" | 6 syllabi, incl. `FA26 HIST 1493` |
-| "Students wishing to use SAS accommodations **need to schedule a meeting with me as soon as possible**" | 5 syllabi — this is `templates/online/accessibility.md` |
-| "**If you have an SAS accommodation** you need to see me during office hours…" | 3 syllabi, all HIST 3703 — this is `templates/common/accessibility.md` |
-| two further one-off wordings | `FA21 HIST 1493 (Small)`, `FA25 HIST 1493` |
-
-`FA26 HIST 1103 Online` matches its template exactly. The open question is only
-whether `templates/common/accessibility.md` should adopt the wording the
-in-person syllabi actually use ("must see me in office hours…"), which would
-make the template match practice instead of the reverse.
+`FA26 HIST 1493` still reads "must see me in office hours to discuss their
+accommodations" and so differs from the canonical text above. **That term is in
+session and the syllabus has already been distributed**, so it is not edited
+here: changing it now would make a rebuilt PDF disagree with what students were
+given. Decide deliberately whether to amend it mid-term or let it stand until
+SP27 scaffolds inherit the new wording.
 
 ## Publishing to the website
 
