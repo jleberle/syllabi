@@ -96,10 +96,13 @@ because a deliberate one-off policy change for a single course is legitimate.
 
 Three scoping decisions in it are load-bearing; read them before widening it:
 
-1. **Past terms are out of scope by default.** A 2018 syllabus naming the
-   office "Student Disability Services, 315 Student Union" is not drift — that
-   was its name. Old syllabi are the record of what students were actually
-   handed, and rewriting them falsifies it. `--all-years` opts in.
+1. **Past terms are out of scope by default.** A syllabus becomes archival the
+   moment its semester ends — it is then the record of what those students were
+   handed, not a document anyone can still act on. A 2018 syllabus naming the
+   office "Student Disability Services, 315 Student Union" is not drift; that
+   was its name. Scope therefore follows the TERM in session, not the calendar
+   year: in September, that spring's syllabi are already history. `--since FA26`
+   or `--all-years` opts in.
 2. **Only `INVARIANT` policies are checked by default** — the blocks quoted
    from the university. `contact.md` carries office hours and TA details and
    `drops.md` carries per-semester dates; both are *supposed* to differ per
@@ -111,15 +114,31 @@ Three scoping decisions in it are load-bearing; read them before widening it:
    "employees", which is precisely what makes `SP26 HIST 3703` report as
    ambiguous rather than being silently filed under one form.
 
+### Decided 2026-09-12
+
+- **Casing is lowercase**: "As a university employee I am…". The template was
+  already correct and stays canonical; the capitalized copies are drift.
+- **Archival means archival.** Typos in a syllabus whose term has ended are not
+  fixed — including `SP26 HIST 3703`'s "As a university employees I am" and its
+  missing FERPA paragraph. Both are out of scope by default now.
+
 ### Open, as of 2026-09-12
 
-- `templates/common/accessibility.md` ends with a bold SAS follow-up line that
-  appears in **no** current syllabus. Either the line should be added to the
-  syllabi or dropped from the template — the template is the odd one out.
-- `SP26 HIST 3703` is missing the FERPA paragraph from `grade-disputes.md`.
-- Whether canonical casing is "university employee" (templates) or "University
-  employee" (most syllabi) is undecided; the checker currently treats the
-  template as canonical.
+One live-term question, in `FA26 HIST 1493`. The SAS follow-up sentence has five
+wordings across the repo's history, and the in-person courses do not use the
+in-person template's version:
+
+| Sentence | Used by |
+|---|---|
+| "Students wishing to use SAS accommodations **must see me in office hours to discuss their accommodations**" | 6 syllabi, incl. `FA26 HIST 1493` |
+| "Students wishing to use SAS accommodations **need to schedule a meeting with me as soon as possible**" | 5 syllabi — this is `templates/online/accessibility.md` |
+| "**If you have an SAS accommodation** you need to see me during office hours…" | 3 syllabi, all HIST 3703 — this is `templates/common/accessibility.md` |
+| two further one-off wordings | `FA21 HIST 1493 (Small)`, `FA25 HIST 1493` |
+
+`FA26 HIST 1103 Online` matches its template exactly. The open question is only
+whether `templates/common/accessibility.md` should adopt the wording the
+in-person syllabi actually use ("must see me in office hours…"), which would
+make the template match practice instead of the reverse.
 
 ## Publishing to the website
 

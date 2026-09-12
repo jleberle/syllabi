@@ -36,6 +36,7 @@ Exit status is 0 unless --strict is passed, in which case any drift exits 1.
 from __future__ import annotations
 
 import argparse
+import datetime
 import difflib
 import re
 import sys
@@ -74,16 +75,72 @@ INVARIANT = {
 DETECT_RATIO = 0.75
 
 
-def term_year(name: str) -> int:
-    return 2000 + int(SYLLABUS_RE.match(name).group(2))
+# Season ordering within a year, so terms compare as (year, season).
+TERM_ORDER = {"SP": 0, "SU": 1, "FA": 2}
+
+
+def term_key(name: str) -> tuple[int, int]:
+    m = SYLLABUS_RE.match(name)
+    return (2000 + int(m.group(2)), TERM_ORDER[m.group(1)])
+
+
+def current_term() -> tuple[int, int]:
+    """The term in session now.
+
+    A syllabus becomes archival the moment its semester ends -- it is then the
+    record of what those students were handed, not a document anyone can still
+    act on. So scope follows the TERM, not the calendar year: in September,
+    that spring's syllabi are already history even though the year is not over.
+    Month boundaries are approximate on purpose; being a week off at a term
+    boundary only ever includes one extra term in an advisory report.
+    """
+    today = datetime.date.today()
+    season = 0 if today.month <= 5 else (1 if today.month <= 7 else 2)
+    return (today.year, season)
+
+
+def parse_since(value: str) -> tuple[int, int]:
+    """Accept a term code (FA26, SP25) or a bare year (2024 -> from Spring)."""
+    v = value.strip().upper()
+    if len(v) == 4 and v[:2] in TERM_ORDER and v[2:].isdigit():
+        return (2000 + int(v[2:]), TERM_ORDER[v[:2]])
+    if v.isdigit():
+        return (int(v), 0)
+    raise argparse.ArgumentTypeError(
+        f"expected a term like FA26 or a year like 2026, got {value!r}")
+
+
+def _wrap(prefix: str, text: str, width: int = 96) -> None:
+    body = " ".join(text.split())
+    pad = " " * (7 + len(prefix))
+    first = True
+    while body:
+        take = width if len(body) > width else len(body)
+        if take < len(body):
+            cut = body.rfind(" ", 0, take)
+            take = cut if cut > 0 else take
+        print(f"       {prefix}{body[:take]}" if first else f"{pad}{body[:take]}")
+        body = body[take:].lstrip()
+        first = False
 
 
 def show_diff(canonical: str, found: str, label: str, rel) -> None:
-    for line in difflib.unified_diff(canonical.split(), found.split(),
-                                     lineterm="", n=2,
-                                     fromfile=label, tofile=str(rel)):
-        if line.startswith(("+", "-")) and not line.startswith(("+++", "---")):
-            print(f"       {line}")
+    """Report which PARAGRAPH differs, quoting both sides.
+
+    A word-level diff of a policy paragraph is unreadable -- a reworded
+    sentence comes out as a shredded interleaving of single words. What the
+    reader needs is which paragraph moved and what each side actually says.
+    """
+    cp = [b for b in canonical.split("\n\n") if b.strip()]
+    fp = [b for b in found.split("\n\n") if b.strip()]
+    sm = difflib.SequenceMatcher(None, [norm(x) for x in cp], [norm(x) for x in fp])
+    for tag, i1, i2, j1, j2 in sm.get_opcodes():
+        if tag == "equal":
+            continue
+        for c in cp[i1:i2]:
+            _wrap(f"{label}: ", c)
+        for f in fp[j1:j2]:
+            _wrap("this syllabus: ", f)
 
 
 def norm(text: str) -> str:
@@ -112,7 +169,12 @@ def load_groups(only: str | None) -> dict[str, dict[str, str]]:
     by_name: dict[str, dict[str, str]] = {}
     for d in SNIPPET_DIRS:
         for f in sorted((TEMPLATES / d).glob("*.md")):
-            by_name.setdefault(f.stem, {})[f"{d}/{f.name}"] = norm(f.read_text())  # noqa: E501
+            # Stored RAW, not normalized: norm() collapses the blank line
+            # between paragraphs, which would report every multi-paragraph
+            # policy as one paragraph (so the sliding window never widened)
+            # and would make --fix write back a paragraph-collapsed block.
+            # Normalization happens at comparison time instead.
+            by_name.setdefault(f.stem, {})[f"{d}/{f.name}"] = f.read_text().strip()
 
     groups: dict[str, dict[str, str]] = {}
     claimed: set[str] = set()
@@ -143,9 +205,9 @@ def discriminative_spans(variant: str, others: list[str]) -> list[str]:
     vs "University employees I (and the TAs) are" can, exactly.
     """
     spans: list[str] = []
-    v = variant.split()
+    v = norm(variant).split()
     for other in others:
-        sm = difflib.SequenceMatcher(None, v, other.split())
+        sm = difflib.SequenceMatcher(None, v, norm(other).split())
         for tag, i1, i2, _, _ in sm.get_opcodes():
             if tag in ("replace", "delete") and i2 > i1:
                 spans.append(" ".join(v[i1:i2]).lower())
@@ -182,8 +244,9 @@ def main() -> int:
     ap.add_argument("--group", metavar="NAME", help="check only this policy group")
     ap.add_argument("--strict", action="store_true",
                     help="exit 1 if any drift remains (for CI)")
-    ap.add_argument("--since", type=int, metavar="YEAR", default=None,
-                    help="oldest term year to check (default: the current year)")
+    ap.add_argument("--since", type=parse_since, metavar="TERM", default=None,
+                    help="oldest term to check, e.g. FA26 or 2026 "
+                         "(default: the term in session)")
     ap.add_argument("--all-years", action="store_true",
                     help="check every term, including past ones — see note below")
     ap.add_argument("--all-policies", action="store_true",
@@ -198,14 +261,14 @@ def main() -> int:
     # handed. A 2018 syllabus naming the office "Student Disability Services,
     # 315 Student Union" is not drift -- that was its name. Rewriting it would
     # falsify the record, so history is out of scope unless asked for.
-    import datetime
-    since = args.since if args.since is not None else datetime.date.today().year
+    since = args.since if args.since is not None else current_term()
     if args.all_years:
-        since = 0
+        since = (0, 0)
 
     files = sorted(p for p in ROOT.rglob("*.md")
-                   if "templates" not in p.parts and SYLLABUS_RE.match(p.name)
-                   and term_year(p.name) >= since)
+                   if "templates" not in p.parts and "web" not in p.parts
+                   and SYLLABUS_RE.match(p.name)
+                   and term_key(p.name) >= since)
 
     drift = ambiguous = fixed = checked = 0
 
@@ -226,55 +289,81 @@ def main() -> int:
             windows = []
             for size in range(1, span + 1):
                 for i in range(len(paras) - size + 1):
-                    windows.append("\n\n".join(b for _, b in paras[i:i + size]))
+                    windows.append((i, size,
+                                    "\n\n".join(b for _, b in paras[i:i + size])))
 
-            for block in windows:
+            # Detect by similarity rather than by a fixed opening phrase:
+            # SU26 HIST 1103 drops a word from the first sentence, so an
+            # anchored match misses it silently -- the exact failure this
+            # check exists to catch.
+            #
+            # Score EVERY window and keep the best. Taking the first window
+            # over the detection threshold instead reports a two-paragraph
+            # policy whose second paragraph was swapped as if that paragraph
+            # had been deleted: the one-paragraph window matches well enough to
+            # win on its own, and the replacement text never appears in the
+            # diff at all.
+            candidates = []
+            exact = False
+            for start, size, block in windows:
                 n = norm(block)
-                if n in variants.values():
-                    break                    # matches an accepted form exactly
-
-                # Detect by similarity rather than by a fixed opening phrase:
-                # SU26 HIST 1103 drops a word from the first sentence, so an
-                # anchored match misses it silently -- the exact failure this
-                # check exists to catch.
-                scored = sorted(
-                    ((difflib.SequenceMatcher(None, n, c).ratio(), label, c)
-                     for label, c in variants.items()),
-                    reverse=True,
-                )
-                if not scored or scored[0][0] < DETECT_RATIO:
-                    continue
-                checked += 1
-                best = scored[0]
-
-                chosen = identify(n, variants)
-                if chosen is None:
-                    drift += 1
-                    ambiguous += 1
-                    print(f"DRIFT  {rel}")
-                    print(f"       policy: {name}")
-                    print(f"       AMBIGUOUS — matches no variant's distinguishing "
-                          f"clause; closest is {best[1]} ({best[0]:.3f}).")
-                    print("       Decide which form this course should use, then edit by hand.")
-                    show_diff(best[2], n, best[1], rel)
+                if n in {norm(v) for v in variants.values()}:
+                    exact = True             # matches an accepted form exactly
                     break
+                for vlabel, canon in variants.items():
+                    r = difflib.SequenceMatcher(None, n, norm(canon)).ratio()
+                    if r >= DETECT_RATIO:
+                        candidates.append((r, vlabel, canon, n, block, start, size))
 
-                canonical = variants[chosen]
-                if args.fix:
-                    text = text.replace(block, canonical, 1)
-                    fixed += 1
-                    print(f"FIXED  {rel}  ({name} -> {chosen})")
-                else:
-                    drift += 1
-                    print(f"DRIFT  {rel}")
-                    print(f"       policy: {name}  →  {chosen}")
-                    show_diff(canonical, n, chosen, rel)
-                break
+            if exact or not candidates:
+                continue
+
+            checked += 1
+            ratio, vlabel, canon, found, raw, start, size = max(candidates,
+                                                               key=lambda t: t[0])
+
+            # A shorter window can outscore the full-width one when a trailing
+            # paragraph was REWORDED rather than dropped -- the reworded text
+            # drags the wide window's ratio below the narrow one's. Diffing the
+            # narrow match then shows the canonical's trailing paragraph as a
+            # clean deletion and never shows the replacement, which reads as
+            # "this line is missing" when it is actually "this line differs".
+            # Widen the displayed text to the canonical's paragraph count.
+            canon_paras = len([b for b in canon.split("\n\n") if b.strip()])
+            if canon_paras > size:
+                shown = "\n\n".join(b for _, b in paras[start:start + canon_paras])
+            else:
+                shown = raw
+
+            chosen = identify(found, variants)
+            if chosen is None:
+                drift += 1
+                ambiguous += 1
+                print(f"DRIFT  {rel}")
+                print(f"       policy: {name}")
+                print(f"       AMBIGUOUS — matches no variant's distinguishing "
+                      f"clause; closest is {vlabel} ({ratio:.3f}).")
+                print("       Decide which form this course should use, then edit by hand.")
+                show_diff(canon, shown, vlabel, rel)
+                continue
+
+            canonical = variants[chosen]
+            if args.fix:
+                text = text.replace(raw, canonical, 1)
+                fixed += 1
+                print(f"FIXED  {rel}  ({name} -> {chosen})")
+            else:
+                drift += 1
+                print(f"DRIFT  {rel}")
+                print(f"       policy: {name}  →  {chosen}")
+                show_diff(canonical, shown, chosen, rel)
 
         if args.fix and text != original:
             path.write_text(text)
 
-    scope = "all terms" if args.all_years else f"{since} and later"
+    since_label = {v: k for k, v in TERM_ORDER.items()}.get(since[1], "")
+    scope = ("all terms" if args.all_years
+             else f"{since_label}{since[0] % 100} and later")
     print(f"\n{len(files)} syllabi ({scope}), {len(groups)} policy groups, "
           f"{checked} blocks checked")
     if args.fix:
