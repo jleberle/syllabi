@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: Script regression suite
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update -o Acquire::Retries=3
+          sudo env DEBIAN_FRONTEND=noninteractive apt-get install -y shellcheck
+
+      # --no-build skips the PDF smoke tests. Installing pandoc + tectonic +
+      # ghostscript + qpdf in CI would roughly quadruple the run to re-verify a
+      # toolchain none of our commits change; hooks/pre-commit makes the same
+      # tradeoff locally. What this does cover is every scaffolding, schedule,
+      # validation and path-handling test, plus shellcheck.
+      #
+      # Ubuntu ships bash 5, so the `wait -n` floor that forces `brew install
+      # bash` on macOS is not an issue here.
+      - name: Regression suite
+        run: ./test.sh --no-build
+
+      # Informational only — never fails the build. check-boilerplate.py is
+      # advisory by design (a deliberate one-off policy change for a single
+      # course is legitimate), so this surfaces drift in the log without
+      # turning CI permanently red over a judgment call. See CLAUDE.md.
+      - name: Policy boilerplate drift (advisory)
+        run: ./check-boilerplate.py || true
+
+      - name: Python syntax
+        run: python3 -m compileall -q check-boilerplate.py publish-web.py
