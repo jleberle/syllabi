@@ -227,8 +227,19 @@ changes the *next* scaffold, never an existing syllabus.
   know about has one more class week than rows, so `schedule.py` warns about a
   blank week. That warning means "add the break to the calendar", not "write
   the week by hand".
-- Only `2027-spring.conf` is committed. Fall 2027 onward is waiting on the
-  registrar's dates.
+- Committed: Spring 2027, Summer 2027, Fall 2027, Spring 2028, Summer 2028.
+  The best source is the University Catalog's academic calendar
+  (`catalog.okstate.edu/academic-calendar/`), which tables a whole academic
+  year at once, summer included; the registrar's per-term pages lag it. **The
+  2027-28 table is marked "(Pending)"** (read 2026-10-27), so Fall 2027,
+  Spring 2028 and Summer 2028 may still move: recheck before the term and edit
+  the file. Each file's header records the source and the date read.
+- The catalog gives no six-week grade date for summer, so summer syllabi keep a
+  `[six-week grades date]` placeholder in the Drops list. Delete that line by
+  hand; an 8-week term has no such deadline.
+- Summer holidays (Juneteenth, July 4th observed) are `no_class` entries, not
+  rules, because they move around the weekday. They show on in-person summer
+  schedules but not online ones, which do not list single holidays.
 
 ## Publishing to the website
 
