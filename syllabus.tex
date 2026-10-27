@@ -11,14 +11,17 @@
 \usepackage{microtype}                   % better spacing & justification
 
 %% --- Color (OSU palette) ---
-\usepackage[dvipsnames]{xcolor}
+\usepackage[dvipsnames,table]{xcolor}
 \definecolor{osuorange}{HTML}{FF7300}
 \definecolor{osublack}{HTML}{1B1B1B}
+\rowcolors{2}{osuorange!8}{white}   % light stripe on every other table row
 
 \usepackage{array}
 \usepackage{calc}      % \real{} column-width arithmetic emitted by pandoc
 \usepackage{longtable}
 \usepackage{booktabs}
+\usepackage{needspace}   % lets a syllabus keep a heading and its table together
+\renewcommand{\arraystretch}{1.0}   % more room between table rows
 \usepackage{graphicx}
 \usepackage[export]{adjustbox}   % max width= key for \includegraphics
 % Pandoc marks uncaptioned tables with \def\LTcaptype{none}; longtable then
