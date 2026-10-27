@@ -24,9 +24,11 @@
 #       overrides the guess.
 #
 #       Dates come from the term calendar when calendar/<year>-<season>.conf
-#       exists: start of class, number of weeks, break weeks, holidays, and all
-#       four deadlines. Any flag below overrides it; without a calendar, dates
-#       the flags don't supply are left as placeholders.
+#       exists: start of class, number of weeks, extra breaks, and all four
+#       deadlines. Any flag below overrides it; without a calendar, deadlines
+#       the flags don't supply are left as placeholders. The standard breaks
+#       (Spring: MLK Day, the week of St. Patrick's Day; Fall: Labor Day, the
+#       week of Thanksgiving) need no calendar, only a start date.
 #
 #       --type          survey | upper | online.
 #       --start         First day of class (YYYY-MM-DD). Weeks span Monday-Friday,
@@ -304,7 +306,7 @@ cmd_syllabus() {
 
     # Build schedule section: a table of weekly rows for survey courses, week
     # headings for the others.
-    local sched_args=(--weeks "$weeks") schedule_body
+    local sched_args=(--weeks "$weeks" --season "$season_word") schedule_body
     [ -z "$start_date" ] || sched_args+=(--start "$start_date")
     if [ "$type" = "survey" ]; then
         local missing="" part

@@ -283,6 +283,62 @@ assert_rc 0 "no calendar for the term is not an error"
 assert_in "no calendar/2034-fall.conf" "$OUT" "missing calendar is reported"
 assert_has "2034 - Fall/FA34 HIST 3703.md" "[100% refund date]" "no calendar -> placeholders"
 
+section "new.sh — standard breaks (no calendar needed, only a start date)"
+# 2033: MLK = Jan 17, Mar 17 is a Thursday, Labor Day = Sep 5, Thanksgiving = Nov 24
+run "$N" syllabus Spring 2033 3703 --start 2033-01-10
+STD="2033 - Spring/SP33 HIST 3703.md"
+assert_has "$STD" "- Mon: No class (MLK Day)"                         "Spring: MLK Day (third Monday of January)"
+assert_has "$STD" "## Week 10 (March 14-March 18): Spring Break"      "Spring: break is the week of St. Patrick's Day"
+run "$N" syllabus Fall 2033 3703 --start 2033-08-22
+STD="2033 - Fall/FA33 HIST 3703.md"
+assert_has "$STD" "- Mon: No class (Labor Day)"                       "Fall: Labor Day (first Monday of September)"
+assert_has "$STD" "## Week 14 (November 21-November 25): Thanksgiving Break" "Fall: Thanksgiving week"
+assert_hasnt "$STD" "MLK Day"                                          "Fall has no MLK Day"
+run "$N" syllabus Summer 2033 3703 --start 2033-06-06
+assert_hasnt "2033 - Summer/SU33 HIST 3703.md" "No class"             "Summer has no standard breaks"
+run "$N" syllabus Fall 2033 1493 --start 2033-08-22
+assert_has "2033 - Fall/FA33 HIST 1493.md" "| 3 | Sep 5–9 | Mon:&nbsp;No class (Labor Day); " "survey table gets the standard break notes"
+assert_has "2033 - Fall/FA33 HIST 1493.md" "| 14 | Nov 21–25 | No class | Thanksgiving Break |  |" "survey table gets the standard break row"
+
+# Weekend St. Patrick's Day rolls FORWARD, as the registrar did in 2018 (Sat),
+# 2019 (Sun) and 2024 (Sun); weekday years use the week containing it.
+run "$N" syllabus Spring 2029 3703 --start 2029-01-08     # Mar 17 is a Saturday
+assert_hasnt <(echo "$OUT") "St. Patrick" "no warning: the weekend case is not ambiguous"
+assert_has "2029 - Spring/SP29 HIST 3703.md" "## Week 11 (March 19-March 23): Spring Break" "Saturday March 17 -> the following week"
+run "$N" syllabus Spring 2030 3793 --start 2030-01-07     # Mar 17 is a Sunday
+assert_has "2030 - Spring/SP30 HIST 3793.md" "## Week 11 (March 18-March 22): Spring Break" "Sunday March 17 -> the following week"
+run "$N" syllabus Spring 2028 3703 --start 2028-01-10     # Mar 17 is a Friday
+assert_has "2028 - Spring/SP28 HIST 3703.md" "## Week 10 (March 13-March 17): Spring Break" "Friday March 17 -> the week containing it"
+
+# Calendar interplay
+cat > calendar/2035-fall.conf <<'CAL'
+start  = 2035-08-20
+finals = 2035-12-10
+no_class = 2035-09-03 | Fall Holiday
+CAL
+run "$N" syllabus Fall 2035 3703
+OVR="2035 - Fall/FA35 HIST 3703.md"
+assert_has   "$OVR" "- Mon: No class (Fall Holiday)" "a calendar entry keeps its own label on a standard-break day"
+assert_hasnt "$OVR" "Labor Day"                      "...instead of the standard label"
+assert_has   "$OVR" "Thanksgiving Break"             "other standard breaks still apply alongside calendar entries"
+
+cat > calendar/2036-fall.conf <<'CAL'
+start  = 2036-08-25
+finals = 2036-12-15
+standard_breaks = off
+no_class = 2036-11-24..2036-11-28 | Registrar Break
+CAL
+run "$N" syllabus Fall 2036 3703
+OFF="2036 - Fall/FA36 HIST 3703.md"
+assert_hasnt "$OFF" "Labor Day"            "standard_breaks = off removes Labor Day"
+assert_hasnt "$OFF" "Thanksgiving Break"   "standard_breaks = off removes Thanksgiving"
+assert_has   "$OFF" "Registrar Break"      "the term's own breaks still apply"
+printf 'standard_breaks = maybe\n' > calendar/2037-fall.conf
+run "$N" syllabus Fall 2037 3703
+assert_rc 1 "standard_breaks must be on or off"
+assert_in "'on' or 'off'" "$OUT" "clean error for a bad standard_breaks value"
+rm -f calendar/2037-fall.conf
+
 section "new.sh — calendar errors (clean message, no orphan folder)"
 bad_calendar() {   # $1 = description, $2 = file body, $3 = expected message
     printf '%s\n' "$2" > calendar/2040-fall.conf
@@ -308,8 +364,8 @@ section "new.sh calendar"
 run "$N" calendar Fall 2041
 assert_rc 0 "create a calendar stub"
 assert_file "calendar/2041-fall.conf" "stub written to calendar/<year>-<season>.conf"
-assert_has  "calendar/2041-fall.conf" "# no_class = 2041-09-02 | Labor Day" "Labor Day suggested (first Monday of September), commented out"
-assert_has  "calendar/2041-fall.conf" "# no_class = 2041-11-25..2041-11-29 | Thanksgiving Break" "Thanksgiving week suggested, commented out"
+assert_has  "calendar/2041-fall.conf" "standard_breaks = off" "stub explains how to turn the standard breaks off"
+assert_hasnt "calendar/2041-fall.conf" "2041-09" "stub contains no computed dates"
 run python3 "$SB/schedule.py" values calendar/2041-fall.conf
 assert_rc 0 "a blank stub is a valid calendar"
 assert_eq "" "$OUT" "a blank stub supplies no dates (nothing is guessed)"

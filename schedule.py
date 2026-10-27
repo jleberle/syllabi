@@ -20,17 +20,32 @@ no_class may repeat, and takes one date or START..END followed by a label. A
 week with no class Monday through Friday becomes a break row; a partial week
 gets a "No class" note instead.
 
-Nothing is inferred: a missing key leaves a labelled placeholder in the
+The standard breaks need no entry, because they follow fixed rules:
+    Spring  MLK Day (third Monday of January); Spring Break (the Monday-Friday
+            week of St. Patrick's Day, March 17; when that is a weekend, the
+            following week -- i.e. the Monday falling between March 13 and 19)
+    Fall    Labor Day (first Monday of September); Thanksgiving Break (the week
+            of the fourth Thursday of November)
+These match the registrar's calendars for Spring 2018-2027 (except 2021, which
+had no Spring Break) and Fall 2020-2026. Before 2020 Thanksgiving was only the
+Wednesday or Thursday-Friday.
+    Summer  none
+A no_class entry on the same day keeps its own label. `standard_breaks = off`
+turns the rules off for a term whose registrar calendar departs from them; list
+that term's breaks with no_class instead.
+
+Deadlines are never inferred: a missing key leaves a labelled placeholder in the
 syllabus. An unknown key is an error, so a typo cannot silently drop a deadline.
 
 Subcommands (new.sh is the only caller):
     values   CAL                         key=value lines for the dates new.sh substitutes
-    headings --weeks N [--start D] [--online] [--cal CAL]
-    table    --weeks N [--start D] [--cal CAL] [--rows FILE]
+    headings --weeks N [--start D] [--season S] [--online] [--cal CAL]
+    table    --weeks N [--start D] [--season S] [--cal CAL] [--rows FILE]
     stub     SEASON YEAR                 a blank calendar to fill in
 
 --weeks is only the fallback count: with a start date and a calendar `finals`,
-the count comes from the calendar.
+the count comes from the calendar. --season (Spring, Fall, Summer) selects the
+standard breaks.
 """
 from __future__ import annotations
 
@@ -58,6 +73,7 @@ def warn(msg: str) -> None:
 class Calendar:
     dates: dict[str, date] = field(default_factory=dict)
     no_class: list[tuple[date, date, str]] = field(default_factory=list)
+    standard_breaks: bool = True
 
 
 def parse_date(text: str, where: str) -> date:
@@ -82,6 +98,10 @@ def load_calendar(path: Path) -> Calendar:
         if key == "no_class":
             if value:
                 cal.no_class.append(parse_no_class(value, where))
+        elif key == "standard_breaks":
+            if value not in ("", "on", "off"):
+                raise CalendarError(f"{where}: standard_breaks is 'on' or 'off', got {value!r}")
+            cal.standard_breaks = value != "off"
         elif key in DATE_KEYS:
             if key in cal.dates:
                 raise CalendarError(f"{where}: {key} is set twice")
@@ -89,7 +109,7 @@ def load_calendar(path: Path) -> Calendar:
                 cal.dates[key] = parse_date(value, where)
         else:
             raise CalendarError(
-                f"{where}: unknown key {key!r} (expected {', '.join(DATE_KEYS)}, no_class)")
+                f"{where}: unknown key {key!r} (expected {', '.join(DATE_KEYS)}, no_class, standard_breaks)")
     check(cal, path.name)
     return cal
 
@@ -163,9 +183,37 @@ class Week:
         return " / ".join(dict.fromkeys(r[2] for r in self.runs))
 
 
-def build_weeks(start: date | None, n: int, cal: Calendar | None) -> list[Week]:
+def nth_weekday(year: int, month: int, weekday: int, n: int) -> date:
+    first = date(year, month, 1)
+    return first + timedelta(days=(weekday - first.weekday()) % 7 + 7 * (n - 1))
+
+
+def standard_breaks(season: str, year: int) -> list[tuple[date, date, str]]:
+    """The breaks every term of a season has, by rule (see the module docstring)."""
+    if season == "Spring":
+        mlk = nth_weekday(year, 1, 0, 3)
+        # The Monday between March 13 and 19: the week of March 17, rolling a
+        # weekend March 17 forward (2018, 2019, 2024), never back.
+        monday = nth_weekday(year, 3, 0, 1) + timedelta(weeks=1)
+        while monday.day < 13:
+            monday += timedelta(weeks=1)
+        return [(mlk, mlk, "MLK Day"), (monday, monday + timedelta(days=4), "Spring Break")]
+    if season == "Fall":
+        labor = nth_weekday(year, 9, 0, 1)
+        monday = monday_of(nth_weekday(year, 11, 3, 4))
+        return [(labor, labor, "Labor Day"),
+                (monday, monday + timedelta(days=4), "Thanksgiving Break")]
+    return []
+
+
+def build_weeks(start: date | None, n: int, cal: Calendar | None,
+                season: str = "") -> list[Week]:
+    # The calendar's own entries go first so they win a day's label.
+    entries = list(cal.no_class) if cal else []
+    if start and (cal is None or cal.standard_breaks):
+        entries += standard_breaks(season, start.year)
     off: dict[date, str] = {}
-    for a, b, label in (cal.no_class if cal else []):
+    for a, b, label in entries:
         d = a
         while d <= b:
             if d.weekday() < 5:
@@ -264,17 +312,7 @@ def table(weeks: list[Week], rows: list[list[str]], rows_name: str) -> list[str]
     return out
 
 
-def nth_weekday(year: int, month: int, weekday: int, n: int) -> date:
-    first = date(year, month, 1)
-    return first + timedelta(days=(weekday - first.weekday()) % 7 + 7 * (n - 1))
-
-
 def stub(season: str, year: int) -> str:
-    suggestions = {
-        "Spring": [(nth_weekday(year, 1, 0, 3), None, "MLK Day")],
-        "Fall": [(nth_weekday(year, 9, 0, 1), None, "Labor Day"),
-                 (monday_of(nth_weekday(year, 11, 3, 4)), "week", "Thanksgiving Break")],
-    }.get(season, [])
     lines = [
         f"# {season} {year} — OSU academic calendar",
         "#",
@@ -289,14 +327,15 @@ def stub(season: str, year: int) -> str:
         "sixweek      =    # six-week grades",
         "withdraw     =    # withdraw deadline",
         "",
-        "# Days or weeks with no class: one date, or START..END, then a label.",
-        "#   no_class = 2027-03-15..2027-03-19 | Spring Break",
+        "# Standard breaks (Spring: MLK Day and the week of St. Patrick's Day; Fall: Labor",
+        "# Day and Thanksgiving week) are added automatically. List any other day or week",
+        "# with no class: one date, or START..END, then a label.",
+        "#   no_class = 2027-10-18..2027-10-19 | Fall Break",
+        "#",
+        "# If the registrar's breaks differ from the standard ones, turn them off and",
+        "# list this term's own:",
+        "#   standard_breaks = off",
     ]
-    if suggestions:
-        lines.append("# By rule, not from the registrar: confirm each, then uncomment.")
-    for first, span, label in suggestions:
-        when = f"{first}..{first + timedelta(days=4)}" if span else f"{first}"
-        lines.append(f"# no_class = {when} | {label}")
     return "\n".join(lines) + "\n"
 
 
@@ -316,6 +355,7 @@ def main() -> int:
         p.add_argument("--weeks", type=int, required=True)
         p.add_argument("--start")
         p.add_argument("--cal", type=Path)
+        p.add_argument("--season", default="")
         if name == "headings":
             p.add_argument("--online", action="store_true")
         else:
@@ -338,7 +378,7 @@ def main() -> int:
         else:
             cal = load_calendar(args.cal) if args.cal else None
             start = parse_start(args.start)
-            weeks = build_weeks(start, week_count(start, cal, args.weeks), cal)
+            weeks = build_weeks(start, week_count(start, cal, args.weeks), cal, args.season)
             if args.cmd == "headings":
                 lines = headings(weeks, args.online)
             else:

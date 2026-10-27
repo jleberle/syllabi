@@ -195,12 +195,25 @@ wording. Both reports end when FA26 does.
 it at scaffold time like everything else in this repo: editing a calendar
 changes the *next* scaffold, never an existing syllabus.
 
-- **Nothing is inferred.** A blank key leaves a `[placeholder]` in the syllabus;
-  the registrar's dates must be typed in. `./new.sh calendar <season> <year>`
-  writes the blank file and suggests Labor Day / Thanksgiving week / MLK Day
-  commented out. Do not "helpfully" fill in a future term from last year's
-  offsets: they are not constant (Spring 2026 and 2027 withdraw deadlines are
-  88 days after the start, Fall 2026's is 81).
+- **Deadlines are never inferred.** A blank key leaves a `[placeholder]` in the
+  syllabus; the registrar's dates must be typed in. Do not "helpfully" fill in a
+  future term from last year's offsets: they are not constant (Spring 2026 and
+  2027 withdraw deadlines are 88 days after the start, Fall 2026's is 81).
+  `./new.sh calendar <season> <year>` writes the blank file.
+- **Breaks are inferred, by rules checked against the registrar.** Spring: MLK
+  Day (third Monday of January) and Spring Break, the Monday between March 13
+  and 19 (the week of St. Patrick's Day; a weekend March 17 rolls *forward*, as
+  in 2018, 2019 and 2024). Fall: Labor Day (first Monday of September) and the
+  week of the fourth Thursday of November (Mon-Wed "Fall Break" plus Thu-Fri
+  holiday). Summer: none. They apply whenever there is a start date, calendar
+  or not. Verified against the registrar's published calendars: Spring
+  2018-2027 and Fall 2020-2026. Known exceptions: Spring 2021 had no Spring
+  Break (scattered "Wellness Days"), and before Fall 2020 Thanksgiving was
+  only Wed/Thu-Fri, so scaffolding a pre-2020 Fall gives a break week the
+  registrar did not. Calendar `no_class` entries are added to the rules and win
+  a day's label; `standard_breaks = off` drops the rules for a term that departs
+  from them (then list that term's breaks). So an explicit second Spring Break
+  `no_class` *adds* a break rather than replacing the standard one.
 - `finals` sets the week count (start's Monday through finals' Monday). Without
   it, 17 weeks for Fall/Spring and 8 for Summer.
 - Flags (`--start`, `--drop-*`) override the calendar per syllabus. Unknown keys
@@ -209,10 +222,11 @@ changes the *next* scaffold, never an existing syllabus.
 - Deadlines render as `January 19`, no weekday, matching SP27. The Student Hours
   line in `survey/contact.md` is *not* in the calendar and is not updated per
   term; it still reads the Spring 2027 hours.
-- The calendar's `no_class` ranges are the only source of break rows. A survey
-  scaffold for a term whose calendar lacks its break has one more class week
-  than the template has rows, so `schedule.py` warns about a blank week. That
-  warning means "add the break to the calendar", not "write the week by hand".
+- A survey scaffold needs exactly as many class weeks as the template has rows
+  (15 plus finals). A term with an extra break the rules and calendar don't
+  know about has one more class week than rows, so `schedule.py` warns about a
+  blank week. That warning means "add the break to the calendar", not "write
+  the week by hand".
 - Only `2027-spring.conf` is committed. Fall 2027 onward is waiting on the
   registrar's dates.
 

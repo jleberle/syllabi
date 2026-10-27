@@ -161,22 +161,34 @@ drop_full    = 2027-08-31
 drop_partial = 2027-09-03
 sixweek      = 2027-10-05
 withdraw     = 2027-11-05
-no_class     = 2027-09-06 | Labor Day
-no_class     = 2027-11-22..2027-11-26 | Thanksgiving Break
+no_class     = 2027-10-18..2027-10-19 | Fall Break   # anything beyond the standard breaks
 ```
 
 Dates are `YYYY-MM-DD`; `no_class` takes one date or `START..END` and a label,
-and may repeat. From it `new.sh` fills in the drop deadlines and writes the
-schedule: week ranges, the week count, a break row for any week with no class
-Monday through Friday, and a "No class" note for a partial week. If a weekly
-row schedules something on a no-class day, `new.sh` warns about it.
+and may repeat. From the calendar `new.sh` fills in the drop deadlines and
+writes the schedule: week ranges, the week count, a break row for any week with
+no class Monday through Friday, and a "No class" note for a partial week. If a
+weekly row schedules something on a no-class day, `new.sh` warns about it.
+
+**Standard breaks** need no entry (and no calendar at all, only a start date):
+
+| Season | Breaks                                                              |
+| :----- | :------------------------------------------------------------------ |
+| Spring | MLK Day (third Monday of January); Spring Break, the Monday–Friday week of St. Patrick's Day (March 17) |
+| Fall   | Labor Day (first Monday of September); Thanksgiving Break, the week of the fourth Thursday of November |
+| Summer | none                                                                |
+
+A `no_class` entry on the same day keeps its own label. If a year's registrar
+calendar departs from the rules, put `standard_breaks = off` in that term's
+calendar and list its breaks with `no_class`. The rules were checked against the
+registrar's calendars: Spring Break is the Monday between March 13 and 19, so
+a weekend March 17 (2018, 2019, 2024) rolls to the following week.
 
 `./new.sh calendar` writes a blank file with the registrar's fields left empty.
-**Nothing is guessed**: a blank field leaves a placeholder in the syllabus, and
-the only dates it suggests (Labor Day, Thanksgiving week, MLK Day) are
-commented out for you to confirm. A typo such as `withdrawl =` or a date like
-`8/23/2027` is an error rather than a silently missing deadline, and a deadline
-that falls outside the term (a wrong-year typo) produces a warning.
+**Deadlines are never guessed**: a blank field leaves a placeholder in the
+syllabus. A typo such as `withdrawl =` or a date like `8/23/2027` is an error
+rather than a silently missing deadline, and a deadline that falls outside the
+term (a wrong-year typo) produces a warning.
 
 Flags override the calendar for one syllabus, and work with no calendar at all:
 
