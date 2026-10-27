@@ -142,10 +142,12 @@ Season names and abbreviations are accepted interchangeably (`Fall`, `fall`,
 `--type survey|upper|online` overrides the guess (for example an online
 upper-division course whose descriptor does not say "Online").
 
-The **survey** template is the Spring 2027 HIST 1493 syllabus: when it was
-introduced, scaffolding `Spring 2027 1493` reproduced `SP27 HIST 1493.md`
-exactly, and any other term differs only in its dates. (Later edits to that
-file do not flow back into the template — see `CLAUDE.md`.) A survey course other than 1493 has no description,
+The **survey** template is the Spring 2027 HIST 1493 syllabus. A scaffold of
+`Spring 2027 1493` reproduces it, and any other term differs only in its dates
+and a `[student hours]` placeholder to fill in each term. The template does not
+follow later hand edits to SP27: to adopt them, diff a fresh scaffold against
+the edited syllabus and carry the differences into `templates/` (see
+`CLAUDE.md`). A survey course other than 1493 has no description,
 learning outcomes, textbook, or weekly rows of its own yet, so those come out
 as `[placeholders]` and blank rows rather than 1493's content — add them under
 `templates/courses/<course>/` to make them the default for that course.
@@ -161,6 +163,7 @@ drop_full    = 2027-08-31
 drop_partial = 2027-09-03
 sixweek      = 2027-10-05
 withdraw     = 2027-11-05
+withdraw_wf  = 2027-11-29     # assigned W or F deadline; ends the petition period
 no_class     = 2027-10-18..2027-10-19 | Fall Break   # anything beyond the standard breaks
 ```
 
@@ -178,6 +181,12 @@ weekly row schedules something on a no-class day, `new.sh` warns about it.
 | Fall   | Labor Day (first Monday of September); Thanksgiving Break, the week of the fourth Thursday of November |
 | Summer | none                                                                |
 
+MLK Day, Labor Day and Thanksgiving follow fixed holidays, so they are simply
+placed. Spring Break is the registrar's choice and could shift, so when it comes
+from the rule rather than a calendar entry, `new.sh` prints its dates as a note
+to verify. With no start date there is nothing to place a break on, and `new.sh`
+says so.
+
 A `no_class` entry on the same day keeps its own label. If a year's registrar
 calendar departs from the rules, put `standard_breaks = off` in that term's
 calendar and list its breaks with `no_class`. The rules were checked against the
@@ -186,7 +195,8 @@ a weekend March 17 (2018, 2019, 2024) rolls to the following week.
 
 `./new.sh calendar` writes a blank file with the registrar's fields left empty.
 **Deadlines are never guessed**: a blank field leaves a placeholder in the
-syllabus. A typo such as `withdrawl =` or a date like `8/23/2027` is an error
+syllabus (except summer's six-week grades, which an 8-week term does not have:
+that line is omitted unless a date is given). A typo such as `withdrawl =` or a date like `8/23/2027` is an error
 rather than a silently missing deadline, and a deadline that falls outside the
 term (a wrong-year typo) produces a warning.
 

@@ -197,6 +197,10 @@ assert_has   "$SURVEY" "history is an argument about evidence" "1493 course cont
 assert_hasnt "$SURVEY" "[description for HIST"       "1493 has no course-content placeholders"
 UPPER="2030 - Fall/FA30 HIST 3703.md"
 assert_hasnt "$UPPER"  "Final Exam Replacement"      "course number >= 3000 -> upper-division template"
+assert_has   "$SURVEY" "Care Report"                 "survey: its own resources list"
+assert_hasnt "$UPPER"  "Care Report"                 "upper: still the common resources list"
+assert_has   "$SURVEY" "committed to the maintenance of the highest standards" "survey: its own academic integrity wording"
+assert_hasnt "$UPPER"  "committed to the maintenance of the highest standards" "upper: still the common academic integrity wording"
 assert_has   "$UPPER"  "# Course Policies"           "upper-division skeleton used"
 
 run "$N" syllabus Fall 2027 1103 Online
@@ -231,6 +235,7 @@ drop_full    = 2032-01-20
 drop_partial = 2032-01-23
 sixweek      = 2032-02-25
 withdraw     = 2032-04-09
+withdraw_wf  = 2032-04-23
 no_class     = 2032-01-19 | MLK Day
 no_class     = 2032-03-15..2032-03-19 | Spring Break
 no_class     = 2032-04-07..2032-04-09 | Test Recess
@@ -241,6 +246,7 @@ CAL="2032 - Spring/SP32 HIST 1493.md"
 assert_hasnt "$CAL" "{{" "no leftover placeholders"
 assert_has   "$CAL" "- January 20: 100% refund for dropped class" "drop_full from calendar, as 'Month D'"
 assert_has   "$CAL" "- April 9: Withdraw deadline"                 "withdraw from calendar"
+assert_has   "$CAL" "(through April 23) are the petition period" "the W-or-F deadline fills the petition-period note"
 assert_eq 17 "$(grep -cE '^\| [0-9]+ \| ' "$CAL")" "week count comes from start..finals"
 assert_has   "$CAL" "| 1 | Jan 12–16 |"                            "week 1 dates"
 assert_has   "$CAL" "| 2 | Jan 19–23 | Mon:&nbsp;No class (MLK Day); **Fri:&nbsp;Source Workshop 1" "single no-class day noted ahead of the week's events"
@@ -277,24 +283,40 @@ CAL
 run "$N" syllabus Summer 2032 3703
 assert_eq 6 "$(grep -c '^## Week' "2032 - Summer/SU32 HIST 3703.md")" "week count follows finals, not the 8-week default"
 assert_has "2032 - Summer/SU32 HIST 3703.md" "[100% refund date]" "a calendar without deadlines leaves placeholders"
+assert_hasnt "2032 - Summer/SU32 HIST 3703.md" "Six Week Grades" "summer with no six-week date omits the line"
+assert_hasnt "2032 - Summer/SU32 HIST 3703.md" "six-week grades date]" "...rather than leaving a placeholder"
+assert_has   "2032 - Summer/SU32 HIST 3703.md" "Withdraw deadline" "the other deadlines are kept"
+run "$N" syllabus Summer 2032 3793 --sixweek "July 1"
+assert_has "2032 - Summer/SU32 HIST 3793.md" "- July 1: Six Week Grades" "an explicit summer six-week date is kept"
+run "$N" syllabus Summer 2032 1103 Online
+assert_hasnt "2032 - Summer/SU32 HIST 1103 Online.md" "Six Week Grades" "online summer omits the line too"
 
 run "$N" syllabus Fall 2034 3703
 assert_rc 0 "no calendar for the term is not an error"
 assert_in "no calendar/2034-fall.conf" "$OUT" "missing calendar is reported"
+assert_in "no start date" "$OUT" "no start date: says why no breaks were placed"
 assert_has "2034 - Fall/FA34 HIST 3703.md" "[100% refund date]" "no calendar -> placeholders"
+assert_has "2034 - Fall/FA34 HIST 3703.md" "[six-week grades date]" "fall still keeps the placeholder when the date is missing"
+assert_has "2034 - Fall/FA34 HIST 3703.md" "Student Hours: [student hours]" "student hours is a placeholder (upper)"
+assert_has "$CAL" "Student Hours: [student hours]" "student hours is a placeholder (survey)"
 
 section "new.sh — standard breaks (no calendar needed, only a start date)"
 # 2033: MLK = Jan 17, Mar 17 is a Thursday, Labor Day = Sep 5, Thanksgiving = Nov 24
 run "$N" syllabus Spring 2033 3703 --start 2033-01-10
+assert_in "Verify against the registrar" "$OUT"  "a rule-placed Spring Break comes with a note to verify"
+assert_in "Spring Break: Mar 14–18" "$OUT"       "the note lists Spring Break with its dates"
+assert_hasnt <(echo "$OUT") "MLK"                "MLK Day (a fixed holiday) is not flagged for verification"
 STD="2033 - Spring/SP33 HIST 3703.md"
 assert_has "$STD" "- Mon: No class (MLK Day)"                         "Spring: MLK Day (third Monday of January)"
 assert_has "$STD" "## Week 10 (March 14-March 18): Spring Break"      "Spring: break is the week of St. Patrick's Day"
 run "$N" syllabus Fall 2033 3703 --start 2033-08-22
+assert_hasnt <(echo "$OUT") "Verify against"        "Fall's breaks are fixed holidays: nothing to verify"
 STD="2033 - Fall/FA33 HIST 3703.md"
 assert_has "$STD" "- Mon: No class (Labor Day)"                       "Fall: Labor Day (first Monday of September)"
 assert_has "$STD" "## Week 14 (November 21-November 25): Thanksgiving Break" "Fall: Thanksgiving week"
 assert_hasnt "$STD" "MLK Day"                                          "Fall has no MLK Day"
 run "$N" syllabus Summer 2033 3703 --start 2033-06-06
+assert_hasnt <(echo "$OUT") "Verify against" "summer has no rule-based breaks, so no note"
 assert_hasnt "2033 - Summer/SU33 HIST 3703.md" "No class"             "Summer has no standard breaks"
 run "$N" syllabus Fall 2033 1493 --start 2033-08-22
 assert_has "2033 - Fall/FA33 HIST 1493.md" "| 3 | Sep 5–9 | Mon:&nbsp;No class (Labor Day); " "survey table gets the standard break notes"
@@ -316,6 +338,15 @@ start  = 2035-08-20
 finals = 2035-12-10
 no_class = 2035-09-03 | Fall Holiday
 CAL
+run "$N" syllabus Spring 2034 3703 --start 2034-01-09     # Mar 17 is a Friday
+assert_in "Spring Break: Mar 13–17" "$OUT"          "Spring Break note appears for a term with no Spring calendar"
+cat > calendar/2034-spring.conf <<'CAL'
+start  = 2034-01-09
+finals = 2034-05-01
+no_class = 2034-03-13..2034-03-17 | Spring Break
+CAL
+run "$N" syllabus Spring 2034 3793
+assert_hasnt <(echo "$OUT") "Verify against"        "a Spring Break named by the calendar is not flagged"
 run "$N" syllabus Fall 2035 3703
 OVR="2035 - Fall/FA35 HIST 3703.md"
 assert_has   "$OVR" "- Mon: No class (Fall Holiday)" "a calendar entry keeps its own label on a standard-break day"
@@ -329,6 +360,7 @@ standard_breaks = off
 no_class = 2036-11-24..2036-11-28 | Registrar Break
 CAL
 run "$N" syllabus Fall 2036 3703
+assert_hasnt <(echo "$OUT") "Verify against" "standard_breaks = off reports no rule-based breaks"
 OFF="2036 - Fall/FA36 HIST 3703.md"
 assert_hasnt "$OFF" "Labor Day"            "standard_breaks = off removes Labor Day"
 assert_hasnt "$OFF" "Thanksgiving Break"   "standard_breaks = off removes Thanksgiving"
@@ -366,6 +398,7 @@ assert_rc 0 "create a calendar stub"
 assert_file "calendar/2041-fall.conf" "stub written to calendar/<year>-<season>.conf"
 assert_has  "calendar/2041-fall.conf" "standard_breaks = off" "stub explains how to turn the standard breaks off"
 assert_hasnt "calendar/2041-fall.conf" "2041-09" "stub contains no computed dates"
+assert_has  "calendar/2041-fall.conf" "withdraw_wf" "stub has a W-or-F deadline field"
 run python3 "$SB/schedule.py" values calendar/2041-fall.conf
 assert_rc 0 "a blank stub is a valid calendar"
 assert_eq "" "$OUT" "a blank stub supplies no dates (nothing is guessed)"
@@ -388,6 +421,9 @@ section "survey schedule without a calendar"
 run "$N" syllabus Spring 2036 1493
 assert_rc 0 "survey without a calendar or --start scaffolds"
 assert_has "2036 - Spring/SP36 HIST 1493.md" "| 1 |  | **Sun:&nbsp;Syllabus Quiz**" "week numbers with blank dates"
+assert_has "2036 - Spring/SP36 HIST 1493.md" "(through [W or F deadline])" "no W-or-F date -> placeholder"
+run "$N" syllabus Spring 2036 1103 --withdraw-wf "May 1"
+assert_has "2036 - Spring/SP36 HIST 1103.md" "(through May 1) are the petition period" "--withdraw-wf overrides the calendar"
 
 # ===========================================================================
 section "build.sh — argument handling"

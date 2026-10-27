@@ -31,7 +31,7 @@ The course is worth **1000 points**. Nothing is weighted, curved, or converted â
 | Component                     | Points each | Given | Counted         | Total points | % of grade |
 |:------------------------------|------------:|------:|----------------:|-------------:|-----------:|
 | Syllabus quiz                 | 20          | 1     | 1               | 20           | 2%         |
-| Reading quizzes (InQuizitive) | 15          | 10    | 7   | 105          | 10.5%      |
+| InQuizitives                  | 15          | 10    | 7   | 105          | 10.5%      |
 | Source workshops              | 36          | 8     | 5   | 180          | 18%        |
 | Note sheets                   | 15          | 3     | 3               | 45           | 4.5%       |
 | Exam 1                        | 150         | 1     | 1               | 150          | 15%        |
@@ -48,9 +48,11 @@ The course is worth **1000 points**. Nothing is weighted, curved, or converted â
 
 Final percentages are rounded to the nearest whole number before a letter grade is assigned, so 89.5% becomes 90% and an A. There are no curves on exams. A large portion of the grades here are assignments that are difficult to fail with the appropriate work on your part. All of the assignments besides the exams are a cushion to help make up for a lower exam score and not make the grade entirely reliant on timed exams.
 
+Grades shown on Canvas are not official. The official grade is the one in my gradebook, and if you have concerns about your grade you should see me in student hours.
+
 ## Final Exam Replacement
 
-If your percentage score on the final is higher than one of your first two exams, the final's percentage replaces the lower of the two. Example: 68% on Exam 1 (102/150) and 82% on the final rewrites Exam 1 as 123/150, a gain of 21 points. This is automatic and applies to one exam only; you do not have to ask, and it cannot lower a score. The replacement covers a zero for an exam you did not take. It does not replace a score that resulted from an academic integrity violation, including a zero for improper notes.
+If your percentage score on the final is higher than one of your first two exams, the final's percentage replaces the lower of the two. Example: 68% on Exam 1 (102/150) and 82% on the final rewrites Exam 1 as 123/150, a gain of 21 points. This is automatic and applies to one exam only; you do not have to ask, and it cannot lower a score. The replacement covers a zero for an exam you did not take. It does not replace a zero given for an academic integrity violation or for improper notes.
 
 ## Bonus Points
 
@@ -60,9 +62,9 @@ Two standing bonus point opportunities are offered: 25 points for completing eve
 
 All grades are final once the deadline has passed. Assignments may not be revised or resubmitted for additional credit.
 
-If you know you will be absent on a date an assignment is due you must schedule a time to complete the assignment prior to the due date. Absences known about ahead of time are not grounds for an extension on the assignment.
+If you know you will be absent on a date an assignment is due, you must notify me ahead of time and schedule a time to complete it before the date. Absences known about ahead of time are not grounds for an extension. If an absence could not have been known ahead of time (for example, athletics or military training notifies you the same day that you are traveling), you may complete the work after the fact with verification that the absence was unexpected.
 
-Makeups are not offered by default for Reading Quizzes or Source Workshops as lowest scores are dropped. If you are absent for an SAS-approved absence please contact me to arrange a makeup. Additionally if you are absent for an extenuating circumstance throughout the semester please see me during student hours to discuss alternatives.
+Makeups are not offered by default for InQuizitives or Source Workshops as lowest scores are dropped. If you are absent for an SAS-approved absence please contact me to arrange a makeup. Additionally if you are absent for an extenuating circumstance throughout the semester please see me during student hours to discuss alternatives.
 
 Exams are only available for makeups with verifiable documentation (doctor's note, obituary). Absences that cannot be sufficiently verified are not eligible for an exam makeup.
 
@@ -74,15 +76,15 @@ Exams are only available for makeups with verifiable documentation (doctor's not
 
 # Individual assignments
 
-Rubrics for every assignment, including the source workshops, note sheets, and exams, are posted on Canvas.
+Rubrics for every assignment, including the source workshops, note sheets, and exams, are posted on Canvas at the start of the semester.
 
 ### Syllabus Quiz
 
 Ten questions at 2 points each, online, and open for the first week. Unlimited attempts; you may consult the syllabus while taking it. Submitting it constitutes your acknowledgment that you have read this document and understand its policies.
 
-### Reading Quizzes
+### InQuizitives
 
-These are InQuizitive assignments provided by Norton, tied to the textbook chapters on the schedule. There are ten and your three lowest scores are dropped. They are not a traditional quiz: wrong answers do not automatically cost you, and the activity adapts to what you know and continues until you reach the target I set for that assignment. Your grade is calculated automatically, and reaching the target earns the full score. These are meant to provide you an opportunity to work through material without the pressure of a timed, right or wrong style reading quiz. **InQuizitives are due by the end of the day on Friday of the week they are assigned.**
+InQuizitives are assignments provided by Norton, tied to the textbook chapters on the schedule. There are ten and your three lowest scores are dropped. They are not a traditional quiz: wrong answers do not automatically cost you, and the activity adapts to what you know and continues until you reach the target I set for that assignment. Your grade is calculated automatically, and reaching the target earns the full score. These are meant to provide you an opportunity to work through material without the pressure of a timed, right or wrong style reading quiz. **InQuizitives are due by the end of the day on Friday of the week they are assigned.**
 
 ### Source Workshops
 
@@ -126,7 +128,7 @@ Prior to each exam I will distribute a study guide in class with the prompts tha
 
 ## Announcements and Changes
 
-This syllabus, including the schedule, is subject to change. If class is canceled or the university closes (for example for weather), I will announce adjusted dates for workshops, assignments, and exams in class and on Canvas. You are responsible for checking Canvas and your OSU email regularly. Not knowing about an announcement is not grounds for an extension or makeup.
+This syllabus, including the schedule, is subject to change, and any change will be announced in class and communicated in writing on Canvas. If class is canceled or the university closes (for example for weather), I will announce adjusted dates for workshops, assignments, and exams the same way. You are responsible for checking Canvas and your OSU email regularly. Not knowing about an announcement is not grounds for an extension or makeup.
 
 \needspace{10\baselineskip}
 
@@ -136,7 +138,7 @@ This syllabus, including the schedule, is subject to change. If class is cancele
 
 {{include drops}}
 
-**Note**: The two weeks following the withdraw deadline is the petition period. During this period you may petition for a withdrawal due to extenuating circumstances but the withdraw is not guaranteed. Withdrawals during the petition period will be based on the documentation you provide and the grade you have in the class at the time of the request.
+**Note**: The two weeks following the withdraw deadline (through {{withdraw_wf}}) are the petition period. Petitions for withdrawal start with your academic advisor and require both advisor and instructor permission. During this period you may petition for a withdrawal due to extenuating circumstances, but the withdrawal is not guaranteed. If one is approved, I assign a grade of W or F based on the documentation you provide and the grade you have in the class at the time of the request.
 
 ## Incomplete Grades
 
@@ -150,8 +152,8 @@ This syllabus, including the schedule, is subject to change. If class is cancele
 
 # Schedule
 
-Dates are subject to change; changes will be announced in class and on Canvas.
+Dates are subject to change; changes will be announced in class and in writing on Canvas.
 
 | Wk | Dates        | Events and due dates                  | Topic                | Textbook                                   |
-|:---:|:--------------|:--------------------------------------|:--------------------|:--------------------------------------|
+|:---:|:--------------|:------------------------------------|:------------------|:----------------------------------------|
 {{schedule}}

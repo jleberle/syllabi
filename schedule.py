@@ -12,6 +12,7 @@ in a term gets the same dates.
     drop_partial = 2027-01-22     partial refund deadline
     sixweek      = 2027-02-24     six-week grades
     withdraw     = 2027-04-09     withdraw deadline
+    withdraw_wf  = 2027-04-23     assigned W or F deadline (ends the petition period)
     no_class     = 2027-01-18 | MLK Day
     no_class     = 2027-03-15..2027-03-19 | Spring Break
 
@@ -56,8 +57,13 @@ from dataclasses import dataclass, field
 from datetime import date, timedelta
 from pathlib import Path
 
-DATE_KEYS = ("start", "finals", "drop_full", "drop_partial", "sixweek", "withdraw")
+DATE_KEYS = ("start", "finals", "drop_full", "drop_partial", "sixweek", "withdraw",
+             "withdraw_wf")
 DAYS = ("Mon", "Tue", "Wed", "Thu", "Fri")
+# Of the standard breaks, only Spring Break is the registrar's choice and could
+# shift. MLK Day, Labor Day and Thanksgiving follow fixed holidays, so new.sh
+# does not ask for them to be verified.
+VERIFY = {"Spring Break"}
 ISO = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 
@@ -235,6 +241,32 @@ def build_weeks(start: date | None, n: int, cal: Calendar | None,
     return weeks
 
 
+def rule_break_notes(start: date | None, n: int, cal: Calendar | None,
+                     season: str) -> list[str]:
+    """The rule-placed breaks this term got that are worth verifying (VERIFY).
+
+    A break the calendar already names is the registrar's word, not an
+    assumption, so it is left out; so is one that falls outside the term.
+    """
+    if not start or (cal is not None and not cal.standard_breaks):
+        return []
+    named: set[date] = set()
+    for a, b, _ in (cal.no_class if cal else []):
+        named.update(a + timedelta(days=i) for i in range((b - a).days + 1))
+    first = monday_of(start)
+    last = first + timedelta(weeks=n) - timedelta(days=1)
+    notes = []
+    for a, b, label in standard_breaks(season, start.year):
+        if label not in VERIFY:
+            continue
+        days = [a + timedelta(days=i) for i in range((b - a).days + 1)]
+        if not any(first <= d <= last and d not in named for d in days):
+            continue
+        when = f"{a:%a}, {a:%b} {a.day}" if a == b else short_range(a, b)
+        notes.append(f"{label}: {when}")
+    return notes
+
+
 def day_span(first: int, last: int) -> str:
     return DAYS[first] if first == last else f"{DAYS[first]}–{DAYS[last]}"
 
@@ -326,6 +358,7 @@ def stub(season: str, year: int) -> str:
         "drop_partial =    # partial refund deadline",
         "sixweek      =    # six-week grades",
         "withdraw     =    # withdraw deadline",
+        "withdraw_wf  =    # assigned W or F withdrawal deadline (ends the petition period)",
         "",
         "# Standard breaks (Spring: MLK Day and the week of St. Patrick's Day; Fall: Labor",
         "# Day and Thanksgiving week) are added automatically. List any other day or week",
@@ -378,7 +411,14 @@ def main() -> int:
         else:
             cal = load_calendar(args.cal) if args.cal else None
             start = parse_start(args.start)
-            weeks = build_weeks(start, week_count(start, cal, args.weeks), cal, args.season)
+            count = week_count(start, cal, args.weeks)
+            weeks = build_weeks(start, count, cal, args.season)
+            notes = rule_break_notes(start, count, cal, args.season)
+            if notes:
+                print("note: placed by rule (the week of March 17), not by a calendar entry. "
+                      "Verify against the registrar's calendar:", file=sys.stderr)
+                for line in notes:
+                    print(f"        {line}", file=sys.stderr)
             if args.cmd == "headings":
                 lines = headings(weeks, args.online)
             else:

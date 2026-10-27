@@ -33,6 +33,14 @@ The same is true in the other direction, and it is the one that bites:
 the next survey scaffold still has the old text. To change what survey courses
 start from, edit `skeleton-survey.md`, `survey/`, or `courses/1493/`.
 
+To carry hand edits from a taught syllabus back into the template, scaffold the
+same term and course in a scratch copy and `diff` it against the edited file.
+Everything that differs is either an edit to merge (into the skeleton or the
+matching `survey/` snippet) or something term-specific that must become a
+placeholder instead (Student Hours; the petition-period date is
+`{{withdraw_wf}}`, from the calendar's `withdraw_wf`). The last merge was
+2026-10-27; after it the only difference from SP27 was the Student Hours line.
+
 ### Three course types, not two formats
 
 `new.sh` picks `survey` (course number < 3000), `upper` (>= 3000) or `online`
@@ -170,8 +178,8 @@ ones are in archival terms and stay as they are.
 
 Survey scaffolds do not use this line. `templates/survey/accessibility.md` is
 SP27's own Accommodations text (no bold follow-up sentence), and `survey/`
-likewise overrides `grade-disputes`, `incomplete-grades` and `class-conduct`
-with SP27's wording. Those are survey-only; `common/` is unchanged and still
+likewise overrides `academic-integrity`, `grade-disputes`, `incomplete-grades`,
+`class-conduct`, `resources` and the reporting notice with SP27's wording. Those are survey-only; `common/` is unchanged and still
 feeds upper-division. Promoting any of them to `common/` is a separate
 decision.
 
@@ -214,14 +222,21 @@ changes the *next* scaffold, never an existing syllabus.
   a day's label; `standard_breaks = off` drops the rules for a term that departs
   from them (then list that term's breaks). So an explicit second Spring Break
   `no_class` *adds* a break rather than replacing the standard one.
+  Only Spring Break is echoed by `new.sh` as a "verify against the registrar"
+  note (stderr), and only when it came from the rule rather than a calendar
+  entry: MLK Day, Labor Day and Thanksgiving follow fixed holidays and are
+  placed without comment. A scaffold with no start date says it placed no
+  breaks. The user supplies start dates with `--start`; they are never inferred.
 - `finals` sets the week count (start's Monday through finals' Monday). Without
   it, 17 weeks for Fall/Spring and 8 for Summer.
 - Flags (`--start`, `--drop-*`) override the calendar per syllabus. Unknown keys
   and malformed dates are errors on purpose, so a typo cannot silently drop a
   deadline.
-- Deadlines render as `January 19`, no weekday, matching SP27. The Student Hours
-  line in `survey/contact.md` is *not* in the calendar and is not updated per
-  term; it still reads the Spring 2027 hours.
+- Deadlines render as `January 19`, no weekday, matching SP27. Student Hours is
+  not in the calendar: `survey/contact.md` and `upper/contact.md` carry a
+  `[student hours]` placeholder to fill in per syllabus, so a stale time cannot
+  carry over. (`online/contact.md` has no time slot, just "appointments via
+  Zoom".)
 - A survey scaffold needs exactly as many class weeks as the template has rows
   (15 plus finals). A term with an extra break the rules and calendar don't
   know about has one more class week than rows, so `schedule.py` warns about a
@@ -234,9 +249,10 @@ changes the *next* scaffold, never an existing syllabus.
   2027-28 table is marked "(Pending)"** (read 2026-10-27), so Fall 2027,
   Spring 2028 and Summer 2028 may still move: recheck before the term and edit
   the file. Each file's header records the source and the date read.
-- The catalog gives no six-week grade date for summer, so summer syllabi keep a
-  `[six-week grades date]` placeholder in the Drops list. Delete that line by
-  hand; an 8-week term has no such deadline.
+- The catalog gives no six-week grade date for summer, and an 8-week term has
+  none, so a summer scaffold **omits** the "Six Week Grades" line unless a date
+  is supplied (`--sixweek` or a `sixweek` key). Fall and Spring still keep the
+  `[six-week grades date]` placeholder when the date is missing.
 - Summer holidays (Juneteenth, July 4th observed) are `no_class` entries, not
   rules, because they move around the weekday. They show on in-person summer
   schedules but not online ones, which do not list single holidays.

@@ -28,15 +28,20 @@
 #       deadlines. Any flag below overrides it; without a calendar, deadlines
 #       the flags don't supply are left as placeholders. The standard breaks
 #       (Spring: MLK Day, the week of St. Patrick's Day; Fall: Labor Day, the
-#       week of Thanksgiving) need no calendar, only a start date.
+#       week of Thanksgiving) need no calendar, only a start date. They come
+#       from rules, so new.sh lists each one it placed for you to verify.
 #
 #       --type          survey | upper | online.
 #       --start         First day of class (YYYY-MM-DD). Weeks span Monday-Friday,
 #                       or Monday-Sunday for online.
 #       --drop-full     Date of 100% tuition refund deadline (free-form text).
 #       --drop-partial  Date of partial tuition refund deadline.
-#       --sixweek       Date of six-week grade submission deadline.
+#       --sixweek       Date of six-week grade submission deadline. A summer
+#                       syllabus omits that line unless this or the calendar gives
+#                       a date, since an 8-week term has no six-week grades.
 #       --withdraw      Date of withdraw-without-penalty deadline.
+#       --withdraw-wf   Date of the assigned W or F withdrawal deadline, which
+#                       ends the petition period (survey syllabi mention it).
 #
 # Syllabus content comes from the templates/ folder, not this script:
 #
@@ -51,7 +56,7 @@
 # "{{include-course name}}" pulls templates/courses/<course>/name.md instead,
 # and becomes a [placeholder] for a course that has none. After includes are
 # expanded, {{course}}, {{course_name}}, {{date_line}}, {{drop_full}},
-# {{drop_partial}}, {{sixweek}}, {{withdraw}}, and {{schedule}} are
+# {{drop_partial}}, {{sixweek}}, {{withdraw}}, {{withdraw_wf}}, and {{schedule}} are
 # substituted. Edit the template files to change boilerplate; no script
 # changes needed.
 #
@@ -182,7 +187,7 @@ cmd_calendar() {
 
 cmd_syllabus() {
     # Separate positional args from --flags
-    local start_date="" drop_full="" drop_partial="" sixweek="" withdraw="" type=""
+    local start_date="" drop_full="" drop_partial="" sixweek="" withdraw="" withdraw_wf="" type=""
     local positional=()
     while [ $# -gt 0 ]; do
         case "$1" in
@@ -192,12 +197,13 @@ cmd_syllabus() {
             --drop-partial) drop_partial="${2:?--drop-partial requires a date}"; shift 2 ;;
             --sixweek)      sixweek="${2:?--sixweek requires a date}";           shift 2 ;;
             --withdraw)     withdraw="${2:?--withdraw requires a date}";         shift 2 ;;
+            --withdraw-wf)  withdraw_wf="${2:?--withdraw-wf requires a date}";   shift 2 ;;
             *) positional+=("$1"); shift ;;
         esac
     done
 
     [ "${#positional[@]}" -ge 3 ] || {
-        echo "usage: ./new.sh syllabus <season> <year> <course> [descriptor] [--type survey|upper|online] [--start YYYY-MM-DD] [--drop-full DATE] [--drop-partial DATE] [--sixweek DATE] [--withdraw DATE]" >&2
+        echo "usage: ./new.sh syllabus <season> <year> <course> [descriptor] [--type survey|upper|online] [--start YYYY-MM-DD] [--drop-full DATE] [--drop-partial DATE] [--sixweek DATE] [--withdraw DATE] [--withdraw-wf DATE]" >&2
         exit 1
     }
 
@@ -291,6 +297,7 @@ cmd_syllabus() {
                 drop_partial) [ -n "$drop_partial" ] || drop_partial="$val" ;;
                 sixweek)      [ -n "$sixweek" ]      || sixweek="$val" ;;
                 withdraw)     [ -n "$withdraw" ]     || withdraw="$val" ;;
+                withdraw_wf)  [ -n "$withdraw_wf" ]  || withdraw_wf="$val" ;;
             esac
         done <<< "$cal_out"
         cal_args=(--cal "$cal_file")
@@ -298,11 +305,21 @@ cmd_syllabus() {
         echo "note: no calendar/${cal_file##*/}, so dates come from flags only (./new.sh calendar $season_word $year creates one)" >&2
     fi
 
+    if [ -z "$start_date" ]; then
+        echo "note: no start date, so the schedule has no dates and the standard breaks (MLK Day, Spring Break, Labor Day, Thanksgiving) are not placed; add a calendar or pass --start" >&2
+    fi
+
+    # An 8-week summer term has no six-week grades, so with no date supplied the
+    # line is removed instead of left as a placeholder to delete by hand.
+    local omit_sixweek=0
+    [ "$season_word" = "Summer" ] && [ -z "$sixweek" ] && omit_sixweek=1
+
     # Drop date placeholders
     [ -n "$drop_full"    ] || drop_full="[100% refund date]"
     [ -n "$drop_partial" ] || drop_partial="[partial refund date]"
     [ -n "$sixweek"      ] || sixweek="[six-week grades date]"
     [ -n "$withdraw"     ] || withdraw="[withdraw deadline]"
+    [ -n "$withdraw_wf"  ] || withdraw_wf="[W or F deadline]"
 
     # Build schedule section: a table of weekly rows for survey courses, week
     # headings for the others.
@@ -328,6 +345,10 @@ cmd_syllabus() {
     local content
     content="$(render_skeleton "$skeleton" "$type" "$course")"
 
+    if [ "$omit_sixweek" -eq 1 ]; then
+        content="$(grep -vF '{{sixweek}}' <<< "$content")"
+    fi
+
     subst content '{{course}}'       "$course"
     subst content '{{course_name}}'  "$course_name"
     subst content '{{date_line}}'    "$date_line"
@@ -335,6 +356,7 @@ cmd_syllabus() {
     subst content '{{drop_partial}}' "$drop_partial"
     subst content '{{sixweek}}'      "$sixweek"
     subst content '{{withdraw}}'     "$withdraw"
+    subst content '{{withdraw_wf}}'  "$withdraw_wf"
     subst content '{{schedule}}'     "$schedule_body"
 
     # Create the destination folder only now, right before writing, so a
