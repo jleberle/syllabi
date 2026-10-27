@@ -44,11 +44,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 TEMPLATES = ROOT / "templates"
-SNIPPET_DIRS = ("common", "inperson", "online")
+SNIPPET_DIRS = ("common", "survey", "upper", "online")
 
 # A policy -> the snippet files that are accepted canonical forms of it.
 # A policy not listed here is its own group, with every same-named file across
-# common/ inperson/ online/ treated as an accepted variant (that is already how
+# common/ survey/ upper/ online/ treated as an accepted variant (that is already how
 # new.sh resolves an include).
 VARIANT_GROUPS: dict[str, tuple[str, ...]] = {
     "mandatory-reporting": ("mandatory-reporting", "mandatory-reporting-tas"),

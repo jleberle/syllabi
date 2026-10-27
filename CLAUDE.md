@@ -27,6 +27,28 @@ generated text and the committed text diverge legitimately.
 Consequence: a policy fix applied to `templates/` is **not** applied to the
 course you are teaching. Fix both, and see `check-boilerplate.py` below.
 
+The same is true in the other direction, and it is the one that bites:
+`templates/skeleton-survey.md` and the `survey/` snippets were *derived from*
+`SP27 HIST 1493.md`, but nothing links them. Editing SP27 changes SP27 only;
+the next survey scaffold still has the old text. To change what survey courses
+start from, edit `skeleton-survey.md`, `survey/`, or `courses/1493/`.
+
+### Three course types, not two formats
+
+`new.sh` picks `survey` (course number < 3000), `upper` (>= 3000) or `online`
+(descriptor contains "online"), or takes `--type`. Each has
+`templates/skeleton-<type>.md` and a `templates/<type>/` snippet folder that
+overrides `templates/common/`. `templates/courses/<course>/` holds content for
+one course (`{{include-course name}}`) and is **never** borrowed across
+courses: a survey course with no folder gets `[description for HIST 1103]`
+placeholders, not 1493's text. Only 1493 has a folder so far.
+
+The weekly rows in `courses/1493/schedule.md` are `| events | topic | textbook |`
+with the finals-week row last; `schedule.py` supplies the Wk and Dates columns.
+Events name weekdays ("Wed: Source Workshop 2") but never dates, which is what
+lets one set of rows serve Spring and Fall. `new.sh` warns when a no-class day
+lands on a weekday a row schedules something.
+
 ### The build ignores files without a term prefix
 
 `build.sh` only treats `FA|SP|SU` + two digits as a syllabus. Handouts, policy
@@ -44,8 +66,8 @@ git config core.hooksPath hooks
 
 Without it `hooks/pre-commit` never runs and a broken `build.sh` commits
 cleanly. The hook is also path-gated — it fires only for changes to
-`build.sh`, `new.sh`, `test.sh`, `syllabus.tex`, or `templates/`, so a
-Markdown-only commit is deliberately unaffected.
+`build.sh`, `new.sh`, `schedule.py`, `test.sh`, `syllabus.tex`, `templates/`, or
+`calendar/`, so a Markdown-only commit is deliberately unaffected.
 
 ## bash 3.2 is not enough
 
@@ -78,10 +100,17 @@ syllabi. The split is not random:
 
 So there are **two legitimate variants plus drift**, and course format is *not*
 a reliable proxy for which applies — HIST 3703 is in-person but solo-taught, so
-putting the TA form in `inperson/` would give it the wrong text. That is why
-both live in `common/` and are selected explicitly:
+putting the TA form in a per-type folder like `upper/` would give it the wrong
+text. That is why both live in `common/` and are selected explicitly:
 `{{include mandatory-reporting-tas}}` (new.sh's include regex accepts hyphens,
 so this needs no script change).
+
+The survey template has a **sixth** wording: SP27 HIST 1493 rewrote the TA-form
+notice ("All communications are confidential except that, as University
+employees, I (and the TAs)…"). It lives in `templates/survey/mandatory-reporting.md`
+and is an accepted variant alongside the two in `common/`. `-tas` stays only
+because `FA26 HIST 1493` still uses that wording; delete it once FA26 is
+archival and nothing scaffolds from it.
 
 ### check-boilerplate.py
 
@@ -139,6 +168,13 @@ and was not changed.
 Five wordings of this sentence exist across the repo's history. All the older
 ones are in archival terms and stay as they are.
 
+Survey scaffolds do not use this line. `templates/survey/accessibility.md` is
+SP27's own Accommodations text (no bold follow-up sentence), and `survey/`
+likewise overrides `grade-disputes`, `incomplete-grades` and `class-conduct`
+with SP27's wording. Those are survey-only; `common/` is unchanged and still
+feeds upper-division. Promoting any of them to `common/` is a separate
+decision.
+
 ### Open, as of 2026-09-12
 
 `FA26 HIST 1493` still reads "must see me in office hours to discuss their
@@ -147,6 +183,38 @@ session and the syllabus has already been distributed**, so it is not edited
 here: changing it now would make a rebuilt PDF disagree with what students were
 given. Decide deliberately whether to amend it mid-term or let it stand until
 SP27 scaffolds inherit the new wording.
+
+Since the `survey/` snippets were registered, `check-boilerplate.py` also
+reports `FA26 HIST 1493`'s grade-disputes paragraph (it says "office hours";
+SP27 says "student hours"). Same cause, same answer: FA26 predates SP27's
+wording. Both reports end when FA26 does.
+
+## Term calendars
+
+`calendar/<year>-<season>.conf` is where a term's dates live, and `new.sh` reads
+it at scaffold time like everything else in this repo: editing a calendar
+changes the *next* scaffold, never an existing syllabus.
+
+- **Nothing is inferred.** A blank key leaves a `[placeholder]` in the syllabus;
+  the registrar's dates must be typed in. `./new.sh calendar <season> <year>`
+  writes the blank file and suggests Labor Day / Thanksgiving week / MLK Day
+  commented out. Do not "helpfully" fill in a future term from last year's
+  offsets: they are not constant (Spring 2026 and 2027 withdraw deadlines are
+  88 days after the start, Fall 2026's is 81).
+- `finals` sets the week count (start's Monday through finals' Monday). Without
+  it, 17 weeks for Fall/Spring and 8 for Summer.
+- Flags (`--start`, `--drop-*`) override the calendar per syllabus. Unknown keys
+  and malformed dates are errors on purpose, so a typo cannot silently drop a
+  deadline.
+- Deadlines render as `January 19`, no weekday, matching SP27. The Student Hours
+  line in `survey/contact.md` is *not* in the calendar and is not updated per
+  term; it still reads the Spring 2027 hours.
+- The calendar's `no_class` ranges are the only source of break rows. A survey
+  scaffold for a term whose calendar lacks its break has one more class week
+  than the template has rows, so `schedule.py` warns about a blank week. That
+  warning means "add the break to the calendar", not "write the week by hand".
+- Only `2027-spring.conf` is committed. Fall 2027 onward is waiting on the
+  registrar's dates.
 
 ## Publishing to the website
 
@@ -161,8 +229,11 @@ This deliberately mirrors `~/git/cv`'s `make publish`, which owns
 
 ## Verification
 
-`./test.sh` runs both scripts in a temp sandbox and never touches the real
-tree. `--no-build` skips the PDF smoke tests and needs no toolchain. Run it
-after editing either script — and note that with `shellcheck` installed it
+`./test.sh` runs `new.sh`, `schedule.py` and `build.sh` in a temp sandbox and
+never touches the real tree. The sandbox uses fixture calendars (2032), not
+`calendar/`, so exact-date assertions survive edits to a real term; the real
+calendars are only checked for parsing cleanly. `--no-build` skips the PDF
+smoke tests and needs no toolchain. Run it after editing any of them — and
+note that with `shellcheck` installed it
 also asserts the scripts stay lint-clean, so a shellcheck upgrade can fail the
 suite without any change here.

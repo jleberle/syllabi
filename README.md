@@ -48,19 +48,24 @@ syllabi/
 │   └── TTNN HIST NNNN.md   syllabus source files (see naming convention below)
 ├── Supplemental/           non-syllabus handouts, also named with term prefixes
 ├── PDFs/                   compiled PDFs — mirrors semester folder layout (git-ignored)
+├── calendar/               one file per term: start, finals, deadlines, holidays
 ├── templates/              boilerplate used by new.sh when scaffolding syllabi
-│   ├── skeleton.md         document outline for in-person courses
-│   ├── skeleton-online.md  document outline for online courses
-│   ├── common/             policy/contact snippets shared by both formats
-│   ├── inperson/           in-person overrides (contact info, class conduct)
-│   └── online/             online overrides (contact info, delivery note, …)
+│   ├── skeleton-survey.md  document outline per course type (survey, upper, online)
+│   ├── skeleton-upper.md
+│   ├── skeleton-online.md
+│   ├── common/             policy/contact snippets shared by every type
+│   ├── survey/             survey overrides (SP27 wording)
+│   ├── upper/              upper-division overrides (contact info, class conduct)
+│   ├── online/             online overrides (contact info, delivery note, …)
+│   └── courses/<course>/   content for one course (description, textbook, weekly rows)
 ├── syllabus.tex            shared pandoc/LaTeX template
 ├── osulogo.pdf             OSU brand mark (vector) used in the template header
 ├── osulogo.svg             SVG source for osulogo.pdf — official OSU brand mark
 │                           (Wikimedia Commons, original colors #FE5C00/#231F20)
 ├── build.sh                build script
 ├── new.sh                  scaffold script for new semesters and syllabi
-└── test.sh                 regression tests for build.sh and new.sh
+├── schedule.py             term calendars and schedule generation (used by new.sh)
+└── test.sh                 regression tests for build.sh, new.sh and schedule.py
 ```
 
 ## File naming convention
@@ -109,41 +114,82 @@ PDFs are written to `PDFs/` mirroring the semester folder structure, e.g.
 
 ## Adding a new semester
 
-Use `new.sh` to create correctly named folders and stub files:
+Use `new.sh` to create correctly named folders and stub files. Once per term,
+record the registrar's dates; after that every syllabus for the term needs no
+date flags:
 
 ```bash
-# Create a semester folder
-./new.sh semester Fall 2027
+# Once per term: create calendar/2027-fall.conf, then fill it in
+./new.sh calendar Fall 2027
 
-# Syllabus with no dates (placeholder schedule headings and drop dates)
-./new.sh syllabus Fall 2027 1493
-
-# Syllabus with auto-populated schedule
-./new.sh syllabus Fall 2027 1493 --start 2027-08-23
-
-# Online course — "online" in descriptor gives Mon-Sun week ranges
-./new.sh syllabus Spring 2027 1103 Online --start 2027-01-12
-
-# With drop/deadline dates from the OSU academic calendar
-./new.sh syllabus Spring 2027 1493 --start 2027-01-12 \
-    --drop-full "January 13 (Monday)" \
-    --drop-partial "January 17 (Friday)" \
-    --sixweek "February 19 (Wednesday)" \
-    --withdraw "April 4 (Friday)"
+# Then one command per course
+./new.sh syllabus Fall 2027 1493      # survey
+./new.sh syllabus Fall 2027 3703      # upper division
+./new.sh syllabus Fall 2027 1103 Online
 ```
 
 Season names and abbreviations are accepted interchangeably (`Fall`, `fall`,
-`FA`, `fa`). The stub includes the pandoc title block, contact info and
-resources, placeholder sections for description, materials, and assignments,
-and the standard policy sections. The **Drops** section is populated from four
-deadline dates on the OSU academic calendar — supply them with `--drop-full`,
-`--drop-partial`, `--sixweek`, and `--withdraw`; omitting any flag leaves a
-labeled placeholder to fill in later.
+`FA`, `fa`).
 
-The schedule section uses `## Week N (Month D-Month D)` headings. In-person
-weeks span Monday–Friday; online weeks span Monday–Sunday. Without `--start`
-the headings are generated with no date range. Fall and Spring semesters
-generate 16 weeks; Summer generates 8.
+### Course types
+
+| Type    | Chosen when                         | Template                        |
+| :------ | :---------------------------------- | :------------------------------ |
+| survey  | course number below 3000            | `templates/skeleton-survey.md`  |
+| upper   | course number 3000 or above         | `templates/skeleton-upper.md`   |
+| online  | descriptor contains "online"        | `templates/skeleton-online.md`  |
+
+`--type survey|upper|online` overrides the guess (for example an online
+upper-division course whose descriptor does not say "Online").
+
+The **survey** template is the Spring 2027 HIST 1493 syllabus: when it was
+introduced, scaffolding `Spring 2027 1493` reproduced `SP27 HIST 1493.md`
+exactly, and any other term differs only in its dates. (Later edits to that
+file do not flow back into the template — see `CLAUDE.md`.) A survey course other than 1493 has no description,
+learning outcomes, textbook, or weekly rows of its own yet, so those come out
+as `[placeholders]` and blank rows rather than 1493's content — add them under
+`templates/courses/<course>/` to make them the default for that course.
+
+### Term calendars
+
+`calendar/<year>-<season>.conf` holds the dates that change every year:
+
+```
+start        = 2027-08-23
+finals       = 2027-12-13     # any day in finals week; sets the week count
+drop_full    = 2027-08-31
+drop_partial = 2027-09-03
+sixweek      = 2027-10-05
+withdraw     = 2027-11-05
+no_class     = 2027-09-06 | Labor Day
+no_class     = 2027-11-22..2027-11-26 | Thanksgiving Break
+```
+
+Dates are `YYYY-MM-DD`; `no_class` takes one date or `START..END` and a label,
+and may repeat. From it `new.sh` fills in the drop deadlines and writes the
+schedule: week ranges, the week count, a break row for any week with no class
+Monday through Friday, and a "No class" note for a partial week. If a weekly
+row schedules something on a no-class day, `new.sh` warns about it.
+
+`./new.sh calendar` writes a blank file with the registrar's fields left empty.
+**Nothing is guessed**: a blank field leaves a placeholder in the syllabus, and
+the only dates it suggests (Labor Day, Thanksgiving week, MLK Day) are
+commented out for you to confirm. A typo such as `withdrawl =` or a date like
+`8/23/2027` is an error rather than a silently missing deadline, and a deadline
+that falls outside the term (a wrong-year typo) produces a warning.
+
+Flags override the calendar for one syllabus, and work with no calendar at all:
+
+```bash
+./new.sh syllabus Fall 2027 3703 --start 2027-08-23 \
+    --drop-full "August 31" --drop-partial "September 3" \
+    --sixweek "October 5" --withdraw "November 5"
+```
+
+The survey schedule is a table; the other types get `## Week N (Month D-Month D)`
+headings. In-person weeks span Monday–Friday and online weeks Monday–Sunday.
+With no calendar, Fall and Spring generate 17 weeks (including finals week) and
+Summer 8.
 
 ### Stub content lives in templates/
 
@@ -151,18 +197,20 @@ All boilerplate comes from the `templates/` folder, not from `new.sh` itself —
 edit those files to change what future stubs contain (existing syllabi are
 never touched):
 
-- `templates/skeleton.md` and `templates/skeleton-online.md` are the document
-  outlines for in-person and online courses (section order, headings, grade
-  tables). A descriptor containing "online" (e.g. `./new.sh syllabus Spring
-  2027 1103 Online`) selects the online skeleton.
+- `templates/skeleton-<type>.md` is the document outline for each course type
+  (section order, headings, grade tables).
 - A skeleton line of the form `{{include name}}` is replaced with the contents
-  of a snippet file: `templates/online/name.md` or `templates/inperson/name.md`
-  if it exists for the course format, otherwise `templates/common/name.md`.
-  Shared policies (accessibility, academic integrity, drops, …) live in
-  `common/`; format-specific versions (contact info, class conduct, the online
-  delivery note) live in `inperson/` and `online/`. To give a shared snippet a
-  format-specific version, just add a file with the same name to `inperson/`
-  or `online/` — no script changes needed.
+  of a snippet file: `templates/<type>/name.md` if it exists for the course
+  type, otherwise `templates/common/name.md`. Shared policies (academic
+  integrity, drops, …) live in `common/`; a type's own wording (contact info,
+  class conduct, the online delivery note) lives in `survey/`, `upper/` or
+  `online/`. To give a shared snippet a type-specific version, just add a file
+  with the same name there — no script changes needed.
+- `{{include-course name}}` is replaced with
+  `templates/courses/<course>/name.md`, or a `[placeholder]` if that course has
+  none. The survey skeleton uses `description`, `learning-outcomes`,
+  `textbook`, and `schedule` (the weekly rows: `| events | topic | textbook |`,
+  one per class week with the finals-week row last).
 - `{{drop_full}}`, `{{drop_partial}}`, `{{sixweek}}`, `{{withdraw}}`,
   `{{course}}`, `{{course_name}}`, `{{date_line}}`, and `{{schedule}}` are
   substituted everywhere after includes are expanded, so snippets can also
@@ -182,16 +230,19 @@ apply to all syllabi on the next build.
 
 ## Testing
 
-`test.sh` exercises `new.sh` and `build.sh` in a throwaway sandbox (a temp copy
-of the scripts and templates), so it never touches the real tree:
+`test.sh` exercises `new.sh`, `schedule.py` and `build.sh` in a throwaway
+sandbox (a temp copy of the scripts and templates, with fixture calendars), so
+it never touches the real tree:
 
 ```bash
 ./test.sh              # full suite, including a build smoke test
 ./test.sh --no-build   # skip the build tests (fast; no PDF toolchain needed)
 ```
 
-It covers scaffolding and input validation, schedule generation (week ranges
-and counts), literal field substitution, calendar-date rejection, and the
+It covers scaffolding and input validation, course types, term calendars
+(drop dates, break and holiday rows, flag overrides, malformed files), schedule
+generation (week ranges and counts), literal field substitution, calendar-date
+rejection, that the committed calendars parse cleanly, and the
 build pipeline (PDF output, incremental skips, per-file failure isolation,
 the term-prefix filter, and path handling). With `shellcheck` installed it
 also asserts the scripts stay lint-clean. Run it after editing either script.
@@ -199,8 +250,9 @@ also asserts the scripts stay lint-clean. Run it after editing either script.
 ### Pre-commit hook
 
 `hooks/pre-commit` runs `./test.sh --no-build` automatically, but only for
-commits that touch `build.sh`, `new.sh`, `test.sh`, `syllabus.tex`, or
-`templates/` — ordinary syllabus content commits are unaffected. Git doesn't
+commits that touch `build.sh`, `new.sh`, `schedule.py`, `test.sh`,
+`syllabus.tex`, `templates/`, or `calendar/` — ordinary syllabus content
+commits are unaffected. Git doesn't
 track `.git/hooks/`, so enable it once per clone:
 
 ```bash

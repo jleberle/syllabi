@@ -6,41 +6,51 @@
 #   ./new.sh semester <season> <year>
 #       Create a semester folder, e.g.: ./new.sh semester Fall 2027
 #
+#   ./new.sh calendar <season> <year>
+#       Create calendar/<year>-<season>.conf, a blank term calendar to fill in
+#       from the registrar's dates. Do this once per term; every syllabus for
+#       the term then picks up the same dates.
+#
 #   ./new.sh syllabus <season> <year> <course> [descriptor] [options]
 #       Create a syllabus stub, e.g.:
 #           ./new.sh syllabus Fall 2027 1493
-#           ./new.sh syllabus Fall 2027 1493 --start 2027-08-23
-#           ./new.sh syllabus Spring 2027 1103 Online --start 2027-01-12
-#           ./new.sh syllabus Spring 2027 1493 --start 2027-01-12 \
-#               --drop-full "January 13 (Monday)" \
-#               --drop-partial "January 17 (Friday)" \
-#               --sixweek "February 19 (Wednesday)" \
-#               --withdraw "April 4 (Friday)"
+#           ./new.sh syllabus Fall 2027 3703
+#           ./new.sh syllabus Spring 2027 1103 Online
+#           ./new.sh syllabus Fall 2027 1493 --start 2027-08-23 \
+#               --drop-full "August 31" --withdraw "November 5"
 #
-#       --start         First day of class (YYYY-MM-DD). Populates week headings
-#                       in the schedule section. Without it, headings have no date
-#                       range. In-person weeks span Monday-Friday; online (descriptor
-#                       contains "online") spans Monday-Sunday.
+#       Course type picks the template: survey (course number below 3000),
+#       upper (3000 and up), or online (descriptor contains "online"). --type
+#       overrides the guess.
+#
+#       Dates come from the term calendar when calendar/<year>-<season>.conf
+#       exists: start of class, number of weeks, break weeks, holidays, and all
+#       four deadlines. Any flag below overrides it; without a calendar, dates
+#       the flags don't supply are left as placeholders.
+#
+#       --type          survey | upper | online.
+#       --start         First day of class (YYYY-MM-DD). Weeks span Monday-Friday,
+#                       or Monday-Sunday for online.
 #       --drop-full     Date of 100% tuition refund deadline (free-form text).
 #       --drop-partial  Date of partial tuition refund deadline.
 #       --sixweek       Date of six-week grade submission deadline.
 #       --withdraw      Date of withdraw-without-penalty deadline.
-#                       All four drop flags are optional; omitting any leaves a
-#                       labeled placeholder in the syllabus to fill in later.
 #
 # Syllabus content comes from the templates/ folder, not this script:
 #
-#   templates/skeleton.md          document outline for in-person courses
-#   templates/skeleton-online.md   document outline for online courses
-#   templates/common/<name>.md     boilerplate shared by both formats
-#   templates/inperson/<name>.md   in-person overrides (e.g. contact.md)
-#   templates/online/<name>.md     online overrides
+#   templates/skeleton-<type>.md     document outline for each course type
+#   templates/common/<name>.md       boilerplate shared by every type
+#   templates/<type>/<name>.md       overrides for one type (survey, upper, online)
+#   templates/courses/<course>/      content for one course (description,
+#                                    textbook, weekly schedule rows, ...)
 #
 # A skeleton line of the form "{{include name}}" is replaced with the contents
-# of templates/<variant>/name.md if it exists, else templates/common/name.md.
-# After includes are expanded, {{course}}, {{course_name}}, {{date_line}},
-# {{drop_full}}, {{drop_partial}}, {{sixweek}}, {{withdraw}}, and {{schedule}}
-# are substituted. Edit the template files to change boilerplate; no script
+# of templates/<type>/name.md if it exists, else templates/common/name.md.
+# "{{include-course name}}" pulls templates/courses/<course>/name.md instead,
+# and becomes a [placeholder] for a course that has none. After includes are
+# expanded, {{course}}, {{course_name}}, {{date_line}}, {{drop_full}},
+# {{drop_partial}}, {{sixweek}}, {{withdraw}}, and {{schedule}} are
+# substituted. Edit the template files to change boilerplate; no script
 # changes needed.
 #
 set -euo pipefail
@@ -65,59 +75,40 @@ parse_season() {
 }
 
 # ---------------------------------------------------------------------------
-# Generate schedule headings via python3.
-#   $1  start date (YYYY-MM-DD)
-#   $2  number of weeks
-#   $3  1 if online (Mon-Sun), 0 if in-person (Mon-Fri)
-# ---------------------------------------------------------------------------
-generate_schedule() {
-    python3 - "$1" "$2" "$3" << 'PYEOF'
-import sys
-from datetime import date, timedelta
-
-start     = date.fromisoformat(sys.argv[1])
-weeks     = int(sys.argv[2])
-is_online = sys.argv[3] == "1"
-
-# Last day of each week: Friday for in-person, Sunday for online
-end_offset = timedelta(days=6) if is_online else timedelta(days=4)
-
-# Monday of the week that contains the start date
-week_monday = start - timedelta(days=start.weekday())
-
-def fmt(d):
-    return f"{d.strftime('%B')} {d.day}"
-
-for week in range(1, weeks + 1):
-    monday = week_monday + timedelta(weeks=week - 1)
-    sunday_or_friday = monday + end_offset
-    print(f"## Week {week} ({fmt(monday)}-{fmt(sunday_or_friday)})")
-    print()
-PYEOF
-}
-
-# ---------------------------------------------------------------------------
-# Render a skeleton template, expanding "{{include <name>}}" lines.
+# Render a skeleton template, expanding include lines.
 #   $1  skeleton file
-#   $2  variant (inperson | online)
-# templates/<variant>/<name>.md wins over templates/common/<name>.md.
+#   $2  course type (survey | upper | online)
+#   $3  course number
+# "{{include <name>}}": templates/<type>/<name>.md wins over
+# templates/common/<name>.md.
+# "{{include-course <name>}}": templates/courses/<course>/<name>.md, or a
+# [placeholder] when that course has no such file -- never another course's
+# content, which would put the wrong description into a syllabus.
 # ---------------------------------------------------------------------------
 render_skeleton() {
-    local skeleton="$1" variant="$2"
+    local skeleton="$1" type="$2" course="$3"
     local tpl_dir="$ROOT/templates"
     local out="" line name snippet
     while IFS= read -r line || [ -n "$line" ]; do
         if [[ "$line" =~ ^\{\{include[[:space:]]+([A-Za-z0-9_-]+)\}\}$ ]]; then
             name="${BASH_REMATCH[1]}"
-            if [ -f "$tpl_dir/$variant/$name.md" ]; then
-                snippet="$tpl_dir/$variant/$name.md"
+            if [ -f "$tpl_dir/$type/$name.md" ]; then
+                snippet="$tpl_dir/$type/$name.md"
             elif [ -f "$tpl_dir/common/$name.md" ]; then
                 snippet="$tpl_dir/common/$name.md"
             else
-                echo "error: snippet '$name.md' not found in templates/$variant/ or templates/common/" >&2
+                echo "error: snippet '$name.md' not found in templates/$type/ or templates/common/" >&2
                 return 1
             fi
             out+="$(cat "$snippet")"$'\n'
+        elif [[ "$line" =~ ^\{\{include-course[[:space:]]+([A-Za-z0-9_-]+)\}\}$ ]]; then
+            name="${BASH_REMATCH[1]}"
+            snippet="$tpl_dir/courses/$course/$name.md"
+            if [ -f "$snippet" ]; then
+                out+="$(cat "$snippet")"$'\n'
+            else
+                out+="[${name//-/ } for HIST $course]"$'\n'
+            fi
         else
             out+="$line"$'\n'
         fi
@@ -171,12 +162,29 @@ cmd_semester() {
     fi
 }
 
+cmd_calendar() {
+    [ $# -eq 2 ] || { echo "usage: ./new.sh calendar <season> <year>" >&2; exit 1; }
+    local year="$2" season_out season_word
+    [[ "$year" =~ ^[0-9]{4}$ ]] || { echo "error: year must be four digits (e.g. 2027)" >&2; exit 1; }
+    season_out="$(parse_season "$1")"
+    read -r season_word _ <<< "$season_out"
+    command -v python3 >/dev/null 2>&1 || { echo "error: python3 not found in PATH" >&2; exit 1; }
+
+    local dest
+    dest="$ROOT/calendar/$year-$(tr '[:upper:]' '[:lower:]' <<< "$season_word").conf"
+    [ ! -e "$dest" ] || { echo "already exists: ${dest#"$ROOT"/}" >&2; exit 1; }
+    mkdir -p "$ROOT/calendar"
+    python3 "$ROOT/schedule.py" stub "$season_word" "$year" > "$dest"
+    echo "created: ${dest#"$ROOT"/} (fill in the dates from the registrar's calendar)"
+}
+
 cmd_syllabus() {
     # Separate positional args from --flags
-    local start_date="" drop_full="" drop_partial="" sixweek="" withdraw=""
+    local start_date="" drop_full="" drop_partial="" sixweek="" withdraw="" type=""
     local positional=()
     while [ $# -gt 0 ]; do
         case "$1" in
+            --type)         type="${2:?--type requires survey, upper, or online}"; shift 2 ;;
             --start)        start_date="${2:?--start requires a date}";          shift 2 ;;
             --drop-full)    drop_full="${2:?--drop-full requires a date}";       shift 2 ;;
             --drop-partial) drop_partial="${2:?--drop-partial requires a date}"; shift 2 ;;
@@ -187,7 +195,7 @@ cmd_syllabus() {
     done
 
     [ "${#positional[@]}" -ge 3 ] || {
-        echo "usage: ./new.sh syllabus <season> <year> <course> [descriptor] [--start YYYY-MM-DD] [--drop-full DATE] [--drop-partial DATE] [--sixweek DATE] [--withdraw DATE]" >&2
+        echo "usage: ./new.sh syllabus <season> <year> <course> [descriptor] [--type survey|upper|online] [--start YYYY-MM-DD] [--drop-full DATE] [--drop-partial DATE] [--sixweek DATE] [--withdraw DATE]" >&2
         exit 1
     }
 
@@ -204,16 +212,30 @@ cmd_syllabus() {
     # a raw ENOENT and leaving an already-created semester folder behind.
     [[ "$descriptor" != */* ]] || { echo "error: descriptor cannot contain '/' (got: '$descriptor')" >&2; exit 1; }
 
+    # Course type: an explicit --type, else online by descriptor, else survey
+    # below the 3000 level and upper-division above it.
+    if [ -z "$type" ]; then
+        if echo "$descriptor" | grep -qi "online"; then type="online"
+        elif [ "$course" -lt 3000 ]; then type="survey"
+        else type="upper"
+        fi
+    fi
+    case "$type" in
+        survey|upper|online) ;;
+        *) echo "error: --type must be survey, upper, or online (got: '$type')" >&2; exit 1 ;;
+    esac
+
+    command -v python3 >/dev/null 2>&1 || {
+        echo "error: python3 not found in PATH (needed for schedule generation)" >&2; exit 1
+    }
+
     if [ -n "$start_date" ]; then
         [[ "$start_date" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] || {
             echo "error: --start must be YYYY-MM-DD (e.g. 2027-08-23)" >&2; exit 1
         }
-        command -v python3 >/dev/null 2>&1 || {
-            echo "error: python3 not found in PATH (needed for --start schedule generation)" >&2; exit 1
-        }
         # The regex only checks shape; reject impossible dates (e.g. 2027-13-40,
         # 2027-02-30) here so the user gets a clean error instead of a Python
-        # traceback from generate_schedule later.
+        # traceback from schedule.py later.
         python3 -c 'import datetime,sys; datetime.date.fromisoformat(sys.argv[1])' "$start_date" 2>/dev/null || {
             echo "error: --start is not a valid calendar date: $start_date" >&2; exit 1
         }
@@ -250,13 +272,29 @@ cmd_syllabus() {
     local date_line="$season_word $year"
     [ -n "$descriptor" ] && date_line="$season_word $year - $descriptor"
 
-    # Weeks: 8 for Summer, 17 for Fall/Spring (includes finals week)
+    # Weeks when no calendar says otherwise: 8 for Summer, 17 for Fall/Spring
+    # (includes finals week). A calendar's `finals` date replaces this.
     local weeks=17
     [ "$season_word" = "Summer" ] && weeks=8
 
-    # Online if descriptor contains "online" (case-insensitive)
-    local is_online=0
-    echo "$descriptor" | grep -qi "online" && is_online=1
+    # The term calendar fills in whatever the flags did not supply.
+    local cal_file cal_args=() cal_out key val
+    cal_file="$ROOT/calendar/$year-$(tr '[:upper:]' '[:lower:]' <<< "$season_word").conf"
+    if [ -f "$cal_file" ]; then
+        cal_out="$(python3 "$ROOT/schedule.py" values "$cal_file")" || exit 1
+        while IFS='=' read -r key val; do
+            case "$key" in
+                start)        [ -n "$start_date" ]   || start_date="$val" ;;
+                drop_full)    [ -n "$drop_full" ]    || drop_full="$val" ;;
+                drop_partial) [ -n "$drop_partial" ] || drop_partial="$val" ;;
+                sixweek)      [ -n "$sixweek" ]      || sixweek="$val" ;;
+                withdraw)     [ -n "$withdraw" ]     || withdraw="$val" ;;
+            esac
+        done <<< "$cal_out"
+        cal_args=(--cal "$cal_file")
+    else
+        echo "note: no calendar/${cal_file##*/}, so dates come from flags only (./new.sh calendar $season_word $year creates one)" >&2
+    fi
 
     # Drop date placeholders
     [ -n "$drop_full"    ] || drop_full="[100% refund date]"
@@ -264,28 +302,29 @@ cmd_syllabus() {
     [ -n "$sixweek"      ] || sixweek="[six-week grades date]"
     [ -n "$withdraw"     ] || withdraw="[withdraw deadline]"
 
-    # Build schedule section
-    local schedule_body
-    if [ -n "$start_date" ]; then
-        schedule_body="$(generate_schedule "$start_date" "$weeks" "$is_online")"
-    else
-        schedule_body=""
-        for i in $(seq 1 "$weeks"); do
-            schedule_body+="## Week $i"$'\n\n'
+    # Build schedule section: a table of weekly rows for survey courses, week
+    # headings for the others.
+    local sched_args=(--weeks "$weeks") schedule_body
+    [ -z "$start_date" ] || sched_args+=(--start "$start_date")
+    if [ "$type" = "survey" ]; then
+        local missing="" part
+        for part in description learning-outcomes textbook schedule; do
+            [ -f "$ROOT/templates/courses/$course/$part.md" ] || missing+=" $part"
         done
-        schedule_body="${schedule_body%$'\n\n'}"
+        [ -z "$missing" ] || echo "note: templates/courses/$course/ has no:$missing (left as placeholders or blank rows)" >&2
+        schedule_body="$(python3 "$ROOT/schedule.py" table "${sched_args[@]}" \
+            ${cal_args[@]+"${cal_args[@]}"} --rows "$ROOT/templates/courses/$course/schedule.md")"
+    else
+        [ "$type" != "online" ] || sched_args+=(--online)
+        schedule_body="$(python3 "$ROOT/schedule.py" headings "${sched_args[@]}" \
+            ${cal_args[@]+"${cal_args[@]}"})"
     fi
 
-    # Pick the skeleton: online courses use skeleton-online.md when present
-    local variant="inperson"
-    [ "$is_online" -eq 1 ] && variant="online"
-    local skeleton="$ROOT/templates/skeleton.md"
-    [ "$variant" = "online" ] && [ -f "$ROOT/templates/skeleton-online.md" ] \
-        && skeleton="$ROOT/templates/skeleton-online.md"
+    local skeleton="$ROOT/templates/skeleton-$type.md"
     [ -f "$skeleton" ] || { echo "error: skeleton not found: $skeleton" >&2; exit 1; }
 
     local content
-    content="$(render_skeleton "$skeleton" "$variant")"
+    content="$(render_skeleton "$skeleton" "$type" "$course")"
 
     subst content '{{course}}'       "$course"
     subst content '{{course_name}}'  "$course_name"
@@ -315,6 +354,7 @@ cmd_syllabus() {
 
 case "$1" in
     semester) shift; cmd_semester "$@" ;;
+    calendar) shift; cmd_calendar "$@" ;;
     syllabus) shift; cmd_syllabus "$@" ;;
     -h|--help) usage 0 ;;
     *) echo "error: unknown subcommand '$1'" >&2; usage 1 ;;

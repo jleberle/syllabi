@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# test.sh — regression tests for new.sh and build.sh.
+# test.sh — regression tests for new.sh, schedule.py and build.sh.
 #
 # Every check runs in an isolated sandbox (a temp copy of the scripts,
 # templates, LaTeX template, and logo), so the real tree is never touched.
@@ -69,8 +69,11 @@ assert_in()     { case "$2" in *"$1"*) pass "$3" ;; *) fail "$3" "'$1' not in ou
 # ---------------------------------------------------------------------------
 SB="$(mktemp -d)"
 trap 'rm -rf "$SB"' EXIT
-cp "$REPO/new.sh" "$REPO/build.sh" "$REPO/syllabus.tex" "$REPO/osulogo.pdf" "$SB"/
+cp "$REPO/new.sh" "$REPO/build.sh" "$REPO/schedule.py" "$REPO/syllabus.tex" "$REPO/osulogo.pdf" "$SB"/
 cp -R "$REPO/templates" "$SB/templates"
+# The sandbox gets fixture calendars, not the real ones: the tests assert exact
+# dates, which must not change when a real term's calendar is edited.
+mkdir "$SB/calendar"
 cd "$SB" || exit 1
 N="$SB/new.sh"
 B="$SB/build.sh"
@@ -134,8 +137,8 @@ assert_rc 1 "missing --start value rejected"
 # ===========================================================================
 section "new.sh — schedule generation (2030-08-26 is a Monday)"
 # ===========================================================================
-run "$N" syllabus Fall 2030 1103 --start 2030-08-26
-SCHED_IP="2030 - Fall/FA30 HIST 1103.md"
+run "$N" syllabus Fall 2030 3703 --start 2030-08-26
+SCHED_IP="2030 - Fall/FA30 HIST 3703.md"
 assert_has "$SCHED_IP" "## Week 1 (August 26-August 30)" "in-person week spans Mon-Fri"
 assert_eq 17 "$(grep -c '^## Week' "$SCHED_IP")" "Fall = 17 weeks"
 
@@ -148,12 +151,12 @@ assert_hasnt "$IP"     "A Note About Online Delivery" "in-person skeleton omits 
 run "$N" syllabus Summer 2030 1103 Online --start 2030-06-02
 assert_eq 8 "$(grep -c '^## Week' "2030 - Summer/SU30 HIST 1103 Online.md")" "Summer = 8 weeks"
 
-run "$N" syllabus Fall 2030 2023 --start 2030-08-28   # Wednesday start
-assert_has "2030 - Fall/FA30 HIST 2023.md" "## Week 1 (August 26-August 30)" "mid-week start snaps back to Monday"
+run "$N" syllabus Fall 2030 3793 --start 2030-08-28   # Wednesday start
+assert_has "2030 - Fall/FA30 HIST 3793.md" "## Week 1 (August 26-August 30)" "mid-week start snaps back to Monday"
 
-run "$N" syllabus Spring 2030 1493
+run "$N" syllabus Spring 2030 3703
 assert_rc 0 "syllabus without --start scaffolds"
-NODATE="2030 - Spring/SP30 HIST 1493.md"
+NODATE="2030 - Spring/SP30 HIST 3703.md"
 assert_has   "$NODATE" "## Week 1"  "no --start -> bare week heading"
 assert_hasnt "$NODATE" "## Week 1 (" "no --start -> no date range"
 assert_eq 17 "$(grep -c '^## Week' "$NODATE")" "no --start still produces 17 Fall weeks"
@@ -184,6 +187,151 @@ assert_absent "2028 - Spring" "failed scaffold leaves no orphan semester folder"
 
 run "$N" syllabus Spring 2028 1493 --start 2028-01-13
 assert_rc 0 "valid date still works after rejections"
+
+# ===========================================================================
+section "new.sh — course types"
+# ===========================================================================
+SURVEY="2027 - Fall/FA27 HIST 1493.md"      # created above: 1493 is below 3000
+assert_has   "$SURVEY" "Final Exam Replacement"      "course number < 3000 -> survey template"
+assert_has   "$SURVEY" "history is an argument about evidence" "1493 course content filled in"
+assert_hasnt "$SURVEY" "[description for HIST"       "1493 has no course-content placeholders"
+UPPER="2030 - Fall/FA30 HIST 3703.md"
+assert_hasnt "$UPPER"  "Final Exam Replacement"      "course number >= 3000 -> upper-division template"
+assert_has   "$UPPER"  "# Course Policies"           "upper-division skeleton used"
+
+run "$N" syllabus Fall 2027 1103 Online
+assert_has "2027 - Fall/FA27 HIST 1103 Online.md" "A Note About Online Delivery" "descriptor 'online' -> online template"
+
+run "$N" syllabus Fall 2027 3703 Hybrid --type online
+assert_rc 0 "--type online accepted"
+assert_has "2027 - Fall/FA27 HIST 3703 Hybrid.md" "A Note About Online Delivery" "--type overrides the guess"
+
+run "$N" syllabus Fall 2027 1103 Honors --type upper
+assert_hasnt "2027 - Fall/FA27 HIST 1103 Honors.md" "Final Exam Replacement" "--type upper on a survey number"
+
+run "$N" syllabus Fall 2027 2023 --type bogus
+assert_rc 1 "unknown --type rejected"
+assert_in "--type must be" "$OUT" "clean error for unknown --type"
+assert_absent "2027 - Fall/FA27 HIST 2023.md" "rejected --type writes no file"
+
+run "$N" syllabus Fall 2027 2023
+assert_rc 0 "survey course with no course content still scaffolds"
+assert_has "2027 - Fall/FA27 HIST 2023.md" "[description for HIST 2023]" "missing course content -> placeholder"
+assert_in "has no: description" "$OUT" "missing course content is reported"
+assert_hasnt "2027 - Fall/FA27 HIST 2023.md" "Reconstruction" "another course's content is never borrowed"
+
+# ===========================================================================
+section "new.sh — term calendar (fixture: 2032 Spring, Monday start 2032-01-12)"
+# ===========================================================================
+cat > calendar/2032-spring.conf <<'CAL'
+# fixture
+start        = 2032-01-12
+finals       = 2032-05-03     # inline comment
+drop_full    = 2032-01-20
+drop_partial = 2032-01-23
+sixweek      = 2032-02-25
+withdraw     = 2032-04-09
+no_class     = 2032-01-19 | MLK Day
+no_class     = 2032-03-15..2032-03-19 | Spring Break
+no_class     = 2032-04-07..2032-04-09 | Test Recess
+CAL
+run "$N" syllabus Spring 2032 1493
+assert_rc 0 "scaffold from a calendar with no date flags"
+CAL="2032 - Spring/SP32 HIST 1493.md"
+assert_hasnt "$CAL" "{{" "no leftover placeholders"
+assert_has   "$CAL" "- January 20: 100% refund for dropped class" "drop_full from calendar, as 'Month D'"
+assert_has   "$CAL" "- April 9: Withdraw deadline"                 "withdraw from calendar"
+assert_eq 17 "$(grep -cE '^\| [0-9]+ \| ' "$CAL")" "week count comes from start..finals"
+assert_has   "$CAL" "| 1 | Jan 12–16 |"                            "week 1 dates"
+assert_has   "$CAL" "| 2 | Jan 19–23 | Mon:&nbsp;No class (MLK Day); **Fri:&nbsp;Source Workshop 1" "single no-class day noted ahead of the week's events"
+assert_has   "$CAL" "| 10 | Mar 15–19 | No class | Spring Break |  |" "a fully-off week becomes a break row"
+assert_has   "$CAL" "| 11 | Mar 22–26 | **Fri:&nbsp;Source Workshop 5" "weekly rows resume after the break instead of shifting"
+assert_has   "$CAL" "Wed–Fri:&nbsp;No class (Test Recess)"         "partial week noted as a day range"
+assert_has   "$CAL" "| 13 | Apr 5–9 |"                             "week 13 dates"
+assert_has   "$CAL" "| 17 | May 3–7 | **Final Exam**"               "finals row lands on the last week"
+assert_in "no-class day (Test Recess)" "$OUT" "an event on a no-class day is flagged"
+
+run "$N" syllabus Spring 2032 3703
+assert_rc 0 "upper-division scaffold from the same calendar"
+CALU="2032 - Spring/SP32 HIST 3703.md"
+assert_has "$CALU" "## Week 10 (March 15-March 19): Spring Break" "upper: break week labelled in its heading"
+assert_has "$CALU" "- Mon: No class (MLK Day)"                    "upper: single no-class day listed under its week"
+assert_eq 17 "$(grep -c '^## Week' "$CALU")"                      "upper: week count from the calendar"
+assert_has "$CALU" "- January 20: 100% refund"                    "upper: drops from the calendar"
+
+run "$N" syllabus Spring 2032 1103 Online
+CALO="2032 - Spring/SP32 HIST 1103 Online.md"
+assert_has   "$CALO" "## Week 10 (March 15-March 21): Spring Break" "online: break week spans Mon-Sun"
+assert_hasnt "$CALO" "MLK Day"                                       "online: single holidays are not listed"
+
+run "$N" syllabus Spring 2032 3793 Flags --start 2032-01-13 --drop-full "Jan 99" --withdraw "Whenever"
+FLAGS="2032 - Spring/SP32 HIST 3793 Flags.md"
+assert_has "$FLAGS" "- Jan 99: 100% refund"            "flag overrides the calendar"
+assert_has "$FLAGS" "- January 23: Partial refund"     "unflagged dates still come from the calendar"
+assert_has "$FLAGS" "- Whenever: Withdraw deadline"    "every drop flag overrides"
+
+cat > calendar/2032-summer.conf <<'CAL'
+start  = 2032-06-07
+finals = 2032-07-12
+CAL
+run "$N" syllabus Summer 2032 3703
+assert_eq 6 "$(grep -c '^## Week' "2032 - Summer/SU32 HIST 3703.md")" "week count follows finals, not the 8-week default"
+assert_has "2032 - Summer/SU32 HIST 3703.md" "[100% refund date]" "a calendar without deadlines leaves placeholders"
+
+run "$N" syllabus Fall 2034 3703
+assert_rc 0 "no calendar for the term is not an error"
+assert_in "no calendar/2034-fall.conf" "$OUT" "missing calendar is reported"
+assert_has "2034 - Fall/FA34 HIST 3703.md" "[100% refund date]" "no calendar -> placeholders"
+
+section "new.sh — calendar errors (clean message, no orphan folder)"
+bad_calendar() {   # $1 = description, $2 = file body, $3 = expected message
+    printf '%s\n' "$2" > calendar/2040-fall.conf
+    run "$N" syllabus Fall 2040 3703
+    assert_rc 1 "$1: rejected"
+    assert_in "$3" "$OUT" "$1: message"
+    assert_hasnt <(echo "$OUT") "Traceback" "$1: no traceback"
+    assert_absent "2040 - Fall" "$1: no orphan folder"
+}
+bad_calendar "unknown key"     "withdrawl = 2040-11-01"                   "unknown key 'withdrawl'"
+bad_calendar "non-ISO date"    "start = 8/23/2040"                        "not a YYYY-MM-DD date"
+bad_calendar "impossible date" "start = 2040-02-30"                       "not a valid calendar date"
+bad_calendar "no_class label"  "no_class = 2040-09-03"                    "needs a label"
+bad_calendar "reversed range"  "no_class = 2040-11-23..2040-11-20 | Bad" "ends before it starts"
+bad_calendar "duplicate key"   $'start = 2040-08-20\nstart = 2040-08-21'  "start is set twice"
+bad_calendar "finals < start"  $'start = 2040-08-20\nfinals = 2040-08-13' "before start"
+printf 'start = 2040-08-20\nfinals = 2040-12-10\nwithdraw = 2039-11-01\n' > calendar/2040-fall.conf
+run "$N" syllabus Fall 2040 3703
+assert_in "outside the term" "$OUT" "a wrong-year deadline warns"
+rm -f calendar/2040-fall.conf
+
+section "new.sh calendar"
+run "$N" calendar Fall 2041
+assert_rc 0 "create a calendar stub"
+assert_file "calendar/2041-fall.conf" "stub written to calendar/<year>-<season>.conf"
+assert_has  "calendar/2041-fall.conf" "# no_class = 2041-09-02 | Labor Day" "Labor Day suggested (first Monday of September), commented out"
+assert_has  "calendar/2041-fall.conf" "# no_class = 2041-11-25..2041-11-29 | Thanksgiving Break" "Thanksgiving week suggested, commented out"
+run python3 "$SB/schedule.py" values calendar/2041-fall.conf
+assert_rc 0 "a blank stub is a valid calendar"
+assert_eq "" "$OUT" "a blank stub supplies no dates (nothing is guessed)"
+run "$N" calendar Fall 2041
+assert_rc 1 "existing calendar is not overwritten"
+run "$N" calendar Winter 2041
+assert_rc 1 "calendar: unknown season rejected"
+run "$N" calendar Fall
+assert_rc 1 "calendar: missing year rejected"
+
+section "committed calendars"
+for f in "$REPO"/calendar/*.conf; do
+    [ -e "$f" ] || continue
+    run python3 "$SB/schedule.py" values "$f"
+    assert_rc 0 "$(basename "$f") parses"
+    assert_hasnt <(echo "$OUT") "warning" "$(basename "$f") raises no warnings"
+done
+
+section "survey schedule without a calendar"
+run "$N" syllabus Spring 2036 1493
+assert_rc 0 "survey without a calendar or --start scaffolds"
+assert_has "2036 - Spring/SP36 HIST 1493.md" "| 1 |  | **Sun:&nbsp;Syllabus Quiz**" "week numbers with blank dates"
 
 # ===========================================================================
 section "build.sh — argument handling"

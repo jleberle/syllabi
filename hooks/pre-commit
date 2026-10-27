@@ -15,7 +15,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 changed="$(git diff --cached --name-only --diff-filter=ACMR)"
-grep -qE '^(build\.sh|new\.sh|test\.sh|syllabus\.tex|templates/)' <<< "$changed" || exit 0
+grep -qE '^(build\.sh|new\.sh|schedule\.py|test\.sh|syllabus\.tex|templates/|calendar/)' <<< "$changed" || exit 0
 
 echo "pre-commit: build tooling changed, running ./test.sh --no-build" >&2
 "$ROOT/test.sh" --no-build

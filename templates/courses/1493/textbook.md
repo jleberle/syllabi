@@ -1,0 +1,1 @@
+The textbook for the course *Give Me Liberty!: An American History* (Brief OSU 8th Edition) by Eric Foner, Kathleen DuVal, et al. is loaded on Canvas on the modules tab of the course. The book is only available as an ebook through Canvas and access is required to complete course assignments. Failure to have access to the textbook is not grounds for an assignment extension.
