@@ -1,4 +1,4 @@
-If you are registered with [Student Accessibility Services](https://accessibility.okstate.edu) (SAS), you are required to see me in-person during student hours or at an alternative time if schedules allow to discuss your accommodations. Your accommodations take effect when you see me.
+If you are registered with [Student Accessibility Services](https://accessibility.okstate.edu) (SAS), you are required to meet with me in person, in student hours or at another time we arrange, to discuss your accommodations. Your SAS letter or an email does not replace this conversation. Accommodations take effect once we meet.
 
 **Note especially:** the graded work in this course is overwhelmingly handwritten and timed, and some workshops use audio or video sources. If handwriting, extended time, a reduced-distraction room, captioning, or assistive technology is relevant to you, make sure you have registered with SAS. SAS can also cover temporary issues (e.g. broken wrist) or chronic medical conditions (e.g. diabetes, migraines, etc.)
 
