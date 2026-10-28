@@ -58,17 +58,17 @@ If your percentage score on the final is higher than one of your first two exams
 
 Two standing bonus point opportunities are offered: 25 points for completing every assignment that counts toward your grade and 25 points if 75% of the class completes the end of the semester evaluations. Completing every assignment means the syllabus quiz, all three note sheets and exams, at least seven InQuizitives, and at least five source workshops, with no zeros on the scores that count. Your dropped scores do not affect the bonus. The only other bonus I may offer is an in-class opportunity on a day of particularly low attendance (see Attendance). No other bonus points will be offered, please do not email asking for more.
 
-## Makeups, Early Exams, and Late Work
+## Early Exams, Makeups, and Late Work
 
-All grades are final once the deadline has passed. Assignments may not be revised or resubmitted for additional credit.
+**Known absences**: If you know you will be absent on a date an assignment is due, you must notify me as soon as you know and schedule a time to complete it before the date. Absences known about ahead of time are not grounds for an extension.
 
-If you know you will be absent on a date an assignment is due, you must notify me ahead of time and schedule a time to complete it before the date. Absences known about ahead of time are not grounds for an extension. If an absence could not have been known ahead of time (for example, athletics or military training notifies you the same day that you are traveling), you may complete the work after the fact with verification that the absence was unexpected.
+**Early exams**: If you cannot take an exam on its scheduled date, for any reason, you may schedule an early exam with me as soon as you know. I will do my best to find a time that works with my availability. If I do not have space or cannot find a compatible time, I will send you to the testing center, which charges a fee (currently $25) that you are responsible for. Exams taken through SAS are not charged.
 
-Makeups are not offered by default for InQuizitives or Source Workshops as lowest scores are dropped. If you are absent for an SAS-approved absence please contact me to arrange a makeup. Additionally if you are absent for an extenuating circumstance throughout the semester please see me during student hours to discuss alternatives.
+**Unexpected absences**: Makeups are not offered by default for InQuizitives or Source Workshops as lowest scores are dropped. If an absence could not have been known ahead of time (for example, athletics or military training notifies you the same day that you are traveling), you may complete the work after the fact with verification that the absence was unexpected. If you are absent for an SAS-approved absence please contact me to arrange a makeup. Additionally if you are absent for an extenuating circumstance throughout the semester please see me during student hours to discuss alternatives.
 
-Exam makeups require dated, third-party documentation showing you could not attend at the exam time (doctor's note, police or court record, obituary); statements from you, family, or friends do not qualify. Contact me before the exam, or within 24 hours if you could not.
+**Exam makeups**: Exam makeups require verifiable third-party documentation showing you could not attend at the exam time; statements from you, family, or friends do not qualify. Contact me before the exam, or within 24 hours if contacting me beforehand was impossible.
 
-**Early exams**: If you cannot take an exam on its scheduled date, for any reason, you may schedule an early exam with me ahead of time. I will do my best to find a time that works with my availability. If I do not have space or cannot find a compatible time, I will send you to the testing center, which charges a fee (currently $25) that you are responsible for. Exams taken through SAS are not charged.
+**Resubmissions**: Once a grade is posted, the assignment cannot be revised or resubmitted to improve it.
 
 ## Grade Disputes
 
@@ -92,7 +92,7 @@ InQuizitives are assignments provided by Norton, tied to the textbook chapters o
 
 ### Note Sheets
 
-For each exam you must bring **a standard 8.5"x11" one-sided page of handwritten notes**, containing whatever you want. That's right: exam notes are a graded component of the course: 15 for a detailed sheet, 8 for weak notes, 0 for none. Use of improper notes (typed, double-sized, oversized) will result in an automatic zero on the exam. If you attempt to cover up the use of improper notes you will be subject to a formal academic integrity hearing. **If you have a Student Accessibility Services (SAS) accommodation that affects how you can prepare or use a handwritten sheet** (for example, typed notes), see me in student hours before the first exam to arrange it. Formats approved through SAS are not subject to the penalty above.
+For each exam you must bring **a standard 8.5"x11" one-sided page of handwritten notes**, containing whatever you want. That's right: exam notes are a graded component of the course: 15 for a detailed sheet, 8 for weak notes, 0 for none. Use of improper notes (typed, double-sided, oversized) will result in an automatic zero on the exam. If you attempt to cover up the use of improper notes you will be subject to a formal academic integrity hearing. **If you have a Student Accessibility Services (SAS) accommodation that affects how you can prepare or use a handwritten sheet** (for example, typed notes), see me in student hours before the first exam to arrange it. Formats approved through SAS are not subject to the penalty above.
 
 ### Exams
 
