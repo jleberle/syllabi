@@ -11,8 +11,9 @@ This course provides a general introduction to major themes and events in the hi
 By the end of the semester, you should be able to:
 
 1. Explain major developments in North American and U.S. history from European-Indigenous contact to the present and situate them in chronological relation to one another.
-2. Construct a written historical argument supported by specific evidence.
-3. Evaluate competing historical interpretations rather than treating the past as settled.
+2. Critically analyze a primary source: identify its author, audience, purpose, and limits as evidence.
+3. Construct a written historical argument supported by specific evidence.
+4. Evaluate competing historical interpretations rather than treating the past as settled.
 
 ## A Note About Online Delivery
 
@@ -35,7 +36,7 @@ Email: <jared.eberle@okstate.edu>
 
 ## Textbook
 
-The textbook for the course, Eric Foner's *Give Me Liberty!: An American History* (Custom OSU Edition), is loaded on Canvas on the modules tab of the course. The book is only available as an ebook through Canvas, is billed directly to your bursar account, and access is required to complete course assignments. Failure to have access to the textbook is not grounds for an assignment extension.
+The textbook for the course, Eric Foner's *Give Me Liberty!: An American History* (Custom OSU Edition), is loaded on Canvas on the modules tab of the course. The book is only available as an ebook through Canvas, is billed directly to your bursar account, and access is required to complete course assignments. Failure to have access to the textbook is not grounds for an assignment extension. The custom OSU material loaded with the ebook includes *Reading Yesterday, Writing Today*, whose sections on survey courses, reading critically, and test-taking are assigned in week one.
 
 ## Exam Proctoring
 
@@ -118,7 +119,7 @@ There will be four exams, each closed note and closed book, taken through Procto
 
 **Each section locks once you complete it, and you cannot return to an earlier section.** Proofread and edit before moving on: treat each section as one you turn in before receiving the next. Plan your time by the points each section is worth: about 45 minutes for the essay, 25 for the source analysis, and 15 for the IDs, which leaves 5 minutes to spare.
 
-Each exam opens in ProctorU at 9AM Central Time on Monday of the week it is due, and you may take it any time from then until its deadline. **The last time to start an exam is 9:59PM Central Time on its due date.** ProctorU does not allow a partial exam, so it will not let you start one after 9:59PM even though the deadline is 11:59PM. Your lowest exam score is dropped.
+Each exam is available in ProctorU from 9AM Central Time on Monday of the week it is due until 9:45PM Central Time on its due date (Sunday, or Wednesday for Exam 4). **The last time to start an exam is 9:45PM.** ProctorU does not allow a partial exam, so you cannot start one you could not finish by the deadline, and the 9:45PM cutoff also leaves room for check-in delays. Your lowest exam score is dropped.
 
 #### Study guide
 
@@ -131,9 +132,9 @@ A study guide for each exam will be posted on Canvas before the exam opens.
 The course runs on a Monday-Sunday schedule, and each Monday by 9AM the week's module opens and the course front page is updated with that week's work. All deadlines are 11:59PM Central Time:
 
 - **Thursday**: that week's InQuizitives
-- **Sunday**: that week's lecture videos, and any exam or other assignment due that week (exams must be **started by 9:59PM**; see Exams)
+- **Sunday**: that week's lecture videos, and any exam or other assignment due that week (exams must be **started by 9:45PM**; see Exams)
 
-Finals week has no assigned course materials, and Exam 4 is due on Wednesday of finals week and must be **started by 9:59PM**.
+Finals week has no assigned course materials, and Exam 4 is due on Wednesday of finals week and must be **started by 9:45PM**.
 
 You must have access to reliable internet throughout the semester. If you miss a full week of work, I will reach out to check in. If something is getting in the way, tell me early: extensions depend on prompt notice.
 
@@ -195,7 +196,7 @@ Dates are subject to change; changes will be communicated in writing on Canvas. 
 
 | Wk | Dates        | Due                                   | Topic                | Textbook                                   |
 |:---:|:--------------|:------------------------------------|:------------------|:----------------------------------------|
-| 1 | Jan 11–17 | **Sun:&nbsp;Syllabus Quiz; ProctorU system check** | An Old World | Ch.&nbsp;1–2 |
+| 1 | Jan 11–17 | **Sun:&nbsp;Syllabus Quiz; ProctorU system check** | An Old World | Ch.&nbsp;1–2; *Reading Yesterday, Writing Today* (Survey Courses; Reading Critically; Test-Taking) |
 | 2 | Jan 18–24 |  | British America and Slavery | Ch.&nbsp;3–4 |
 | 3 | Jan 25–31 |  | The American Revolution | Ch.&nbsp;5–6 |
 | 4 | Feb 1–7 | **Sun:&nbsp;Exam 1** | The Constitution | Ch.&nbsp;7 |

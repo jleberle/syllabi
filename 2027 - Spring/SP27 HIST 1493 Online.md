@@ -36,7 +36,7 @@ Email: <jared.eberle@okstate.edu>
 
 ## Textbook
 
-The textbook for the course *Give Me Liberty!: An American History* (Brief OSU 8th Edition) by Eric Foner, Kathleen DuVal, et al. is loaded on Canvas on the modules tab of the course. The book is only available as an ebook through Canvas, is billed directly to your bursar account, and access is required to complete course assignments. Failure to have access to the textbook is not grounds for an assignment extension. Each chapter's **Voices of Freedom** primary source documents are required reading along with the chapter.
+The textbook for the course *Give Me Liberty!: An American History* (Brief OSU 8th Edition) by Eric Foner, Kathleen DuVal, et al. is loaded on Canvas on the modules tab of the course. The book is only available as an ebook through Canvas, is billed directly to your bursar account, and access is required to complete course assignments. Failure to have access to the textbook is not grounds for an assignment extension. The custom OSU material loaded with the ebook includes *Reading Yesterday, Writing Today*, whose sections on survey courses, reading critically, and test-taking are assigned in week one. That material also includes primary source documents; the ones assigned each week are listed on the schedule and are **required reading**.
 
 ## Exam Proctoring
 
@@ -114,12 +114,12 @@ InQuizitives are assignments provided by Norton, one for each textbook chapter o
 There will be four exams, each closed note and closed book, taken through ProctorU (see Exam Proctoring). Each exam is 90 minutes long, is worth 200 points, and has three sections, in this order:
 
 - **Essay (100 points)**: Write a thesis-based essay responding to a prompt built from the lectures, supported by specific evidence from the course.
-- **Source analysis (60 points)**: Analyze a primary source drawn from the assigned Voices of Freedom readings, using material from both the textbook and the lectures.
+- **Source analysis (60 points)**: You will be given a short new source, often an image such as a photograph or cartoon, connected to one of the assigned primary source readings. Analyze it in light of that reading, the issues of the period, and material from the textbook and the lectures.
 - **IDs (40 points)**: Six terms are provided, drawn from the key terms list in each textbook chapter, so you can build your own study list from those chapters. Choose four and identify each one and its significance.
 
 **Each section locks once you complete it, and you cannot return to an earlier section.** Proofread and edit before moving on: treat each section as one you turn in before receiving the next. Plan your time by the points each section is worth: about 45 minutes for the essay, 25 for the source analysis, and 15 for the IDs, which leaves 5 minutes to spare.
 
-Each exam opens in ProctorU at 9AM Central Time on Monday of the week it is due, and you may take it any time from then until its deadline. **The last time to start an exam is 9:59PM Central Time on its due date.** ProctorU does not allow a partial exam, so it will not let you start one after 9:59PM even though the deadline is 11:59PM. I can discuss materials for the exams before they open, but I cannot answer content questions about an exam while it is open for completion. Your lowest exam score is dropped.
+Each exam is available in ProctorU from 9AM Central Time on Monday of the week it is due until 9:45PM Central Time on its due date (Sunday, or Wednesday for Exam 4). **The last time to start an exam is 9:45PM.** ProctorU does not allow a partial exam, so you cannot start one you could not finish by the deadline, and the 9:45PM cutoff also leaves room for check-in delays. I can discuss materials for the exams before they open, but I cannot answer content questions about an exam while it is open for completion. Your lowest exam score is dropped.
 
 #### Study guide
 
@@ -132,9 +132,9 @@ A study guide for each exam will be posted on Canvas before the exam opens.
 The course runs on a Monday-Sunday schedule, and each Monday by 9AM the week's module opens and the course front page is updated with that week's work. All deadlines are 11:59PM Central Time:
 
 - **Thursday**: that week's InQuizitives
-- **Sunday**: that week's lecture videos, and any exam or other assignment due that week (exams must be **started by 9:59PM**; see Exams)
+- **Sunday**: that week's lecture videos, and any exam or other assignment due that week (exams must be **started by 9:45PM**; see Exams)
 
-Finals week has no assigned course materials, and Exam 4 is due on Wednesday of finals week and must be **started by 9:59PM**.
+Finals week has no assigned course materials, and Exam 4 is due on Wednesday of finals week and must be **started by 9:45PM**.
 
 You must have access to reliable internet throughout the semester. If you miss a full week of work, I will reach out to check in. If something is getting in the way, tell me early: extensions depend on prompt notice.
 
@@ -192,24 +192,24 @@ The full [OSU Syllabus Attachment](https://academicaffairs.okstate.edu/student-s
 
 # Schedule
 
-Dates are subject to change; changes will be communicated in writing on Canvas. Each week runs Monday through Sunday and opens by 9AM Monday. Lecture videos are due Sunday; all deadlines are 11:59PM Central Time. Each week's reading includes the chapter's Voices of Freedom documents.
+Dates are subject to change; changes will be communicated in writing on Canvas. Each week runs Monday through Sunday and opens by 9AM Monday. Lecture videos are due Sunday; all deadlines are 11:59PM Central Time. Each week's reading includes the primary sources listed for it, which the source analysis section of each exam builds on.
 
 | Wk | Dates        | Due                                   | Topic                | Textbook                                   |
 |:---:|:--------------|:------------------------------------|:------------------|:----------------------------------------|
-| 1 | Jan 11–17 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;15)**; **Sun:&nbsp;Syllabus Quiz; ProctorU system check** | Reconstruction | Ch.&nbsp;15 + Voices of Freedom |
-| 2 | Jan 18–24 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;16)** | The Transformation of the West | Ch.&nbsp;16 + Voices of Freedom |
-| 3 | Jan 25–31 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;17)** | The Gilded Age and the Segregated South | Ch.&nbsp;17 + Voices of Freedom |
-| 4 | Feb 1–7 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;18)**; **Sun:&nbsp;Exam 1 (Ch.&nbsp;15–18)** | Progressive Era | Ch.&nbsp;18 + Voices of Freedom |
-| 5 | Feb 8–14 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;19)** | World War I | Ch.&nbsp;19 + Voices of Freedom |
-| 6 | Feb 15–21 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;20)** | The 1920s | Ch.&nbsp;20 + Voices of Freedom |
-| 7 | Feb 22–28 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;21)** | The New Deal | Ch.&nbsp;21 + Voices of Freedom |
-| 8 | Mar 1–7 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;22)**; **Sun:&nbsp;Exam 2 (Ch.&nbsp;19–22)** | World War II | Ch.&nbsp;22 + Voices of Freedom |
-| 9 | Mar 8–14 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;23)** | The Atomic Age and the Cold War | Ch.&nbsp;23 + Voices of Freedom |
+| 1 | Jan 11–17 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;15)**; **Sun:&nbsp;Syllabus Quiz; ProctorU system check** | Reconstruction | Ch.&nbsp;15; Mississippi Black Code and the Fourteenth Amendment; *Reading Yesterday, Writing Today* (Survey Courses; Reading Critically; Test-Taking) |
+| 2 | Jan 18–24 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;16)** | The Transformation of the West | Ch.&nbsp;16; Riis, *How the Other Half Lives* |
+| 3 | Jan 25–31 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;17)** | The Gilded Age and the Segregated South | Ch.&nbsp;17; Wells, *Southern Horrors*; *Plessy v. Ferguson* |
+| 4 | Feb 1–7 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;18)**; **Sun:&nbsp;Exam 1 (Ch.&nbsp;15–18)** | Progressive Era | Ch.&nbsp;18; Addams, *Twenty Years at Hull-House*; the Triangle Shirtwaist Fire |
+| 5 | Feb 8–14 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;19)** | World War I | Ch.&nbsp;19; Bourne, "Trans-National America" |
+| 6 | Feb 15–21 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;20)** | The 1920s | Ch.&nbsp;20; The Scopes Trial |
+| 7 | Feb 22–28 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;21)** | The New Deal | Ch.&nbsp;21; Long, Letter to the Share Our Wealth Society |
+| 8 | Mar 1–7 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;22)**; **Sun:&nbsp;Exam 2 (Ch.&nbsp;19–22)** | World War II | Ch.&nbsp;22; Roosevelt, "Four Freedoms" |
+| 9 | Mar 8–14 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;23)** | The Atomic Age and the Cold War | Ch.&nbsp;23; NSC 68 |
 | 10 | Mar 15–21 | No assignments | Spring Break |  |
-| 11 | Mar 22–28 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;24)** | The 1950s | Ch.&nbsp;24 + Voices of Freedom |
-| 12 | Mar 29–Apr 4 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;25)** | Civil Rights and Vietnam | Ch.&nbsp;25 + Voices of Freedom |
+| 11 | Mar 22–28 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;24)** | The 1950s | Ch.&nbsp;24; *Brown v. Board of Education* |
+| 12 | Mar 29–Apr 4 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;25)** | Civil Rights and Vietnam | Ch.&nbsp;25; Friedan, "The Problem That Has No Name"; Hayden and King, "Sex and Caste" |
 | 13 | Apr 5–11 | **Sun:&nbsp;Exam 3 (Ch.&nbsp;23–25)** | Exam Week |  |
-| 14 | Apr 12–18 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;26)** | Nixon and Conservatism | Ch.&nbsp;26 + Voices of Freedom |
-| 15 | Apr 19–25 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;27)** | Reagan's Revolution? | Ch.&nbsp;27 + Voices of Freedom |
-| 16 | Apr 26–May 2 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;28)** | The End of History | Ch.&nbsp;28 + Voices of Freedom |
+| 14 | Apr 12–18 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;26)** | Nixon and Conservatism | Ch.&nbsp;26; *Roe v. Wade* |
+| 15 | Apr 19–25 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;27)** | Reagan's Revolution? | Ch.&nbsp;27; Reagan, Brandenburg Gate remarks |
+| 16 | Apr 26–May 2 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;28)** | The End of History | Ch.&nbsp;28; The USA PATRIOT Act controversy |
 | 17 | May 3–7 | **Wed:&nbsp;Exam 4 (Ch.&nbsp;26–28)** | Finals Week |  |
