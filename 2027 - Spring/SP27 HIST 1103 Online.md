@@ -73,7 +73,7 @@ Your three lowest lecture video scores, four lowest InQuizitive scores, and lowe
 
 ## Bonus Points
 
-One standing bonus point opportunity is offered: 25 points for completing every assignment that counts toward your grade. Completing every assignment means the syllabus quiz, at least 36 lecture videos, at least 20 InQuizitives, and at least three exams, with no zeros on the scores that count. Your dropped scores do not affect the bonus. No other bonus points or extra credit will be offered, and work may not be submitted or revised for additional points.
+Two standing bonus point opportunities are offered: 25 points for completing every assignment that counts toward your grade and 25 points if 75% of the class completes the end of the semester evaluations. Completing every assignment means the syllabus quiz, at least 36 lecture videos, at least 20 InQuizitives, and at least three exams, with no zeros on the scores that count. Your dropped scores do not affect the bonus. No other bonus points or extra credit will be offered, and work may not be submitted or revised for additional points.
 
 ## Extensions, Makeups, and Late Work
 

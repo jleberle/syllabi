@@ -78,8 +78,8 @@ term-specific fill-ins: `[student hours]`, the InQuizitive counts
 (`[points]`/`[given]`/`[counted]`, which differ by course), the week-one
 system-check date, and 1103's chapter-pacing sentence. 1493 Online further
 differs where the course itself differs (its assigned primary sources and the
-source-analysis wording built on them, the evaluations bonus, "multiple
-sections" in the contact line). The 39-video and grade table assume the
+source-analysis wording built on them, "multiple sections" in the contact
+line). The 39-video and grade table assume the
 3-per-week / 1-on-exam-weeks standard over a 15-week term.
 
 ### The build ignores files without a term prefix
