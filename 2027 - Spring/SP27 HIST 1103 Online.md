@@ -51,8 +51,8 @@ The course is worth **1000 points**. Nothing is weighted or curved — your grad
 
 | Component                     | Points each | Given | Counted | Total points | % of grade |
 |:------------------------------|------------:|------:|--------:|-------------:|-----------:|
-| Syllabus quiz                 | 50          | 1     | 1       | 50           | 5%         |
-| Lecture videos                | 5           | 30    | 30      | 150          | 15%        |
+| Syllabus quiz                 | 20          | 1     | 1       | 20           | 2%         |
+| Lecture videos                | 5           | 39    | 36      | 180          | 18%        |
 | InQuizitives                  | 10          | 24    | 20      | 200          | 20%        |
 | Exams                         | 200         | 4     | 3       | 600          | 60%        |
 | **Total**                     |             |       |         | **1000**     | **100%**   |
@@ -68,11 +68,11 @@ Final percentages are rounded to the nearest whole number before a letter grade 
 
 ## Dropped Scores
 
-Your four lowest InQuizitive scores and your lowest exam score are dropped at the end of the semester. This is automatic; you do not have to ask.
+Your three lowest lecture video scores, four lowest InQuizitive scores, and lowest exam score are dropped at the end of the semester. This is automatic; you do not have to ask.
 
 ## Bonus Points
 
-One standing bonus point opportunity is offered: 25 points for completing every assignment that counts toward your grade. Completing every assignment means the syllabus quiz, every lecture video, at least 20 InQuizitives, and at least three exams, with no zeros on the scores that count. Your dropped scores do not affect the bonus. No other bonus points or extra credit will be offered, and work may not be submitted or revised for additional points.
+One standing bonus point opportunity is offered: 25 points for completing every assignment that counts toward your grade. Completing every assignment means the syllabus quiz, at least 36 lecture videos, at least 20 InQuizitives, and at least three exams, with no zeros on the scores that count. Your dropped scores do not affect the bonus. No other bonus points or extra credit will be offered, and work may not be submitted or revised for additional points.
 
 ## Extensions, Makeups, and Late Work
 
@@ -102,7 +102,7 @@ A ten question, pass/fail quiz covering the major parts of the syllabus and clas
 
 ### Lecture Videos
 
-Each week there will be lecture videos on the main page of the course. Each video watched in full earns full credit, each watched at least 50% but not in full earns half credit, and each watched less than 50% earns no credit. Credit comes from Canvas Studio's viewership data, which is the only record used. Videos must be watched the week they are assigned, by 11:59PM Central Time on Sunday, to earn points.
+Lecture videos are posted on the main page of the course: three each week (in week one, an introduction video and two lectures) and one on exam weeks, 39 in all. Each video watched in full earns full credit, each watched at least 50% but not in full earns half credit, and each watched less than 50% earns no credit. Credit comes from Canvas Studio's viewership data, which is the only record used. Videos must be watched the week they are assigned, by 11:59PM Central Time on Sunday, to earn points.
 
 ### InQuizitives
 

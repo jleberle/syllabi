@@ -36,7 +36,7 @@ Email: <jared.eberle@okstate.edu>
 
 ## Textbook
 
-The textbook for the course *Give Me Liberty!: An American History* (Brief OSU 8th Edition) by Eric Foner, Kathleen DuVal, et al. is loaded on Canvas on the modules tab of the course. The book is only available as an ebook through Canvas, is billed directly to your bursar account, and access is required to complete course assignments. Failure to have access to the textbook is not grounds for an assignment extension.
+The textbook for the course *Give Me Liberty!: An American History* (Brief OSU 8th Edition) by Eric Foner, Kathleen DuVal, et al. is loaded on Canvas on the modules tab of the course. The book is only available as an ebook through Canvas, is billed directly to your bursar account, and access is required to complete course assignments. Failure to have access to the textbook is not grounds for an assignment extension. Each chapter's **Voices of Freedom** primary source documents are required reading along with the chapter.
 
 ## Exam Proctoring
 
@@ -52,8 +52,8 @@ The course is worth **1000 points**. Nothing is weighted or curved — your grad
 
 | Component                     | Points each | Given | Counted | Total points | % of grade |
 |:------------------------------|------------:|------:|--------:|-------------:|-----------:|
-| Syllabus quiz                 | 50          | 1     | 1       | 50           | 5%         |
-| Lecture videos                | 5           | 30    | 30      | 150          | 15%        |
+| Syllabus quiz                 | 20          | 1     | 1       | 20           | 2%         |
+| Lecture videos                | 5           | 39    | 36      | 180          | 18%        |
 | InQuizitives                  | 20          | 14    | 10      | 200          | 20%        |
 | Exams                         | 200         | 4     | 3       | 600          | 60%        |
 | **Total**                     |             |       |         | **1000**     | **100%**   |
@@ -69,11 +69,11 @@ Final percentages are rounded to the nearest whole number before a letter grade 
 
 ## Dropped Scores
 
-Your four lowest InQuizitive scores and your lowest exam score are dropped at the end of the semester. This is automatic; you do not have to ask.
+Your three lowest lecture video scores, four lowest InQuizitive scores, and lowest exam score are dropped at the end of the semester. This is automatic; you do not have to ask.
 
 ## Bonus Points
 
-Two standing bonus point opportunities are offered: 25 points for completing every assignment that counts toward your grade and 25 points if 75% of the class completes the end of the semester evaluations. Completing every assignment means the syllabus quiz, every lecture video, at least ten InQuizitives, and at least three exams, with no zeros on the scores that count. Your dropped scores do not affect the bonus. No other bonus points or extra credit will be offered, and work may not be submitted or revised for additional points.
+Two standing bonus point opportunities are offered: 25 points for completing every assignment that counts toward your grade and 25 points if 75% of the class completes the end of the semester evaluations. Completing every assignment means the syllabus quiz, at least 36 lecture videos, at least ten InQuizitives, and at least three exams, with no zeros on the scores that count. Your dropped scores do not affect the bonus. No other bonus points or extra credit will be offered, and work may not be submitted or revised for additional points.
 
 ## Extensions, Makeups, and Late Work
 
@@ -103,7 +103,7 @@ A ten question, pass/fail quiz covering the syllabus and course policies, due at
 
 ### Lecture Videos
 
-Each week there will be lecture videos on the main page of the course. Each video watched in full earns full credit, each watched at least 50% but not in full earns half credit, and each watched less than 50% earns no credit. Credit comes from Canvas Studio's viewership data, which is the only record used. Videos must be watched the week they are assigned, by 11:59PM Central Time on Sunday, to earn points.
+Lecture videos are posted on the main page of the course: three each week (in week one, an introduction video and two lectures) and one on exam weeks, 39 in all. Each video watched in full earns full credit, each watched at least 50% but not in full earns half credit, and each watched less than 50% earns no credit. Credit comes from Canvas Studio's viewership data, which is the only record used. Videos must be watched the week they are assigned, by 11:59PM Central Time on Sunday, to earn points.
 
 ### InQuizitives
 
@@ -114,7 +114,7 @@ InQuizitives are assignments provided by Norton, one for each textbook chapter o
 There will be four exams, each closed note and closed book, taken through ProctorU (see Exam Proctoring). Each exam is 90 minutes long, is worth 200 points, and has three sections, in this order:
 
 - **Essay (100 points)**: Write a thesis-based essay responding to a prompt built from the lectures, supported by specific evidence from the course.
-- **Source analysis (60 points)**: Analyze a primary source you have not seen before, using material from both the textbook and the lectures.
+- **Source analysis (60 points)**: Analyze a primary source drawn from the assigned Voices of Freedom readings, using material from both the textbook and the lectures.
 - **IDs (40 points)**: Six terms are provided, drawn from the key terms list in each textbook chapter, so you can build your own study list from those chapters. Choose four and identify each one and its significance.
 
 **Each section locks once you complete it, and you cannot return to an earlier section.** Proofread and edit before moving on: treat each section as one you turn in before receiving the next. Plan your time by the points each section is worth: about 45 minutes for the essay, 25 for the source analysis, and 15 for the IDs, which leaves 5 minutes to spare.
@@ -192,24 +192,24 @@ The full [OSU Syllabus Attachment](https://academicaffairs.okstate.edu/student-s
 
 # Schedule
 
-Dates are subject to change; changes will be communicated in writing on Canvas. Each week runs Monday through Sunday and opens by 9AM Monday. Lecture videos are due Sunday; all deadlines are 11:59PM Central Time.
+Dates are subject to change; changes will be communicated in writing on Canvas. Each week runs Monday through Sunday and opens by 9AM Monday. Lecture videos are due Sunday; all deadlines are 11:59PM Central Time. Each week's reading includes the chapter's Voices of Freedom documents.
 
 | Wk | Dates        | Due                                   | Topic                | Textbook                                   |
 |:---:|:--------------|:------------------------------------|:------------------|:----------------------------------------|
-| 1 | Jan 11–17 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;15)**; **Sun:&nbsp;Syllabus Quiz; ProctorU system check** | Reconstruction | Ch.&nbsp;15 |
-| 2 | Jan 18–24 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;16)** | The Transformation of the West | Ch.&nbsp;16 |
-| 3 | Jan 25–31 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;17)** | The Gilded Age and the Segregated South | Ch.&nbsp;17 |
-| 4 | Feb 1–7 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;18)**; **Sun:&nbsp;Exam 1 (Ch.&nbsp;15–18)** | Progressive Era | Ch.&nbsp;18 |
-| 5 | Feb 8–14 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;19)** | World War I | Ch.&nbsp;19 |
-| 6 | Feb 15–21 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;20)** | The 1920s | Ch.&nbsp;20 |
-| 7 | Feb 22–28 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;21)** | The New Deal | Ch.&nbsp;21 |
-| 8 | Mar 1–7 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;22)**; **Sun:&nbsp;Exam 2 (Ch.&nbsp;19–22)** | World War II | Ch.&nbsp;22 |
-| 9 | Mar 8–14 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;23)** | The Atomic Age and the Cold War | Ch.&nbsp;23 |
+| 1 | Jan 11–17 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;15)**; **Sun:&nbsp;Syllabus Quiz; ProctorU system check** | Reconstruction | Ch.&nbsp;15 + Voices of Freedom |
+| 2 | Jan 18–24 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;16)** | The Transformation of the West | Ch.&nbsp;16 + Voices of Freedom |
+| 3 | Jan 25–31 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;17)** | The Gilded Age and the Segregated South | Ch.&nbsp;17 + Voices of Freedom |
+| 4 | Feb 1–7 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;18)**; **Sun:&nbsp;Exam 1 (Ch.&nbsp;15–18)** | Progressive Era | Ch.&nbsp;18 + Voices of Freedom |
+| 5 | Feb 8–14 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;19)** | World War I | Ch.&nbsp;19 + Voices of Freedom |
+| 6 | Feb 15–21 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;20)** | The 1920s | Ch.&nbsp;20 + Voices of Freedom |
+| 7 | Feb 22–28 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;21)** | The New Deal | Ch.&nbsp;21 + Voices of Freedom |
+| 8 | Mar 1–7 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;22)**; **Sun:&nbsp;Exam 2 (Ch.&nbsp;19–22)** | World War II | Ch.&nbsp;22 + Voices of Freedom |
+| 9 | Mar 8–14 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;23)** | The Atomic Age and the Cold War | Ch.&nbsp;23 + Voices of Freedom |
 | 10 | Mar 15–21 | No assignments | Spring Break |  |
-| 11 | Mar 22–28 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;24)** | The 1950s | Ch.&nbsp;24 |
-| 12 | Mar 29–Apr 4 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;25)** | Civil Rights and Vietnam | Ch.&nbsp;25 |
+| 11 | Mar 22–28 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;24)** | The 1950s | Ch.&nbsp;24 + Voices of Freedom |
+| 12 | Mar 29–Apr 4 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;25)** | Civil Rights and Vietnam | Ch.&nbsp;25 + Voices of Freedom |
 | 13 | Apr 5–11 | **Sun:&nbsp;Exam 3 (Ch.&nbsp;23–25)** | Exam Week |  |
-| 14 | Apr 12–18 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;26)** | Nixon and Conservatism | Ch.&nbsp;26 |
-| 15 | Apr 19–25 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;27)** | Reagan's Revolution? | Ch.&nbsp;27 |
-| 16 | Apr 26–May 2 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;28)** | The End of History | Ch.&nbsp;28 |
+| 14 | Apr 12–18 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;26)** | Nixon and Conservatism | Ch.&nbsp;26 + Voices of Freedom |
+| 15 | Apr 19–25 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;27)** | Reagan's Revolution? | Ch.&nbsp;27 + Voices of Freedom |
+| 16 | Apr 26–May 2 | **Thu:&nbsp;InQuizitive (Ch.&nbsp;28)** | The End of History | Ch.&nbsp;28 + Voices of Freedom |
 | 17 | May 3–7 | **Wed:&nbsp;Exam 4 (Ch.&nbsp;26–28)** | Finals Week |  |
