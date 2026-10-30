@@ -55,7 +55,7 @@ The course is worth **1000 points**. Nothing is weighted or curved — your grad
 | Syllabus quiz                 | 50          | 1     | 1       | 50           | 5%         |
 | Lecture videos                | 5           | 30    | 30      | 150          | 15%        |
 | InQuizitives                  | 20          | 14    | 10      | 200          | 20%        |
-| Exams                         | 150         | 4     | 4       | 600          | 60%        |
+| Exams                         | 200         | 4     | 3       | 600          | 60%        |
 | **Total**                     |             |       |         | **1000**     | **100%**   |
 
 **Letter grades:**
@@ -69,11 +69,11 @@ Final percentages are rounded to the nearest whole number before a letter grade 
 
 ## Dropped Scores
 
-Your four lowest InQuizitive scores are dropped at the end of the semester. This is automatic; you do not have to ask.
+Your four lowest InQuizitive scores and your lowest exam score are dropped at the end of the semester. This is automatic; you do not have to ask.
 
 ## Bonus Points
 
-Two standing bonus point opportunities are offered: 25 points for completing every assignment that counts toward your grade and 25 points if 75% of the class completes the end of the semester evaluations. Completing every assignment means the syllabus quiz, every lecture video, at least ten InQuizitives, and all four exams, with no zeros on the scores that count. Your dropped scores do not affect the bonus. No other bonus points or extra credit will be offered, and work may not be submitted or revised for additional points.
+Two standing bonus point opportunities are offered: 25 points for completing every assignment that counts toward your grade and 25 points if 75% of the class completes the end of the semester evaluations. Completing every assignment means the syllabus quiz, every lecture video, at least ten InQuizitives, and at least three exams, with no zeros on the scores that count. Your dropped scores do not affect the bonus. No other bonus points or extra credit will be offered, and work may not be submitted or revised for additional points.
 
 ## Extensions, Makeups, and Late Work
 
@@ -111,12 +111,15 @@ InQuizitives are assignments provided by Norton, one for each textbook chapter o
 
 ### Exams
 
-Four exams, each of which is closed note and closed book and taken through ProctorU (see Exam Proctoring). Each exam has two parts:
+There will be four exams, each closed note and closed book, taken through ProctorU (see Exam Proctoring). Each exam is 90 minutes long, is worth 200 points, and has three sections, in this order:
 
-- **Short answer**: You will be provided a list of terms, pick three that relate to one another, and write a paragraph identifying each term and explaining how they relate.
-- **Essay**: You will write a comprehensive, thesis-based essay on the material from that section, with evidence from the course.
+- **Essay (100 points)**: Write a thesis-based essay responding to a prompt built from the lectures, supported by specific evidence from the course.
+- **Source analysis (60 points)**: Analyze a primary source you have not seen before, using material from both the textbook and the lectures.
+- **IDs (40 points)**: Six terms are provided, drawn from the key terms list in each textbook chapter, so you can build your own study list from those chapters. Choose four and identify each one and its significance.
 
-Each exam opens in ProctorU at 9AM Central Time on Monday of the week it is due, and you may take it any time from then until its deadline. **The last time to start an exam is 10:14PM Central Time on its due date.** ProctorU does not allow a partial exam, so it will not let you start one after 10:14PM even though the deadline is 11:59PM. I can discuss materials for the exams before they open, but I cannot answer content questions about an exam while it is open for completion.
+**Each section locks once you complete it, and you cannot return to an earlier section.** Proofread and edit before moving on: treat each section as one you turn in before receiving the next. Plan your time by the points each section is worth: about 45 minutes for the essay, 25 for the source analysis, and 15 for the IDs, which leaves 5 minutes to spare.
+
+Each exam opens in ProctorU at 9AM Central Time on Monday of the week it is due, and you may take it any time from then until its deadline. **The last time to start an exam is 9:59PM Central Time on its due date.** ProctorU does not allow a partial exam, so it will not let you start one after 9:59PM even though the deadline is 11:59PM. I can discuss materials for the exams before they open, but I cannot answer content questions about an exam while it is open for completion. Your lowest exam score is dropped.
 
 #### Study guide
 
@@ -129,9 +132,9 @@ A study guide for each exam will be posted on Canvas before the exam opens.
 The course runs on a Monday-Sunday schedule, and each Monday by 9AM the week's module opens and the course front page is updated with that week's work. All deadlines are 11:59PM Central Time:
 
 - **Thursday**: that week's InQuizitives
-- **Sunday**: that week's lecture videos, and any exam or other assignment due that week (exams must be **started by 10:14PM**; see Exams)
+- **Sunday**: that week's lecture videos, and any exam or other assignment due that week (exams must be **started by 9:59PM**; see Exams)
 
-Finals week has no assigned course materials, and Exam 4 is due on Wednesday of finals week and must be **started by 10:14PM**.
+Finals week has no assigned course materials, and Exam 4 is due on Wednesday of finals week and must be **started by 9:59PM**.
 
 You must have access to reliable internet throughout the semester. If you miss a full week of work, I will reach out to check in. If something is getting in the way, tell me early: extensions depend on prompt notice.
 
