@@ -208,8 +208,9 @@ Flags override the calendar for one syllabus, and work with no calendar at all:
     --sixweek "October 5" --withdraw "November 5"
 ```
 
-The survey schedule is a table; the other types get `## Week N (Month D-Month D)`
-headings. In-person weeks span Monday–Friday and online weeks Monday–Sunday.
+Survey and online schedules are tables; upper-division gets `## Week N (Month
+D-Month D)` headings. In-person weeks span Monday–Friday and online weeks
+Monday–Sunday (finals week Monday–Friday).
 With no calendar, Fall and Spring generate 17 weeks (including finals week) and
 Summer 8.
 
@@ -229,10 +230,13 @@ never touched):
   `online/`. To give a shared snippet a type-specific version, just add a file
   with the same name there — no script changes needed.
 - `{{include-course name}}` is replaced with
+  `templates/courses/<course>/<type>/name.md` if it exists, otherwise
   `templates/courses/<course>/name.md`, or a `[placeholder]` if that course has
-  none. The survey skeleton uses `description`, `learning-outcomes`,
-  `textbook`, and `schedule` (the weekly rows: `| events | topic | textbook |`,
-  one per class week with the finals-week row last).
+  neither. The survey and online skeletons use `description`,
+  `learning-outcomes`, and `textbook`; their weekly rows (`| events | topic |
+  textbook |`, one per class week with the finals-week row last) come from
+  `courses/<course>/schedule.md` for survey and
+  `courses/<course>/online/schedule.md` for online.
 - `{{drop_full}}`, `{{drop_partial}}`, `{{sixweek}}`, `{{withdraw}}`,
   `{{course}}`, `{{course_name}}`, `{{date_line}}`, and `{{schedule}}` are
   substituted everywhere after includes are expanded, so snippets can also

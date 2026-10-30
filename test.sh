@@ -144,12 +144,14 @@ assert_eq 17 "$(grep -c '^## Week' "$SCHED_IP")" "Fall = 17 weeks"
 
 run "$N" syllabus Fall 2030 1103 Online --start 2030-08-26
 SCHED_ON="2030 - Fall/FA30 HIST 1103 Online.md"
-assert_has "$SCHED_ON" "## Week 1 (August 26-September 1)" "online week spans Mon-Sun"
+assert_has "$SCHED_ON" "| 1 | Aug 26–Sep 1 |" "online week spans Mon-Sun"
+assert_has "$SCHED_ON" "| 1 | Aug 26–Sep 1 | **Sun:&nbsp;Syllabus Quiz" "online rows come from courses/<course>/online/"
+assert_has "$SCHED_ON" "| Finals Week |" "online finals row is the last row"
 assert_has "$SCHED_ON" "A Note About Online Delivery" "online skeleton selected for online descriptor"
 assert_hasnt "$IP"     "A Note About Online Delivery" "in-person skeleton omits the online note"
 
 run "$N" syllabus Summer 2030 1103 Online --start 2030-06-02
-assert_eq 8 "$(grep -c '^## Week' "2030 - Summer/SU30 HIST 1103 Online.md")" "Summer = 8 weeks"
+assert_eq 8 "$(grep -cE '^\| [0-9]+ \|' "2030 - Summer/SU30 HIST 1103 Online.md")" "Summer = 8 weeks"
 
 run "$N" syllabus Fall 2030 3793 --start 2030-08-28   # Wednesday start
 assert_has "2030 - Fall/FA30 HIST 3793.md" "## Week 1 (August 26-August 30)" "mid-week start snaps back to Monday"
@@ -209,6 +211,14 @@ assert_has "2027 - Fall/FA27 HIST 1103 Online.md" "A Note About Online Delivery"
 run "$N" syllabus Fall 2027 3703 Hybrid --type online
 assert_rc 0 "--type online accepted"
 assert_has "2027 - Fall/FA27 HIST 3703 Hybrid.md" "A Note About Online Delivery" "--type overrides the guess"
+assert_in "has no schedule.md" "$OUT" "online course without online rows says so"
+assert_has "2027 - Fall/FA27 HIST 3703 Hybrid.md" "[description for HIST 3703]" "...and borrows no other course's content"
+
+run "$N" syllabus Fall 2027 1493 Online
+assert_has   "2027 - Fall/FA27 HIST 1493 Online.md" "builds toward essay exams" "include-course: courses/<course>/online/ wins"
+assert_hasnt "2027 - Fall/FA27 HIST 1493 Online.md" "in this room"              "...over the in-person description"
+assert_has   "2027 - Fall/FA27 HIST 1493 Online.md" "Critically analyze a primary source" "...and falls back to the shared course file"
+assert_has   "$SURVEY" "in this room"                                             "in-person 1493 keeps its own description"
 
 run "$N" syllabus Fall 2027 1103 Honors --type upper
 assert_hasnt "2027 - Fall/FA27 HIST 1103 Honors.md" "Final Exam Replacement" "--type upper on a survey number"
@@ -267,7 +277,8 @@ assert_has "$CALU" "- January 20: 100% refund"                    "upper: drops 
 
 run "$N" syllabus Spring 2032 1103 Online
 CALO="2032 - Spring/SP32 HIST 1103 Online.md"
-assert_has   "$CALO" "## Week 10 (March 15-March 21): Spring Break" "online: break week spans Mon-Sun"
+assert_has   "$CALO" "| 10 | Mar 15–21 | No assignments | Spring Break |" "online: break week spans Mon-Sun"
+assert_has   "$CALO" "| 17 | May 3–7 |"                                    "online: finals week ends Friday"
 assert_hasnt "$CALO" "MLK Day"                                       "online: single holidays are not listed"
 
 run "$N" syllabus Spring 2032 3793 Flags --start 2032-01-13 --drop-full "Jan 99" --withdraw "Whenever"

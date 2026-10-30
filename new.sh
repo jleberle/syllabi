@@ -53,8 +53,9 @@
 #
 # A skeleton line of the form "{{include name}}" is replaced with the contents
 # of templates/<type>/name.md if it exists, else templates/common/name.md.
-# "{{include-course name}}" pulls templates/courses/<course>/name.md instead,
-# and becomes a [placeholder] for a course that has none. After includes are
+# "{{include-course name}}" pulls templates/courses/<course>/<type>/name.md, else
+# templates/courses/<course>/name.md, and becomes a [placeholder] for a course
+# that has neither. After includes are
 # expanded, {{course}}, {{course_name}}, {{date_line}}, {{drop_full}},
 # {{drop_partial}}, {{sixweek}}, {{withdraw}}, {{withdraw_wf}}, and {{schedule}} are
 # substituted. Edit the template files to change boilerplate; no script
@@ -88,9 +89,11 @@ parse_season() {
 #   $3  course number
 # "{{include <name>}}": templates/<type>/<name>.md wins over
 # templates/common/<name>.md.
-# "{{include-course <name>}}": templates/courses/<course>/<name>.md, or a
-# [placeholder] when that course has no such file -- never another course's
-# content, which would put the wrong description into a syllabus.
+# "{{include-course <name>}}": templates/courses/<course>/<type>/<name>.md wins
+# over templates/courses/<course>/<name>.md, else a [placeholder] -- never
+# another course's content, which would put the wrong description into a
+# syllabus. The <type> folder is how one course teaches two formats (1493 in
+# person and online) without either borrowing the other's text.
 # ---------------------------------------------------------------------------
 render_skeleton() {
     local skeleton="$1" type="$2" course="$3"
@@ -110,7 +113,8 @@ render_skeleton() {
             out+="$(cat "$snippet")"$'\n'
         elif [[ "$line" =~ ^\{\{include-course[[:space:]]+([A-Za-z0-9_-]+)\}\}$ ]]; then
             name="${BASH_REMATCH[1]}"
-            snippet="$tpl_dir/courses/$course/$name.md"
+            snippet="$tpl_dir/courses/$course/$type/$name.md"
+            [ -f "$snippet" ] || snippet="$tpl_dir/courses/$course/$name.md"
             if [ -f "$snippet" ]; then
                 out+="$(cat "$snippet")"$'\n'
             else
@@ -321,8 +325,10 @@ cmd_syllabus() {
     [ -n "$withdraw"     ] || withdraw="[withdraw deadline]"
     [ -n "$withdraw_wf"  ] || withdraw_wf="[W or F deadline]"
 
-    # Build schedule section: a table of weekly rows for survey courses, week
-    # headings for the others.
+    # Build schedule section: a table of weekly rows for survey and online
+    # courses, week headings for upper-division. Online rows come only from
+    # courses/<course>/online/: an in-person course's rows name meeting days
+    # and in-class work, so they are never borrowed.
     local sched_args=(--weeks "$weeks" --season "$season_word") schedule_body
     [ -z "$start_date" ] || sched_args+=(--start "$start_date")
     if [ "$type" = "survey" ]; then
@@ -333,8 +339,12 @@ cmd_syllabus() {
         [ -z "$missing" ] || echo "note: templates/courses/$course/ has no:$missing (left as placeholders or blank rows)" >&2
         schedule_body="$(python3 "$ROOT/schedule.py" table "${sched_args[@]}" \
             ${cal_args[@]+"${cal_args[@]}"} --rows "$ROOT/templates/courses/$course/schedule.md")"
+    elif [ "$type" = "online" ]; then
+        local rows="$ROOT/templates/courses/$course/online/schedule.md"
+        [ -f "$rows" ] || echo "note: templates/courses/$course/online/ has no schedule.md (schedule rows left blank)" >&2
+        schedule_body="$(python3 "$ROOT/schedule.py" table --online "${sched_args[@]}" \
+            ${cal_args[@]+"${cal_args[@]}"} --rows "$rows")"
     else
-        [ "$type" != "online" ] || sched_args+=(--online)
         schedule_body="$(python3 "$ROOT/schedule.py" headings "${sched_args[@]}" \
             ${cal_args[@]+"${cal_args[@]}"})"
     fi

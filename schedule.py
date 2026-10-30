@@ -41,7 +41,7 @@ syllabus. An unknown key is an error, so a typo cannot silently drop a deadline.
 Subcommands (new.sh is the only caller):
     values   CAL                         key=value lines for the dates new.sh substitutes
     headings --weeks N [--start D] [--season S] [--online] [--cal CAL]
-    table    --weeks N [--start D] [--season S] [--cal CAL] [--rows FILE]
+    table    --weeks N [--start D] [--season S] [--online] [--cal CAL] [--rows FILE]
     stub     SEASON YEAR                 a blank calendar to fill in
 
 --weeks is only the fallback count: with a start date and a calendar `finals`,
@@ -304,13 +304,18 @@ def read_rows(path: Path) -> list[list[str]]:
     return rows
 
 
-def table(weeks: list[Week], rows: list[list[str]], rows_name: str) -> list[str]:
+def table(weeks: list[Week], rows: list[list[str]], rows_name: str,
+          online: bool = False) -> list[str]:
     """Pour the weekly rows into the term's weeks.
 
     The last row is the finals week, and goes in the last week that has class;
     the rest fill the earlier class weeks in order, skipping break weeks. So
     the same rows serve a spring term (break after week 9) and a fall term
     (Thanksgiving week later) with only the dates and break rows moving.
+
+    An online week runs Monday-Sunday, except finals week, which ends Friday.
+    It has no meeting days, so single no-class days are neither noted nor
+    checked against the rows; only a full break week matters.
     """
     teaching = [w.number - 1 for w in weeks if not w.is_break]
     slots = teaching[:-1]
@@ -328,9 +333,12 @@ def table(weeks: list[Week], rows: list[list[str]], rows_name: str) -> list[str]
 
     out = []
     for w in weeks:
-        dates = short_range(w.monday, w.monday + timedelta(days=4)) if w.monday else ""
+        span = 6 if online and w.number != len(weeks) else 4
+        dates = short_range(w.monday, w.monday + timedelta(days=span)) if w.monday else ""
         if w.is_break:
-            cells = ["No class", w.break_label, ""]
+            cells = ["No assignments" if online else "No class", w.break_label, ""]
+        elif online:
+            cells = assigned.get(w.number - 1, ["", "", ""])
         else:
             events, topic, books = assigned.get(w.number - 1, ["", "", ""])
             for first, last, label in w.runs:
@@ -389,9 +397,8 @@ def main() -> int:
         p.add_argument("--start")
         p.add_argument("--cal", type=Path)
         p.add_argument("--season", default="")
-        if name == "headings":
-            p.add_argument("--online", action="store_true")
-        else:
+        p.add_argument("--online", action="store_true")
+        if name == "table":
             p.add_argument("--rows", type=Path)
 
     p = sub.add_parser("stub")
@@ -423,7 +430,7 @@ def main() -> int:
                 lines = headings(weeks, args.online)
             else:
                 rows = read_rows(args.rows) if args.rows and args.rows.is_file() else []
-                lines = table(weeks, rows, args.rows.name if args.rows else "")
+                lines = table(weeks, rows, args.rows.name if args.rows else "", args.online)
             print("\n".join(lines))
     except CalendarError as e:
         print(f"error: {e}", file=sys.stderr)

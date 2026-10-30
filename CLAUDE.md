@@ -49,13 +49,38 @@ placeholder instead (Student Hours; the petition-period date is
 overrides `templates/common/`. `templates/courses/<course>/` holds content for
 one course (`{{include-course name}}`) and is **never** borrowed across
 courses: a survey course with no folder gets `[description for HIST 1103]`
-placeholders, not 1493's text. Only 1493 has a folder so far.
+placeholders, not 1493's text. 1493 and 1103 have folders.
+
+A course taught in two formats keeps the format-specific files in
+`courses/<course>/<type>/`, which `{{include-course}}` checks first: online
+1493 gets `courses/1493/online/description.md` (no "in this room") but the
+shared `courses/1493/learning-outcomes.md`. Online schedule rows come **only**
+from `courses/<course>/online/schedule.md`, never the in-person rows, which
+name meeting days and in-class work; a course without that file gets a table
+of blank rows and a note.
 
 The weekly rows in `courses/1493/schedule.md` are `| events | topic | textbook |`
 with the finals-week row last; `schedule.py` supplies the Wk and Dates columns.
 Events name weekdays ("Wed: Source Workshop 2") but never dates, which is what
 lets one set of rows serve Spring and Fall. `new.sh` warns when a no-class day
 lands on a weekday a row schedules something.
+
+Online schedules are the same kind of table (`| due | topic | textbook |` rows),
+with Monday-Sunday weeks, a Monday-Friday finals week, "No assignments" break
+rows, and no single-day holiday notes or weekday checks, since an asynchronous
+course has no meeting days. The rows are written for a 15-week term, so an
+8-week summer online scaffold drops most of them with a warning and needs its
+schedule written by hand.
+
+`skeleton-online.md` was derived from `SP27 HIST 1103 Online` on 2026-10-30.
+Scaffolding SP27 1103 Online now differs from the committed file only in
+term-specific fill-ins: `[student hours]`, the InQuizitive counts
+(`[points]`/`[given]`/`[counted]`, which differ by course), the week-one
+system-check date, and 1103's chapter-pacing sentence. 1493 Online further
+differs where the course itself differs (its assigned primary sources and the
+source-analysis wording built on them, the evaluations bonus, "multiple
+sections" in the contact line). The 39-video and grade table assume the
+3-per-week / 1-on-exam-weeks standard over a 15-week term.
 
 ### The build ignores files without a term prefix
 
@@ -240,8 +265,8 @@ changes the *next* scaffold, never an existing syllabus.
 - Deadlines render as `January 19`, no weekday, matching SP27. Student Hours is
   not in the calendar: `survey/contact.md` and `upper/contact.md` carry a
   `[student hours]` placeholder to fill in per syllabus, so a stale time cannot
-  carry over. (`online/contact.md` has no time slot, just "appointments via
-  Zoom".)
+  carry over. `online/contact.md` has the same placeholder, followed by the
+  Zoom-by-request line.
 - A survey scaffold needs exactly as many class weeks as the template has rows
   (15 plus finals). A term with an extra break the rules and calendar don't
   know about has one more class week than rows, so `schedule.py` warns about a
