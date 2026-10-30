@@ -111,7 +111,10 @@ InQuizitives are assignments provided by Norton, one for each textbook chapter o
 
 ### Exams
 
-Four exams, each taken through ProctorU (see Exam Proctoring). Each exam asks you to identify five terms, in a paragraph-length response each that provides the relevant information on the topic as it relates to the class material, and to write a comprehensive essay on the material from that section.
+Four exams, each of which is closed note and closed book and taken through ProctorU (see Exam Proctoring). Each exam has two parts:
+
+- **Short answer**: You will be provided a list of terms, pick three that relate to one another, and write a paragraph identifying each term and explaining how they relate.
+- **Essay**: You will write a comprehensive, thesis-based essay on the material from that section, with evidence from the course.
 
 Each exam opens in ProctorU at 9AM Central Time on Monday of the week it is due, and you may take it any time from then until its deadline. **The last time to start an exam is 10:14PM Central Time on its due date.** ProctorU does not allow a partial exam, so it will not let you start one after 10:14PM even though the deadline is 11:59PM. I can discuss materials for the exams before they open, but I cannot answer content questions about an exam while it is open for completion.
 
@@ -147,6 +150,7 @@ Course specific policies:
 - All work completed for the course must be your own original work. Students are not allowed to work with others or submit work done for other classes.
 - Students may only utilize assigned course materials in completing assignments. Use of non-course materials is strictly prohibited and will result in point deductions on assignments, up to a zero on the assignment.
 - Use of artificial intelligence programs (AI) like ChatGPT are strictly prohibited in the course. Students may not use AI programs to complete assignments in the course.
+- Do not upload course materials, including exam questions, study guides, and lecture videos, to websites offering note-sharing, tutoring, or other academic help (free or paid), or to AI tools.
 
 ## Announcements and Changes
 

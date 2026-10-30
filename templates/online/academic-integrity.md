@@ -5,3 +5,4 @@ Course specific policies:
 - All work completed for the course must be your own original work. Students are not allowed to work with others or submit work done for other classes.
 - Students may only utilize assigned course materials in completing assignments. Use of non-course materials is strictly prohibited and will result in point deductions on assignments, up to a zero on the assignment.
 - Use of artificial intelligence programs (AI) like ChatGPT are strictly prohibited in the course. Students may not use AI programs to complete assignments in the course.
+- Do not upload course materials, including exam questions, study guides, and lecture videos, to websites offering note-sharing, tutoring, or other academic help (free or paid), or to AI tools.

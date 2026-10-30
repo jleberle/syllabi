@@ -197,6 +197,11 @@ reports `FA26 HIST 1493`'s grade-disputes paragraph (it says "office hours";
 SP27 says "student hours"). Same cause, same answer: FA26 predates SP27's
 wording. Both reports end when FA26 does.
 
+`FA26 HIST 1103 Online` reports the same way for academic-integrity: on
+2026-10-30 `templates/online/academic-integrity.md` gained the upload clause
+("Do not upload course materials … to AI tools") and FA26 predates it. Same
+answer — not edited mid-term.
+
 ## Term calendars
 
 `calendar/<year>-<season>.conf` is where a term's dates live, and `new.sh` reads
