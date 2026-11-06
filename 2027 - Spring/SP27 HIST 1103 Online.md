@@ -79,13 +79,17 @@ Two standing bonus point opportunities are offered: 25 points for completing eve
 
 **Deadlines**: All submissions are final once the due date has passed. It is your responsibility to verify the correct assignment is submitted to Canvas and accessible for grading.
 
-**Known absences**: If you know you will be without internet during a period of the semester, contact me ahead of time to arrange early assignment completion.
+**Known absences**: If you know you will be without internet during a period of the semester, contact me ahead of time to arrange early assignment completion. A planned absence is not grounds for an extension.
 
-**Extenuating circumstances**: Extensions are available for extenuating circumstances (unforeseen illness, etc.). You need to alert me as soon as possible and provide relevant dated documentation of the issue in order to be eligible for an extension.
+**Dropped scores**: The dropped lecture video and InQuizitive scores cover short absences, so a single missed assignment is not grounds for an extension. Work completed after the deadline earns no credit, even if Norton lets you keep working.
 
-**Technical issues**: Technical issues (e.g. internet outages, technical errors) do not automatically qualify for extensions, so do not wait until the last minute to submit assignments. Each student is afforded one documentation-free extension for a technical issue during the semester; to use it, contact me within 24 hours of the deadline. Subsequent requests due to technical issues will need verifiable documentation of the circumstances to be eligible for an extension.
+**Extenuating circumstances**: Extensions are available for extenuating circumstances: serious, unforeseeable, and outside your control. Other classes, work or travel schedules, oversleeping, and forgotten deadlines are not. Contact me before the deadline if you can. In an emergency, contact me once you are able (not from the ER); your documentation should show why you could not sooner. Dated documentation is due within three days of the missed work, or of when you were able to contact me; otherwise the request is denied. For illness, that means documentation from a clinical visit during the illness, not a later note based on your account or one from a note-selling service. Nothing is extended until I approve it in writing; I set the new deadline, and missing it forfeits the extension.
 
-**Exam makeups**: ProctorU has a bug that prevents makeups through the virtual proctoring system. I have reported it repeatedly, and ProctorU has acknowledged it but not fixed it. ProctorU is the only virtual proctoring the university provides, so the only option for a makeup is on campus, in person in my office or through the testing center (an additional charge applies at the testing center). Plan to take each exam during the week it is due.
+**Technical issues**: Technical issues (e.g. internet outages, technical errors) do not automatically qualify for extensions, so do not wait until the last minute to submit assignments. Each student is afforded one documentation-free extension for a technical issue during the semester; to use it, contact me within 24 hours after the deadline. It does not apply to exams. Subsequent requests due to technical issues will need verifiable documentation of the circumstances to be eligible for an extension.
+
+**Exam makeups**: Your lowest exam score is dropped, so one missed exam is covered without a makeup. Any other makeup requires documentation as under Extenuating circumstances, showing you could not have taken the exam during its window. Report ProctorU problems to ProctorU support during the session and to me the same day; ProctorU's record is what I use, and an incomplete system check is not grounds for a makeup. A ProctorU bug, acknowledged by ProctorU but not fixed, prevents makeups through virtual proctoring, the only kind the university provides, so makeups are on campus, in my office or at the testing center (which charges a fee). Plan to take each exam during the week it is due.
+
+**Late enrollment**: If you add the course late, contact me within three days of enrolling about work due before you joined.
 
 **Resubmissions**: Once a grade is posted, the assignment cannot be revised or resubmitted.
 
@@ -99,7 +103,7 @@ Due to the Federal Educational Rights and Privacy Act (FERPA), I **do not** disc
 
 ### Syllabus Quiz
 
-A ten question, pass/fail quiz covering the major parts of the syllabus and class requirements, due at the end of week one.
+A ten question, pass/fail quiz covering the major parts of the syllabus and class requirements, due at the end of week one. Submitting it constitutes your acknowledgment that you have read this document and understand its policies.
 
 ### Lecture Videos
 
@@ -195,7 +199,7 @@ The full [OSU Syllabus Attachment](https://academicaffairs.okstate.edu/student-s
 Dates are subject to change; changes will be communicated in writing on Canvas. Each week runs Monday through Sunday and opens by 9AM Monday. InQuizitives for the week's chapters are due Thursday and lecture videos Sunday, both by 11:59PM Central Time. The schedule covers two chapters of the textbook per week and one chapter on exam weeks; to account for the reduced time during finals week, the week before it has three chapters.
 
 | Wk | Dates        | Due                                   | Topic                | Textbook                                   |
-|:---:|:--------------|:------------------------------------|:------------------|:----------------------------------------|
+|:---:|:-------------------|:----------------------|:----------------------------------|:-----------------------------|
 | 1 | Jan 11–17 | **Sun:&nbsp;Syllabus Quiz; ProctorU system check** | An Old World | Ch.&nbsp;1–2; *Reading Yesterday, Writing Today* (Survey Courses; Reading Critically; Test-Taking) |
 | 2 | Jan 18–24 |  | British America and Slavery | Ch.&nbsp;3–4 |
 | 3 | Jan 25–31 |  | The American Revolution | Ch.&nbsp;5–6 |
