@@ -204,7 +204,7 @@ ones are in archival terms and stay as they are.
 Survey scaffolds do not use this line. `templates/survey/accessibility.md` is
 SP27's own Accommodations text (no bold follow-up sentence), and `survey/`
 likewise overrides `academic-integrity`, `grade-disputes`, `incomplete-grades`,
-`class-conduct`, `resources` and the reporting notice with SP27's wording. Those are survey-only; `common/` is unchanged and still
+`class-conduct` and the reporting notice with SP27's wording. The survey skeleton has no Resources section at all (SP27 dropped it for a one-line pointer in Announcements; services are announced in class and on Canvas); upper-division still gets `common/resources.md`. Those are survey-only; `common/` is unchanged and still
 feeds upper-division. Promoting any of them to `common/` is a separate
 decision.
 

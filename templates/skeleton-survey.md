@@ -20,7 +20,7 @@
 
 {{include-course textbook}}
 
-Students also need to provide three blank 8.5" x 11" blue books by the end of week three. The blue books must be entirely blank (do not write your name on them) and the appropriate size. If you provide blue books that are not blank or the correct size, you will be asked to provide the correct ones. Blue books must be turned in during student hours with me or a TA. If you cannot make student hours you can send the blue books with someone else or an alternative submission time may be possible depending on schedules, but cannot be guaranteed. Blue books may not be turned in prior to or after class due to the number of students enrolled.
+Students also need to provide three blank 8.5" x 11" blue books by the end of week three. The blue books must be entirely blank (do not write your name on them) and the appropriate size. If you provide blue books that are not blank or the correct size, you will be asked to provide the correct ones. Blue books must be turned in during student hours with me or a TA. If you cannot make student hours you can send the blue books with someone else or an alternative submission time may be possible depending on schedules, but cannot be guaranteed. Because of the number of students enrolled, blue books cannot be collected before or after class.
 
 \needspace{24\baselineskip}
 
@@ -48,7 +48,7 @@ The course is worth **1000 points**. Nothing is weighted, curved, or converted â
 
 Final percentages are rounded to the nearest whole number before a letter grade is assigned, so 89.5% becomes 90% and an A. There are no curves on exams. A large portion of the grades here are assignments that are difficult to fail with the appropriate work on your part. All of the assignments besides the exams are a cushion to help make up for a lower exam score and not make the grade entirely reliant on timed exams.
 
-Grades shown on Canvas are not official. The official grade is the one in my gradebook, and if you have concerns about your grade you should see me in student hours.
+Grades shown on Canvas are not official. The official grade is the one in my gradebook, and if you have concerns about your grade you should see me in student hours (or by Zoom at a scheduled time outside student hours).
 
 ## Final Exam Replacement
 
@@ -96,7 +96,7 @@ InQuizitives are assignments provided by Norton, tied to the textbook chapters o
 
 ### Note Sheets
 
-For each exam you must bring **a standard 8.5"x11" one-sided page of handwritten notes**, containing whatever you want. That's right: exam notes are a graded component of the course: 15 for a detailed sheet, 8 for weak notes, 0 for none. Use of improper notes (typed, double-sided, oversized) will result in an automatic zero on the exam. If you attempt to cover up the use of improper notes you will be subject to a formal academic integrity hearing. **If you have a Student Accessibility Services (SAS) accommodation that affects how you can prepare or use a handwritten sheet** (for example, typed notes), discuss it in your accommodations meeting (see Accommodations) before the first exam. Formats approved through SAS are not subject to the penalty above.
+For each exam you must bring **a standard 8.5"x11" one-sided page of handwritten notes**, containing whatever you want. That's right: exam notes are a graded component of the course: 15 for a detailed sheet, 8 for weak notes, 0 for none. Use of improper notes (typed, double-sided, oversized) will result in an automatic zero on the exam. If you are unsure whether your sheet is acceptable, show it to me or a TA before the exam begins; if it is improper, you may surrender it and take the exam without it. If you attempt to cover up the use of improper notes you will be subject to a formal academic integrity hearing. **If you have a Student Accessibility Services (SAS) accommodation that affects how you can prepare or use a handwritten sheet** (for example, typed notes), discuss it in your accommodations meeting (see Accommodations) before the first exam. Formats approved through SAS are not subject to the penalty above.
 
 ### Exams
 
@@ -110,7 +110,7 @@ Three exams, all in class, handwritten in blue books, with your note sheet. Poin
 
 #### Study guide
 
-Prior to each exam I will distribute a study guide in class with the topics the exam essays will cover. It is not posted on Canvas; if you miss that class, get it from a classmate. If your absence is documented as for an exam makeup, you may instead pick up a copy from me in student hours with your documentation.
+Prior to each exam I will distribute a study guide in class with the topics the exam essays will cover and suggestions for preparing. It is not posted on Canvas; if you miss that class, get it from a classmate. If your absence is documented as for an exam makeup, you may instead pick up a copy from me in student hours with your documentation.
 
 # Course Policies
 
@@ -132,7 +132,7 @@ Prior to each exam I will distribute a study guide in class with the topics the 
 
 ## Announcements and Changes
 
-This syllabus, including the schedule, is subject to change, and any change will be announced in class and communicated in writing on Canvas. If class is canceled or the university closes, I will announce adjusted dates the same way. You are responsible for checking Canvas and your OSU email regularly. Not knowing about an announcement is not grounds for an extension or makeup.
+This syllabus, including the schedule, is subject to change, and any change will be announced in class and communicated in writing on Canvas. If class is canceled or the university closes, I will announce adjusted dates the same way. Please check Canvas and your OSU email regularly; missing an announcement is not grounds for an extension or makeup. Tutoring, counseling, and basic-needs links are in the [OSU Syllabus Attachment](https://academicaffairs.okstate.edu/student-support/).
 
 \needspace{10\baselineskip}
 
@@ -147,10 +147,6 @@ This syllabus, including the schedule, is subject to change, and any change will
 ## Incomplete Grades
 
 {{include incomplete-grades}}
-
-# Resources
-
-{{include resources}}
 
 \newpage
 
