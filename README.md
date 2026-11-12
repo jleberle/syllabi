@@ -12,13 +12,12 @@ LaTeX template.
 - [tectonic](https://tectonic-typesetting.github.io) — self-contained LaTeX
   engine; downloads the packages the template needs on first run and caches
   them, so no TeX distribution or package management is required
-- [Ghostscript](https://www.ghostscript.com) (`gs`) — image compression
 - [qpdf](https://qpdf.sourceforge.io) — linearization for fast web viewing
 
 Install on macOS:
 
 ```
-brew install pandoc tectonic ghostscript qpdf
+brew install pandoc tectonic qpdf
 ```
 
 The first build needs network access while tectonic populates its package
@@ -31,7 +30,6 @@ Last verified working with:
 | bash       | 5.3.15  |
 | pandoc     | 3.10.1  |
 | tectonic   | 0.17.0  |
-| ghostscript| 10.07.1 |
 | qpdf       | 12.3.2  |
 
 None of these are hard-pinned — `brew install` always takes the latest. This

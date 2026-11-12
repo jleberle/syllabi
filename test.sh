@@ -7,7 +7,7 @@
 #
 # Usage:
 #   ./test.sh              run all tests; build smoke tests are included when
-#                          the pandoc/gs/qpdf/tectonic toolchain is installed
+#                          the pandoc/qpdf/tectonic toolchain is installed
 #   ./test.sh --no-build   skip the build smoke tests (fast; no PDF toolchain
 #                          or tectonic package cache needed)
 #
@@ -50,7 +50,7 @@ run() { OUT="$("$@" 2>&1)"; RC=$?; return 0; }
 
 have_build_tools() {
     local t
-    for t in pandoc gs qpdf tectonic; do
+    for t in pandoc qpdf tectonic; do
         command -v "$t" >/dev/null 2>&1 || return 1
     done
 }
@@ -63,6 +63,7 @@ assert_eq()     { if [ "$1" = "$2" ]; then pass "$3"; else fail "$3" "expected '
 assert_has()    { if grep -qF -- "$2" "$1" 2>/dev/null; then pass "$3"; else fail "$3" "literal not in $1: $2"; fi; }
 assert_hasnt()  { if grep -qF -- "$2" "$1" 2>/dev/null; then fail "$3" "unexpected literal in $1: $2"; else pass "$3"; fi; }
 assert_in()     { case "$2" in *"$1"*) pass "$3" ;; *) fail "$3" "'$1' not in output: $2" ;; esac; }
+assert_not_in() { case "$2" in *"$1"*) fail "$3" "'$1' should not be in output" ;; *) pass "$3" ;; esac; }
 
 # ---------------------------------------------------------------------------
 # Sandbox
@@ -485,24 +486,12 @@ else
     ( cd "2027 - Fall" && "$B" "FA27 HIST 1493.md" >/dev/null 2>&1 )
     assert_eq 0 "$?" "build.sh accepts a path relative to the current directory"
 
-    # gs/qpdf failure isolation: shadow the real binary with a fake one that
+    # qpdf failure isolation: shadow the real binary with a fake one that
     # always fails, via a PATH-prepended directory, to prove build.sh reports
-    # and isolates a failure in either post-processing stage, not just pandoc.
+    # and isolates a failure in the post-processing stage, not just pandoc.
     FAKEBIN="$SB/fakebin"
     mkdir -p "$FAKEBIN"
     REALPATH="$PATH"
-
-    cp "2027 - Fall/FA27 HIST 1493.md" "2027 - Fall/FA27 HIST 5555 GSFail.md"
-    printf '#!/usr/bin/env bash\necho "fake gs: forced failure" >&2\nexit 1\n' > "$FAKEBIN/gs"
-    chmod +x "$FAKEBIN/gs"
-    export PATH="$FAKEBIN:$REALPATH"
-    run "$B" "2027 - Fall/FA27 HIST 5555 GSFail.md"
-    export PATH="$REALPATH"
-    assert_rc 1 "gs failure fails the build"
-    assert_in "gs failed" "$OUT" "gs failure reported"
-    assert_in "(gs)" "$OUT" "gs failure attributed to the right tool"
-    assert_absent "PDFs/2027 - Fall/FA27 HIST 5555 GSFail.pdf" "gs failure leaves no output PDF"
-    rm -f "$FAKEBIN/gs"
 
     cp "2027 - Fall/FA27 HIST 1493.md" "2027 - Fall/FA27 HIST 6666 QPDFFail.md"
     printf '#!/usr/bin/env bash\necho "fake qpdf: forced failure" >&2\nexit 1\n' > "$FAKEBIN/qpdf"
@@ -515,6 +504,15 @@ else
     assert_in "(qpdf)" "$OUT" "qpdf failure attributed to the right tool"
     assert_absent "PDFs/2027 - Fall/FA27 HIST 6666 QPDFFail.pdf" "qpdf failure leaves no output PDF"
     rm -f "$FAKEBIN/qpdf"
+
+    # Text layer: ligatures must extract as their letters ("office", not
+    # "ofÏce"), or screen readers mispronounce them. A ghostscript pass broke
+    # this once; pdftotext is part of poppler, so skip quietly without it.
+    if command -v pdftotext >/dev/null 2>&1; then
+        TXT="$(pdftotext "PDFs/2027 - Fall/FA27 HIST 1493.pdf" - 2>/dev/null)"
+        assert_in "Office of Academic Affairs" "$TXT" "ffi ligature extracts as text (Office)"
+        assert_not_in "fÏce" "$TXT" "no garbled ligature in the text layer"
+    fi
 
     run "$B" clean
     assert_rc 0 "clean removes the output directory"

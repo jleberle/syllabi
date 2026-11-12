@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
 #
-# build.sh — render the markdown syllabi to compressed, linearized PDFs.
+# build.sh — render the markdown syllabi to linearized PDFs.
 #
 # For each *.md syllabus it:
 #   1. runs pandoc with syllabus.tex to produce a PDF,
-#   2. runs ghostscript to compress (screen-quality images, lossless text),
-#   3. runs qpdf to linearize for fast web viewing,
-#   4. writes the result under PDFs/, mirroring the source folder layout.
+#   2. runs qpdf to linearize for fast web viewing,
+#   3. writes the result under PDFs/, mirroring the source folder layout.
+#
+# There is deliberately no ghostscript pass. It once compressed a raster logo,
+# but the logo is vector now and gs made every PDF ~15% larger. Worse, its
+# font re-encoding broke the text layer: the "ffi" ligature came out as "Ï"
+# ("office" -> "ofÏce"), which screen readers mispronounce and search misses.
 #
 # Only files whose names start with a term prefix (FA/SP/SU + two digits) are
 # treated as syllabi; other .md files in semester folders are ignored.
@@ -72,7 +76,7 @@ for arg in "$@"; do
 	esac
 done
 
-for tool in pandoc gs qpdf tectonic; do
+for tool in pandoc qpdf tectonic; do
 	command -v "$tool" >/dev/null 2>&1 || { echo "error: $tool not found in PATH" >&2; exit 1; }
 done
 
@@ -121,26 +125,10 @@ _build_one() {
 		rm -rf "$tmpdir"; echo "failed:$rel (pandoc)" > "$resfile"; return
 	fi
 
-	local compressed="$tmpdir/compressed.pdf"
-
-	# /ebook: 150dpi images, lossless text/vectors — sharp logo, small file.
-	if ! gs -q -dBATCH -dNOPAUSE -dSAFER \
-		-sDEVICE=pdfwrite \
-		-dCompatibilityLevel=1.7 \
-		-dPDFSETTINGS=/ebook \
-		-dEmbedAllFonts=true \
-		-dSubsetFonts=true \
-		-dCompressFonts=true \
-		-sOutputFile="$compressed" \
-		"$tmp" 2>"$log"; then
-		{ printf '  ! gs failed:\n'; sed 's/^/    /' "$log"; } >&2
-		rm -rf "$tmpdir"; echo "failed:$rel (gs)" > "$resfile"; return
-	fi
-
 	# Create the output directory only now, so a failed build doesn't leave
 	# an empty folder behind.
 	mkdir -p "$(dirname "$out")"
-	if ! qpdf --linearize "$compressed" "$out" 2>"$log"; then
+	if ! qpdf --linearize "$tmp" "$out" 2>"$log"; then
 		{ printf '  ! qpdf failed:\n'; sed 's/^/    /' "$log"; } >&2
 		rm -rf "$tmpdir"; echo "failed:$rel (qpdf)" > "$resfile"; return
 	fi

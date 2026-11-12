@@ -12,7 +12,10 @@
 
 %% --- Color (OSU palette) ---
 \usepackage[dvipsnames,table]{xcolor}
-\definecolor{osuorange}{HTML}{FF7300}
+% Darker than OSU brand orange (FF7300, 2.73:1 on white) so text passes WCAG
+% 2.1 AA contrast: headings 3:1 (large bold), links 4.5:1 (body text).
+\definecolor{osuorange}{HTML}{D45F00}   % 3.86:1, section headings
+\definecolor{osulink}{HTML}{B85300}     % 4.91:1, links in body text
 \definecolor{osublack}{HTML}{1B1B1B}
 \rowcolors{2}{osuorange!8}{white}   % light stripe on every other table row
 
@@ -43,7 +46,7 @@
 \usepackage[
 	colorlinks=true,
 	linkcolor=osublack,
-	urlcolor=osuorange,
+	urlcolor=osulink,
 	plainpages=false,
 	]{hyperref}
 % PDF metadata (Title/Author shown in browser tabs, readers, search).
@@ -58,6 +61,7 @@ $if(date)$
 	pdfauthor={$date$},
 $endif$
 	pdflang=en-US,
+	pdfdisplaydoctitle=true,  % viewer shows the course title, not the filename
 }
 
 %% --- Paragraph spacing ---
@@ -91,7 +95,7 @@ $endif$
 \titleformat{\subsubsection}
   {\sffamily\normalsize\bfseries\color{osublack}}{}{0pt}{#1}
 \titlespacing*{\section}{0pt}{14pt}{6pt}
-\titlespacing*{\subsection}{0pt}{10pt}{4pt}
+\titlespacing*{\subsection}{0pt}{8pt}{3pt}
 \titlespacing*{\subsubsection}{0pt}{8pt}{2pt}
 
 $if(numbersections)$
