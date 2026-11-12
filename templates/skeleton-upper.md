@@ -36,35 +36,35 @@ The following key will determine your letter grade:
 |   D   |    60-69%     |
 |   F   | Less than 60% |
 
-#### Grade Disputes
+### Grade Disputes
 
 {{include grade-disputes}}
 
 # Course Policies
 
-#### Drops
+## Drops
 
 {{include drops}}
 
-#### Incomplete Grades
+## Incomplete Grades
 
 {{include incomplete-grades}}
 
-#### Late Work
+## Late Work
 
-#### Resubmissions / Extra Credit
+## Resubmissions / Extra Credit
 
 {{include resubmissions}}
 
-#### Class Conduct
+## Class Conduct
 
 {{include class-conduct}}
 
-#### Accessibility Services
+## Accessibility Services
 
 {{include accessibility}}
 
-#### Plagiarism/Academic Integrity
+## Plagiarism/Academic Integrity
 
 {{include academic-integrity}}
 

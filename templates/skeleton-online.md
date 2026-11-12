@@ -28,7 +28,7 @@
 
 ## Exam Proctoring
 
-Exams will be proctored using OSU's approved virtual proctoring program, ProctorU/Meazure Learning, with the Record+ setup, which costs roughly $7 per exam and is billed to your bursar account. Information on setting up the program is available on the modules tab of Canvas, and you must complete the ProctorU system check by 11:59PM Central Time on Sunday of week one, so that setup problems surface before Exam 1.
+Exams will be proctored using OSU's approved virtual proctoring program, ProctorU/Meazure Learning, with the Record+ setup, which costs roughly $7 per exam and is billed to your bursar account. You need a computer with a webcam and microphone meeting [ProctorU's requirements](https://support.proctoru.com/hc/articles/24692181239309-Equipment-Requirements). Information on setting up the program is available on the modules tab of Canvas, and you must complete the ProctorU system check by 11:59PM Central Time on Sunday of week one, so that setup problems surface before Exam 1. For Canvas or other technical problems, contact the OSU IT Helpdesk (405-744-HELP or <helpdesk@okstate.edu>).
 
 Students who do not wish to use virtual proctoring must email me ahead of time to discuss alternative arrangements. Exams not taken with virtual proctoring will need to be completed by hand in my office or at the testing center, which charges a fee unless it is an accessibility exam. Alternative arrangements **must be approved by me ahead of time**.
 
@@ -87,19 +87,19 @@ Two standing bonus point opportunities are offered: 25 points for completing eve
 
 # Individual assignments
 
-### Syllabus Quiz
+## Syllabus Quiz
 
 A ten question, pass/fail quiz covering the major parts of the syllabus and class requirements, due at the end of week one. Submitting it constitutes your acknowledgment that you have read this document and understand its policies.
 
-### Lecture Videos
+## Lecture Videos
 
 Lecture videos are posted on the main page of the course: three each week (in week one, an introduction video and two lectures) and one on exam weeks, 39 in all. Each video watched in full earns full credit, each watched at least 50% but not in full earns half credit, and each watched less than 50% earns no credit. Credit comes from Canvas Studio's viewership data, which is the only record used. Videos must be watched the week they are assigned, by 11:59PM Central Time on Sunday, to earn points.
 
-### InQuizitives
+## InQuizitives
 
 InQuizitives are assignments provided by Norton, tied to the textbook chapters on the schedule. They are not a traditional quiz: wrong answers do not automatically cost you, and the activity continues until you reach the point threshold for that assignment. Once you hit the threshold you can keep working for additional practice if you choose to. **InQuizitives are due by 11:59PM Central Time on Thursday of the week they are assigned.** Your four lowest scores are dropped.
 
-### Exams
+## Exams
 
 There will be four exams, each closed note and closed book, taken through ProctorU (see Exam Proctoring). Each exam is 90 minutes long, is worth 200 points, and has three sections, in this order:
 
@@ -111,7 +111,7 @@ There will be four exams, each closed note and closed book, taken through Procto
 
 Each exam is available in ProctorU from 9AM Central Time on Monday of the week it is due until 9:45PM Central Time on its due date (Sunday, or Wednesday for Exam 4). **The last time to start an exam is 9:45PM.** ProctorU does not allow a partial exam, so you cannot start one you could not finish by the deadline, and the 9:45PM cutoff also leaves room for check-in delays. Your lowest exam score is dropped.
 
-#### Study guide
+### Study guide
 
 A study guide for each exam will be posted on Canvas before the exam opens.
 
@@ -126,7 +126,7 @@ The course runs on a Monday-Sunday schedule, and each Monday by 9AM the week's m
 
 Finals week has no assigned course materials, and Exam 4 is due on Wednesday of finals week and must be **started by 9:45PM**.
 
-You must have access to reliable internet throughout the semester. If you miss a full week of work, I will reach out to check in. If something is getting in the way, tell me early: extensions depend on prompt notice.
+You must have access to reliable internet throughout the semester. If something is getting in the way, tell me early: extensions depend on prompt notice.
 
 ## Accommodations
 
@@ -138,7 +138,7 @@ You must have access to reliable internet throughout the semester. If you miss a
 
 ## Announcements and Changes
 
-This syllabus, including the schedule, is subject to change, and any change will be communicated in writing on Canvas. If a question comes up that affects the whole class, I will answer it in a Canvas announcement. You are responsible for checking Canvas and your OSU email regularly. Not knowing about an announcement is not grounds for an extension or makeup.
+This syllabus, including the schedule, is subject to change, and any change will be communicated in writing on Canvas. If a question comes up that affects the whole class, I will answer it in a Canvas announcement. Please check Canvas and your OSU email regularly; missing an announcement is not grounds for an extension or makeup.
 
 \needspace{10\baselineskip}
 

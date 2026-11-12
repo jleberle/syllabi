@@ -82,23 +82,23 @@ Two standing bonus point opportunities are offered: 25 points for completing eve
 
 Rubrics for every assignment, including the source workshops, note sheets, and exams, are posted on Canvas at the start of the semester.
 
-### Syllabus Quiz
+## Syllabus Quiz
 
 Ten questions at 2 points each, online, and open for the first week. Unlimited attempts; you may consult the syllabus while taking it. Submitting it constitutes your acknowledgment that you have read this document and understand its policies.
 
-### InQuizitives
+## InQuizitives
 
 InQuizitives are assignments provided by Norton, tied to the textbook chapters on the schedule. There are ten and your three lowest scores are dropped. They are not a traditional quiz: wrong answers do not automatically cost you, and the activity adapts to what you know and continues until you reach the target I set for that assignment. Your grade is calculated automatically, and reaching the target earns the full score. **InQuizitives are due by the end of the day on Friday of the week they are assigned.**
 
-### Source Workshops
+## Source Workshops
 
 **Eight class meetings, dated on the schedule below, are source workshops.** Each is a ten-minute, handwritten, in-class writing exercise, completed on a handout provided in class, built around a single primary source — a song, a photograph, a film clip, etc. — that is not announced in advance. You will write one paragraph that makes an argument in response to a prompt, supported by the source and by evidence from lecture. These operate as mini-exams: on most workshops a bank of terms from lecture will be on the screen with the prompt, and you choose the terms that best support your argument. Some workshops will not have a term bank. Workshops are written without notes or devices, so review your notes from previous lectures before each date; a workshop covers material from lectures up to that day. Rubrics are posted on Canvas. **Your three lowest scores are dropped.**
 
-### Note Sheets
+## Note Sheets
 
 For each exam you must bring **a standard 8.5"x11" one-sided page of handwritten notes**, containing whatever you want. That's right: exam notes are a graded component of the course: 15 for a detailed sheet, 8 for weak notes, 0 for none. Use of improper notes (typed, double-sided, oversized) will result in an automatic zero on the exam. If you are unsure whether your sheet is acceptable, show it to me or a TA before the exam begins; if it is improper, you may surrender it and take the exam without it. If you attempt to cover up the use of improper notes you will be subject to a formal academic integrity hearing. **If you have a Student Accessibility Services (SAS) accommodation that affects how you can prepare or use a handwritten sheet** (for example, typed notes), discuss it in your accommodations meeting (see Accommodations) before the first exam. Formats approved through SAS are not subject to the penalty above.
 
-### Exams
+## Exams
 
 Three exams, all in class, handwritten in blue books, with your note sheet. Points breakdowns are available on the Canvas assignment for each exam. Besides your note sheet, no notes or other materials may be used on exams, and all electronics (phones, smartwatches, headphones, etc.) must be put away for the entire exam period.
 
@@ -108,7 +108,7 @@ Three exams, all in class, handwritten in blue books, with your note sheet. Poin
 
 **Final Exam — 300 points, finals week**: This exam runs for 150 minutes during finals week and has three sections. The first is IDs but unlike the first two exams you will identify three terms that relate to one another and write a paragraph identifying the terms and how they connect. The following two sections are essays, the first being a non-cumulative essay and the final section a cumulative essay.
 
-#### Study guide
+### Study guide
 
 Prior to each exam I will distribute a study guide in class with the topics the exam essays will cover and suggestions for preparing. It is not posted on Canvas; if you miss that class, get it from a classmate. If your absence is documented as for an exam makeup, you may instead pick up a copy from me in student hours with your documentation.
 

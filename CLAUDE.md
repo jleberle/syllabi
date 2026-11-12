@@ -11,7 +11,7 @@ a log of what a pass changed (git history).
 ## What this repo is
 
 Markdown syllabi for OSU History courses, compiled to web-optimized PDFs by
-`build.sh` (pandoc → tectonic → ghostscript → qpdf). Remote is
+`build.sh` (pandoc → tectonic → qpdf). Remote is
 `github:jleberle/syllabi.git`, branch `main`.
 
 ## Things that silently do nothing
@@ -76,7 +76,8 @@ schedule written by hand.
 Scaffolding SP27 1103 Online now differs from the committed file only in
 term-specific fill-ins: `[student hours]`, the InQuizitive counts
 (`[points]`/`[given]`/`[counted]`, which differ by course), the week-one
-system-check date, and 1103's chapter-pacing sentence. 1493 Online further
+system-check date, 1103's chapter-pacing sentence, and 1103's two notes that
+exam weeks have no InQuizitive (1493 Online has one in exam weeks 4 and 8). 1493 Online further
 differs where the course itself differs (its assigned primary sources and the
 source-analysis wording built on them, "multiple sections" in the contact
 line). The 39-video and grade table assume the
@@ -195,8 +196,12 @@ wording as of 2026-09-12:
 
 "Student hours" is deliberate and matches the contact block in the syllabi
 themselves; earlier copies said "office hours". `templates/online/accessibility.md`
-keeps its own wording ("need to schedule a meeting with me as soon as possible")
-and was not changed.
+keeps its own wording ("need to schedule a meeting with me as soon as possible"),
+which on 2026-11-12 gained "extended exam time is added in ProctorU only after
+we meet". Its ADA paragraph, like `common/accessibility.md`'s, says "as early
+in the semester as possible" rather than "first scheduled class period": ITLE's
+template warns against a fixed deadline, since a new diagnosis takes time to go
+through SAS.
 
 Five wordings of this sentence exist across the repo's history. All the older
 ones are in archival terms and stay as they are.
@@ -225,7 +230,8 @@ wording. Both reports end when FA26 does.
 `FA26 HIST 1103 Online` reports the same way for academic-integrity: on
 2026-10-30 `templates/online/academic-integrity.md` gained the upload clause
 ("Do not upload course materials … to AI tools") and FA26 predates it. Same
-answer — not edited mid-term.
+answer — not edited mid-term. Since 2026-11-12 it reports for accessibility
+too (the online wording change above), for the same reason.
 
 ## Term calendars
 
