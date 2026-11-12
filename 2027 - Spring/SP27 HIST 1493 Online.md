@@ -19,7 +19,7 @@ By the end of the semester, you should be able to:
 
 This course is entirely online and asynchronous. It carries the same workload as a three-credit face-to-face class: plan on about nine hours each week to complete the assigned readings, lectures, and associated assignments.
 
-**Interaction and feedback**: Each exam is returned graded with feedback, about once a month. I am available every week in student hours, in person or over Zoom by appointment, to discuss the material, essays, or exam planning, and I answer content questions by email, normally by the next business day. I check each student's progress weekly and will contact you if you miss a week of work; contact me early if you fall behind or feel overwhelmed.
+**Interaction and feedback**: Each Monday a Canvas announcement introduces the week's material, and each exam is returned graded with feedback, about once a month. I am available every week in student hours, in person or over Zoom by appointment, to discuss the material, essays, or exam planning, and I answer content questions by email, normally by the next business day. I check each student's progress weekly and will contact you if you miss a week of work; contact me early if you fall behind or feel overwhelmed.
 
 # Contact Information
 
@@ -117,9 +117,9 @@ InQuizitives are assignments provided by Norton, one for each textbook chapter o
 
 There will be four exams, each closed note and closed book, taken through ProctorU (see Exam Proctoring). Each exam is 90 minutes long, is worth 200 points, and has three sections, in this order:
 
-- **Essay (100 points)**: Write a thesis-based essay responding to a prompt built from the lectures, supported by specific evidence from the course.
+- **Essay (100 points)**: Write a thesis-based essay responding to a prompt built from the lectures, supported by specific evidence from the lecture videos.
 - **Source analysis (60 points)**: You will be given a short new source, often an image such as a photograph or cartoon, connected to one of the assigned primary source readings. Analyze it in light of that reading, the issues of the period, and material from the textbook and the lectures.
-- **IDs (40 points)**: Six terms are provided, drawn from the key terms list in each textbook chapter, so you can build your own study list from those chapters. Choose four and identify each one and its significance.
+- **IDs (40 points)**: Six terms are provided, drawn from the key terms list in each textbook chapter, so you can build your own study list from those chapters. Choose four and identify each one and its significance as the textbook presents it.
 
 **Each section locks once you complete it, and you cannot return to an earlier section.** Proofread and edit before moving on: treat each section as one you turn in before receiving the next. Plan your time by the points each section is worth: about 45 minutes for the essay, 25 for the source analysis, and 15 for the IDs, which leaves 5 minutes to spare.
 
@@ -133,7 +133,7 @@ A study guide for each exam will be posted on Canvas before the exam opens.
 
 ## Weekly Schedule
 
-The course runs on a Monday-Sunday schedule, and each Monday by 9AM the week's module opens and the course front page is updated with that week's work. All deadlines are 11:59PM Central Time:
+The course runs on a Monday-Sunday schedule, and each Monday by 9AM the course home page is updated with that week's videos, readings, and assignments, the same page is added to that week's module, and a Canvas announcement introduces the week's material. All deadlines are 11:59PM Central Time:
 
 - **Thursday**: that week's InQuizitives
 - **Sunday**: that week's lecture videos, and any exam or other assignment due that week (exams must be **started by 9:45PM**; see Exams)

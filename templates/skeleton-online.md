@@ -103,9 +103,9 @@ InQuizitives are assignments provided by Norton, tied to the textbook chapters o
 
 There will be four exams, each closed note and closed book, taken through ProctorU (see Exam Proctoring). Each exam is 90 minutes long, is worth 200 points, and has three sections, in this order:
 
-- **Essay (100 points)**: Write a thesis-based essay responding to a prompt built from the lectures, supported by specific evidence from the course.
+- **Essay (100 points)**: Write a thesis-based essay responding to a prompt built from the lectures, supported by specific evidence from the lecture videos.
 - **Source analysis (60 points)**: Analyze a primary source you have not seen before, using material from both the textbook and the lectures.
-- **IDs (40 points)**: Six terms are provided, drawn from the key terms list in each textbook chapter, so you can build your own study list from those chapters. Choose four and identify each one and its significance.
+- **IDs (40 points)**: Six terms are provided, drawn from the key terms list in each textbook chapter, so you can build your own study list from those chapters. Choose four and identify each one and its significance as the textbook presents it.
 
 **Each section locks once you complete it, and you cannot return to an earlier section.** Proofread and edit before moving on: treat each section as one you turn in before receiving the next. Plan your time by the points each section is worth: about 45 minutes for the essay, 25 for the source analysis, and 15 for the IDs, which leaves 5 minutes to spare.
 
@@ -119,7 +119,7 @@ A study guide for each exam will be posted on Canvas before the exam opens.
 
 ## Weekly Schedule
 
-The course runs on a Monday-Sunday schedule, and each Monday by 9AM the week's module opens and the course front page is updated with that week's work. All deadlines are 11:59PM Central Time:
+The course runs on a Monday-Sunday schedule, and each Monday by 9AM the course home page is updated with that week's videos, readings, and assignments, the same page is added to that week's module, and a Canvas announcement introduces the week's material. All deadlines are 11:59PM Central Time:
 
 - **Thursday**: that week's InQuizitives
 - **Sunday**: that week's lecture videos, and any exam or other assignment due that week (exams must be **started by 9:45PM**; see Exams)
