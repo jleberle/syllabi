@@ -1,6 +1,6 @@
 **Arriving and leaving**: Please avoid coming to class late or departing early, since both disrupt the lecture; apart from emergencies and medical needs, either must have my approval. The TAs will step outside and restrict entry after 5 minutes, except on exam days. Please wait until class is formally dismissed to pack up, since the noise makes it hard for others to hear.
 
-**Devices**: You may use a laptop only to take notes for the course, you will be asked to leave if you are using it for anything besides course notes. Phones may not be used in any circumstance and headphones must be taken off during the class period.
+**Devices**: You may use a laptop only to take notes for the course, you will be asked to leave if you are using it for anything besides course notes. Laptop users may be assigned seats; SAS seating and device needs take priority. Phones may not be used in any circumstance and headphones must be taken off during the class period.
 
 **Recording**: Taking photographs, videos, or audio recordings (including automatic transcription) of the lectures or PowerPoint slides is strictly prohibited, as is the use of smart glasses. Recording is allowed only as an accommodation approved through SAS.
 

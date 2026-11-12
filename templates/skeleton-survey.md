@@ -48,7 +48,7 @@ The course is worth **1000 points**. Nothing is weighted, curved, or converted â
 
 Final percentages are rounded to the nearest whole number before a letter grade is assigned, so 89.5% becomes 90% and an A. There are no curves on exams. A large portion of the grades here are assignments that are difficult to fail with the appropriate work on your part. All of the assignments besides the exams are a cushion to help make up for a lower exam score and not make the grade entirely reliant on timed exams.
 
-Grades shown on Canvas are not official. The official grade is the one in my gradebook, and if you have concerns about your grade you should see me in student hours (or by Zoom at a scheduled time outside student hours).
+Grades shown on Canvas may be incomplete, if you have concerns about your grade you should see me in student hours (or by Zoom at a scheduled time outside student hours).
 
 ## Final Exam Replacement
 
@@ -132,7 +132,7 @@ Prior to each exam I will distribute a study guide in class with the topics the 
 
 ## Announcements and Changes
 
-This syllabus, including the schedule, is subject to change, and any change will be announced in class and communicated in writing on Canvas. If class is canceled or the university closes, I will announce adjusted dates the same way. Please check Canvas and your OSU email regularly; missing an announcement is not grounds for an extension or makeup. Tutoring, counseling, and basic-needs links are in the [OSU Syllabus Attachment](https://academicaffairs.okstate.edu/student-support/).
+This syllabus, including the schedule, is subject to change, and any change will be announced in class and communicated in writing on Canvas. If class is canceled or the university closes, I will announce adjusted dates the same way. Please check Canvas and your OSU email regularly; missing an announcement is not grounds for an extension or makeup. Support services are listed in the [OSU Syllabus Attachment](https://academicaffairs.okstate.edu/student-support/).
 
 \needspace{10\baselineskip}
 
